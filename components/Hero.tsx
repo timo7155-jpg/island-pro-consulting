@@ -56,6 +56,13 @@ export default function Hero() {
                 Talk to Us
               </a>
             </div>
+
+            {/* Rodrigues local badge */}
+            <a href="/rodrigues"
+              className="mt-6 inline-flex items-center gap-2 bg-gold/10 border border-gold/25 hover:border-gold/50 text-gold text-xs font-bold px-4 py-2.5 rounded-full transition-all hover:bg-gold/15">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
+              Based in Rodrigues — in-person meetings available
+            </a>
           </div>
 
           {/* Right — logo showcase */}

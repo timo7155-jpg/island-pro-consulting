@@ -5,10 +5,11 @@ import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'About',    href: '#about'    },
-  { label: 'Why Us',   href: '#whyus'    },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Services',  href: '#services'   },
+  { label: 'Rodrigues', href: '/rodrigues'  },
+  { label: 'About',     href: '#about'      },
+  { label: 'Why Us',    href: '#whyus'      },
+  { label: 'Contact',   href: '#contact'    },
 ];
 
 export default function Navbar() {
@@ -42,7 +43,12 @@ export default function Navbar() {
           <nav className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map(l => (
               <a key={l.label} href={l.href}
-                className="text-white/70 hover:text-gold text-sm font-medium transition-colors">
+                className={`text-sm font-medium transition-colors ${
+                  l.label === 'Rodrigues'
+                    ? 'text-gold hover:text-gold-light font-bold flex items-center gap-1'
+                    : 'text-white/70 hover:text-gold'
+                }`}>
+                {l.label === 'Rodrigues' && <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />}
                 {l.label}
               </a>
             ))}
@@ -73,8 +79,10 @@ export default function Navbar() {
         <div className="lg:hidden bg-navy/98 backdrop-blur-md border-t border-white/10 px-6 py-6 space-y-4">
           {NAV_LINKS.map(l => (
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
-              className="block text-white/70 hover:text-gold font-medium py-2 transition-colors">
-              {l.label}
+              className={`block font-medium py-2 transition-colors ${
+                l.label === 'Rodrigues' ? 'text-gold font-bold' : 'text-white/70 hover:text-gold'
+              }`}>
+              {l.label === 'Rodrigues' && '📍 '}{l.label}
             </a>
           ))}
           <a href="#contact" onClick={() => setOpen(false)}
