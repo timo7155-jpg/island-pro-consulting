@@ -1,6 +1,6 @@
 import {
   Globe, BarChart3, FileText, UserCheck,
-  Megaphone, Calculator, Building2, ArrowRight
+  Megaphone, Building2, ArrowRight
 } from 'lucide-react';
 
 const SERVICES = [
@@ -12,7 +12,7 @@ const SERVICES = [
     features: ['Custom design', 'Mobile responsive', 'SEO optimised', 'Fast delivery'],
     accent:   'purple',
     badge:    'Most Popular',
-    href:     '#contact',
+    href:     '/services/website-development',
   },
   {
     icon:     BarChart3,
@@ -50,15 +50,6 @@ const SERVICES = [
     desc:     'Social media strategy, SEO, Google Ads, and content creation — everything your business needs to grow its online presence.',
     features: ['Social media management', 'SEO & Google Ads', 'Content creation', 'Monthly reporting'],
     accent:   'purple',
-    href:     '#contact',
-  },
-  {
-    icon:     Calculator,
-    title:    'Tax & Compliance Advisory',
-    tagline:  'Stay compliant, stress-free.',
-    desc:     'Expert guidance on MRA filings, VAT registration, corporate tax, and regulatory compliance for Mauritian businesses.',
-    features: ['MRA filings', 'VAT registration', 'Corporate tax', 'Compliance audits'],
-    accent:   'gold',
     href:     '#contact',
   },
   {
