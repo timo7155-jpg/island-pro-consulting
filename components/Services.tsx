@@ -42,7 +42,7 @@ const SERVICES = [
     desc:     'ATS-friendly CVs and compelling cover letters crafted by professionals. Land more interviews with documents that make an impression.',
     features: ['ATS-optimised', 'Cover letter included', '48h turnaround', 'Unlimited revisions'],
     accent:   'gold',
-    href:     '#contact',
+    href:     '/services/cv-cover-letter',
   },
   {
     icon:     Megaphone,
@@ -51,7 +51,7 @@ const SERVICES = [
     desc:     'Social media strategy, SEO, Google Ads, and content creation — everything your business needs to grow its online presence.',
     features: ['Social media management', 'SEO & Google Ads', 'Content creation', 'Monthly reporting'],
     accent:   'purple',
-    href:     '#contact',
+    href:     '/services/digital-marketing',
   },
   {
     icon:     Building2,
