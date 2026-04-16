@@ -1,5 +1,5 @@
 const STATS = [
-  { value: 'Rs 500M+', label: 'Client portfolio managed' },
+  { value: 'Micro → Mid', label: 'Business projects we serve' },
   { value: '10+',      label: 'Years of expertise'        },
   { value: '120+',     label: 'Businesses served'         },
   { value: '7',        label: 'Professional services'     },
