@@ -84,7 +84,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 text-xs">&copy; 2026 Island Pro Consulting. All rights reserved.</p>
-          <p className="text-white/20 text-xs">Made with care in Mauritius 🇲🇺</p>
+          <div className="flex items-center gap-4">
+            <p className="text-white/20 text-xs">Made with care in Mauritius 🇲🇺</p>
+            <a href="/admin" className="text-white/10 hover:text-white/25 text-xs transition-colors">Admin</a>
+          </div>
         </div>
       </div>
     </footer>
