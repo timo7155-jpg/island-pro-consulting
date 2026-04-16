@@ -281,7 +281,7 @@ export default function OutreachPage() {
                   checked={selected.has(b.id)}
                   onChange={e => {
                     const n = new Set(selected);
-                    e.target.checked ? n.add(b.id) : n.delete(b.id);
+                    if (e.target.checked) { n.add(b.id); } else { n.delete(b.id); }
                     setSelected(n);
                   }}
                 />
