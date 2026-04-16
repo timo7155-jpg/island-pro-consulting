@@ -23,7 +23,7 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'bg-navy/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-navy/95 backdrop-blur-md shadow-lg' : 'bg-navy/70 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -56,7 +56,7 @@ export default function Navbar() {
             </a>
             <a href="#contact"
               className="purple-gradient text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple">
-              Get a Quote
+              Book a Free Call
             </a>
           </div>
 
@@ -79,7 +79,7 @@ export default function Navbar() {
           ))}
           <a href="#contact" onClick={() => setOpen(false)}
             className="block purple-gradient text-white font-bold text-sm px-5 py-3 rounded-xl text-center mt-2">
-            Get a Quote
+            Book a Free Call
           </a>
         </div>
       )}

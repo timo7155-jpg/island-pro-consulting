@@ -71,98 +71,104 @@ const PROCESS = [
 
 /* ── CSS Business Plan Cover Mockup ─────────────────────────────────── */
 function BPCoverMockup() {
+  const tocItems = [
+    { num: '1', title: 'Executive Summary',         page: '3' },
+    { num: '2', title: 'Company Overview',           page: '5' },
+    { num: '3', title: 'Products & Services',        page: '8' },
+    { num: '4', title: 'Market Analysis',            page: '11' },
+    { num: '5', title: 'Marketing Strategy',         page: '16' },
+    { num: '6', title: 'Operations Plan',            page: '20' },
+    { num: '7', title: 'Financial Projections',      page: '24' },
+    { num: '8', title: 'Risk Analysis',              page: '30' },
+  ];
+
   return (
-    <div className="relative hidden lg:flex items-center justify-center">
-      {/* Glow behind document */}
-      <div className="absolute w-72 h-96 rounded-3xl bg-purple/30 blur-[60px]" />
+    <div className="relative hidden lg:flex items-center justify-center py-10">
+      {/* Soft glow */}
+      <div className="absolute w-80 h-[480px] rounded-3xl bg-purple/25 blur-[80px]" />
 
-      {/* Document shadow */}
-      <div className="absolute w-64 h-[340px] bg-black/30 blur-xl translate-y-4 translate-x-2 rounded-2xl" />
+      {/* Page shadow (depth effect) */}
+      <div className="absolute w-[230px] h-[320px] bg-black/40 blur-2xl translate-y-6 translate-x-3 rounded" />
 
-      {/* Document */}
-      <div className="relative w-64 bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      {/* ── DOCUMENT ── */}
+      <div className="relative w-[230px] bg-white shadow-2xl" style={{ fontFamily: 'Georgia, serif' }}>
 
-        {/* Header band */}
-        <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #8B2FE8, #C040F0)' }} />
+        {/* ── COVER PAGE ── */}
+        {/* Purple left sidebar stripe */}
+        <div className="flex h-[320px]">
+          <div className="w-3 flex-shrink-0" style={{ background: 'linear-gradient(180deg, #8B2FE8 0%, #C040F0 60%, #F0B429 100%)' }} />
 
-        {/* Top section — company color block */}
-        <div className="px-6 pt-6 pb-5" style={{ background: 'linear-gradient(135deg, #0D1126, #1E2547)' }}>
-          {/* Fake logo circle */}
-          <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #8B2FE8, #C040F0)' }}>
-            <div className="w-4 h-4 rounded-sm bg-white/80" />
+          <div className="flex-1 flex flex-col">
+            {/* Top dark header */}
+            <div className="px-4 pt-4 pb-3" style={{ background: '#0D1126' }}>
+              {/* Tiny logo placeholder */}
+              <div className="flex items-center gap-1.5 mb-3">
+                <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'linear-gradient(135deg,#8B2FE8,#C040F0)' }}>
+                  <div className="w-2 h-2 rounded-sm bg-white/90" />
+                </div>
+                <span className="text-white/60 text-[6px] font-bold uppercase tracking-widest">Évasion Nature Eco-Lodge Ltd</span>
+              </div>
+
+              {/* BUSINESS PLAN title */}
+              <p className="text-[8px] font-bold uppercase tracking-[0.2em] mb-0.5" style={{ color: '#C040F0' }}>
+                Business Plan
+              </p>
+              <p className="text-white font-black leading-tight" style={{ fontSize: '11px' }}>
+                Eco-Tourism<br />Development Project
+              </p>
+              <p className="text-white/30 mt-1" style={{ fontSize: '6px' }}>
+                Port Mathurin, Rodrigues — 2026
+              </p>
+            </div>
+
+            {/* Cream body — table of contents */}
+            <div className="flex-1 px-4 pt-3 pb-2" style={{ background: '#FAFAF8' }}>
+              <p className="font-bold uppercase tracking-widest mb-2" style={{ fontSize: '6px', color: '#8B2FE8' }}>
+                Table of Contents
+              </p>
+              <div className="space-y-1">
+                {tocItems.map(item => (
+                  <div key={item.num} className="flex items-center gap-1">
+                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.5, minWidth: '8px' }}>{item.num}.</span>
+                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.7, flex: 1 }}>{item.title}</span>
+                    {/* Dot leader */}
+                    <div className="flex-1 border-b border-dotted border-navy/20 mx-1" />
+                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.4 }}>{item.page}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="px-4 py-2 flex items-center justify-between border-t" style={{ borderColor: '#0D112610', background: '#F5F4FF' }}>
+              <span style={{ fontSize: '5.5px', color: '#0D1126', opacity: 0.35, fontFamily: 'system-ui' }}>CONFIDENTIAL</span>
+              <span style={{ fontSize: '5.5px', color: '#8B2FE8', fontWeight: 700, fontFamily: 'system-ui' }}>Island Pro Consulting</span>
+            </div>
           </div>
-          <p className="text-white/40 text-[8px] font-bold uppercase tracking-widest mb-1">Business Plan</p>
-          <p className="text-white font-black text-sm leading-tight">Évasion Nature<br />Eco-Lodge Ltd</p>
-          <p className="text-white/30 text-[8px] mt-1">Rodrigues, Republic of Mauritius</p>
         </div>
 
-        {/* Divider with year */}
-        <div className="px-6 py-2 bg-purple/8 flex items-center justify-between">
-          <span className="text-[8px] text-purple font-black uppercase tracking-widest">Confidential</span>
-          <span className="text-[8px] text-navy/40 font-bold">2026</span>
-        </div>
-
-        {/* Content lines — simulated text */}
-        <div className="px-6 pt-4 pb-2 space-y-3">
-          {/* Section label */}
-          <div className="flex items-center gap-2">
-            <div className="w-1 h-3 rounded-full" style={{ background: 'linear-gradient(180deg,#8B2FE8,#C040F0)' }} />
-            <div className="h-1.5 w-24 bg-navy/20 rounded-full" />
-          </div>
-          {/* Fake text lines */}
-          {[28, 32, 22, 28, 18].map((w, i) => (
-            <div key={i} className="h-1 bg-navy/8 rounded-full" style={{ width: `${w * 3}px` }} />
-          ))}
-        </div>
-
-        {/* Chart placeholder */}
-        <div className="px-6 py-3">
-          <div className="bg-navy/4 rounded-xl p-3 flex items-end gap-1.5 h-16">
-            {[40, 55, 48, 70, 62, 85, 75].map((h, i) => (
-              <div key={i} className="flex-1 rounded-sm"
-                style={{
-                  height: `${h}%`,
-                  background: i % 2 === 0
-                    ? 'linear-gradient(180deg,#8B2FE8,#C040F0)'
-                    : 'rgba(240,180,41,0.5)',
-                }} />
-            ))}
-          </div>
-        </div>
-
-        {/* More fake lines */}
-        <div className="px-6 pb-4 space-y-2">
-          {[32, 26, 30, 20].map((w, i) => (
-            <div key={i} className="h-1 bg-navy/8 rounded-full" style={{ width: `${w * 3}px` }} />
-          ))}
-        </div>
-
-        {/* Footer band */}
-        <div className="px-6 py-3 bg-navy/4 flex items-center justify-between border-t border-navy/8">
-          <span className="text-[7px] text-navy/30 font-bold">Prepared by</span>
-          <span className="text-[7px] text-purple font-black">Island Pro Consulting</span>
-        </div>
-
-        {/* Bottom gradient strip */}
-        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #F0B429, #F5C842)' }} />
+        {/* Bottom gold strip */}
+        <div className="h-1" style={{ background: 'linear-gradient(90deg,#F0B429,#F5C842)' }} />
       </div>
 
-      {/* Floating page count badge */}
-      <div className="absolute -bottom-3 -right-3 bg-white rounded-2xl shadow-lg border border-navy/8 px-3 py-2 flex items-center gap-2">
-        <div className="w-7 h-7 rounded-lg purple-gradient flex items-center justify-center flex-shrink-0">
-          <FileText size={12} className="text-white" />
+      {/* Page-count chip */}
+      <div className="absolute -bottom-2 -right-2 bg-white rounded-xl shadow-lg border border-navy/8 px-2.5 py-1.5 flex items-center gap-1.5">
+        <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+          style={{ background: 'linear-gradient(135deg,#8B2FE8,#C040F0)' }}>
+          <FileText size={11} className="text-white" />
         </div>
         <div>
-          <p className="text-[9px] text-navy/40 font-bold leading-none">Pages</p>
-          <p className="text-navy font-black text-xs leading-none">25–35</p>
+          <p className="text-[8px] text-navy/40 font-bold leading-none">Pages</p>
+          <p className="text-navy font-black text-[10px] leading-none">25–35</p>
         </div>
       </div>
 
-      {/* Floating satisfaction badge */}
-      <div className="absolute -top-2 -left-4 bg-gold rounded-2xl shadow-lg px-3 py-2 flex items-center gap-2">
-        <Shield size={11} className="text-navy flex-shrink-0" />
-        <p className="text-[9px] text-navy font-black leading-none">Pay after<br />satisfaction</p>
+      {/* Satisfaction chip */}
+      <div className="absolute -top-1 -left-5 rounded-xl shadow-lg px-2.5 py-1.5 flex items-center gap-1.5"
+        style={{ background: '#F0B429' }}>
+        <Shield size={10} className="text-navy flex-shrink-0" />
+        <p className="text-[8px] text-navy font-black leading-tight">Pay after<br />satisfaction</p>
       </div>
     </div>
   );
