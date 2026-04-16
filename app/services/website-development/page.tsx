@@ -117,34 +117,44 @@ const MOCKUPS = [
   {
     url: 'www.coraldiverodrigues.com',
     component: (
-      <div className="h-56 overflow-hidden bg-[#03142b]">
+      <div className="h-56 overflow-hidden" style={{background:'linear-gradient(180deg,#003d5c 0%,#005f8a 40%,#0085b8 100%)'}}>
         {/* Nav */}
-        <div className="px-4 py-2 flex items-center justify-between">
-          <span className="text-white text-[9px] font-black">🤿 Coral Dive</span>
-          <button className="bg-[#00b4d8] text-white text-[7px] font-bold px-2 py-0.5 rounded-full">Book a Dive</button>
+        <div className="px-4 py-2 flex items-center justify-between border-b border-white/10">
+          <div className="flex items-center gap-1.5">
+            <div className="w-5 h-5 rounded-full bg-[#00c2e0]/30 flex items-center justify-center text-[9px]">🤿</div>
+            <span className="text-white text-[9px] font-black tracking-wide">CORAL DIVE</span>
+          </div>
+          <button className="bg-[#00c2e0] text-[#003d5c] text-[7px] font-black px-2.5 py-1 rounded-full">Book a Dive</button>
         </div>
-        {/* Hero */}
-        <div className="relative h-24">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80&auto=format&fit=crop" alt="" className="w-full h-full object-cover opacity-70" />
-          <div className="absolute inset-0 flex items-end px-3 pb-2">
-            <div>
-              <h3 className="text-white font-black text-sm drop-shadow">Dive Rodrigues</h3>
-              <p className="text-white/80 text-[8px]">Explore the untouched reefs of the Indian Ocean</p>
-            </div>
+        {/* Hero — CSS ocean scene */}
+        <div className="relative px-4 pt-3 pb-2">
+          {/* Bubbles */}
+          <div className="absolute right-6 top-2 w-3 h-3 rounded-full bg-white/10 border border-white/20" />
+          <div className="absolute right-12 top-5 w-2 h-2 rounded-full bg-white/10 border border-white/20" />
+          <div className="absolute right-8 top-7 w-1.5 h-1.5 rounded-full bg-white/15 border border-white/20" />
+          {/* Fish emoji decoration */}
+          <div className="absolute right-4 top-3 text-lg opacity-40">🐠</div>
+          <div className="absolute right-16 top-6 text-xs opacity-30">🐡</div>
+          <div>
+            <p className="text-[#00c2e0] text-[7px] font-bold tracking-widest uppercase mb-1">Rodrigues Island · Indian Ocean</p>
+            <h3 className="text-white font-black text-sm leading-tight mb-0.5">Dive into<br/>the Unknown</h3>
+            <p className="text-white/60 text-[8px]">Pristine reefs · Untouched marine life</p>
           </div>
         </div>
+        {/* Wave divider */}
+        <div className="h-2 mx-4 rounded-full bg-white/8 my-2" />
         {/* Packages */}
-        <div className="px-3 py-2 grid grid-cols-3 gap-1.5">
+        <div className="px-3 grid grid-cols-3 gap-1.5">
           {[
-            { name:'Intro Dive', duration:'2h', price:'Rs 1,800' },
-            { name:'Full Day', duration:'6h', price:'Rs 3,500' },
-            { name:'PADI Course', duration:'3 days', price:'Rs 9,000' },
+            { name:'Intro Dive', icon:'🌊', duration:'2h', price:'Rs 1,800' },
+            { name:'Full Day',   icon:'⚓', duration:'6h', price:'Rs 3,500' },
+            { name:'PADI Course',icon:'🏅', duration:'3 days', price:'Rs 9,000' },
           ].map((p, i) => (
-            <div key={i} className={`rounded-lg p-1.5 text-center ${i===1?'bg-[#00b4d8]':'bg-white/8 border border-white/10'}`}>
-              <div className={`text-[7px] font-black ${i===1?'text-[#03142b]':'text-white'}`}>{p.name}</div>
-              <div className={`text-[7px] ${i===1?'text-[#03142b]/70':'text-white/50'}`}>{p.duration}</div>
-              <div className={`text-[7px] font-bold mt-0.5 ${i===1?'text-[#03142b]':'text-[#00b4d8]'}`}>{p.price}</div>
+            <div key={i} className={`rounded-xl p-2 text-center ${i===1?'bg-[#00c2e0]':'bg-white/10 border border-white/15'}`}>
+              <div className="text-base mb-0.5">{p.icon}</div>
+              <div className={`text-[7px] font-black leading-tight ${i===1?'text-[#003d5c]':'text-white'}`}>{p.name}</div>
+              <div className={`text-[6px] ${i===1?'text-[#003d5c]/70':'text-white/50'}`}>{p.duration}</div>
+              <div className={`text-[7px] font-black mt-0.5 ${i===1?'text-[#003d5c]':'text-[#00c2e0]'}`}>{p.price}</div>
             </div>
           ))}
         </div>
@@ -200,31 +210,47 @@ const MOCKUPS = [
     component: (
       <div className="h-56 overflow-hidden bg-white">
         {/* Nav */}
-        <div className="bg-[#d97706] px-4 py-2 flex items-center justify-between">
-          <span className="text-white text-[9px] font-black">🛒 Épicerie du Soleil</span>
+        <div className="bg-[#c05621] px-3 py-2 flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-[9px]">🌞</div>
+            <span className="text-white text-[8px] font-black">Épicerie du Soleil</span>
+          </div>
           <div className="flex items-center gap-2">
-            <span className="text-white/80 text-[8px]">Port Louis</span>
-            <div className="bg-white/20 text-white text-[7px] px-2 py-0.5 rounded-full">Order Online</div>
+            <span className="text-orange-200 text-[7px]">Port Louis</span>
+            <div className="bg-white text-[#c05621] text-[6px] font-black px-1.5 py-0.5 rounded-full">Commande en ligne</div>
           </div>
         </div>
-        {/* Banner */}
-        <div className="bg-amber-50 px-3 py-2 flex items-center justify-between border-b border-amber-100">
-          <span className="text-[8px] text-amber-800 font-bold">🎉 Livraison gratuite pour Rs 500+</span>
-          <span className="text-[7px] text-amber-600">Valide jusqu&apos;au 30 avril</span>
+        {/* Promo banner */}
+        <div className="bg-amber-500 px-3 py-1.5 flex items-center justify-between">
+          <span className="text-[7px] text-white font-black">🎁 Livraison offerte dès Rs 500 d&apos;achat</span>
+          <span className="text-amber-200 text-[6px]">Offre limitée</span>
+        </div>
+        {/* Categories */}
+        <div className="px-3 pt-2 pb-1 flex gap-2 overflow-hidden">
+          {[{e:'🥗',l:'Frais'},{e:'🥩',l:'Viandes'},{e:'🥛',l:'Produits laitiers'},{e:'🏪',l:'Épicerie'},{e:'🌿',l:'Bio & Local'}].map((c,i) => (
+            <div key={i} className={`flex-shrink-0 flex flex-col items-center gap-0.5 px-2 py-1 rounded-lg ${i===0?'bg-[#c05621] text-white':'bg-orange-50'}`}>
+              <span className="text-xs">{c.e}</span>
+              <span className={`text-[6px] font-bold whitespace-nowrap ${i===0?'text-white':'text-gray-600'}`}>{c.l}</span>
+            </div>
+          ))}
         </div>
         {/* Product grid */}
-        <div className="px-3 py-2 grid grid-cols-4 gap-1.5">
+        <div className="px-3 py-1.5 grid grid-cols-4 gap-1.5">
           {[
-            { name:'Riz Basmati 5kg', price:'Rs 245', badge:'Promo' },
-            { name:'Huile Végétale 2L', price:'Rs 89', badge:'' },
-            { name:'Lait Frais', price:'Rs 42', badge:'Nouveau' },
-            { name:'Confiture Maison', price:'Rs 135', badge:'Local' },
+            { emoji:'🍚', name:'Riz Basmati 5kg',   price:'Rs 245', badge:'Promo',   bg:'bg-amber-50' },
+            { emoji:'🫒', name:'Huile d\'Olive 1L',  price:'Rs 189', badge:'',        bg:'bg-green-50' },
+            { emoji:'🥛', name:'Lait Frais 1L',      price:'Rs 42',  badge:'Nouveau', bg:'bg-blue-50'  },
+            { emoji:'🍓', name:'Confiture Maison',   price:'Rs 135', badge:'Local',   bg:'bg-red-50'   },
           ].map((p, i) => (
-            <div key={i} className="border border-gray-100 rounded-lg p-1 relative">
-              {p.badge && <div className="absolute top-0.5 right-0.5 bg-[#d97706] text-white text-[5px] font-bold px-1 rounded-full">{p.badge}</div>}
-              <div className="h-8 bg-amber-50 rounded mb-1" />
-              <div className="text-[6px] text-gray-700 font-medium leading-tight">{p.name}</div>
-              <div className="text-[7px] font-black text-[#d97706] mt-0.5">{p.price}</div>
+            <div key={i} className={`${p.bg} border border-white rounded-xl p-1.5 relative`}>
+              {p.badge && (
+                <div className={`absolute -top-1 -right-1 text-white text-[5px] font-black px-1 py-0.5 rounded-full ${
+                  p.badge==='Promo'?'bg-red-500':p.badge==='Nouveau'?'bg-blue-500':'bg-emerald-500'
+                }`}>{p.badge}</div>
+              )}
+              <div className="text-lg text-center mb-0.5">{p.emoji}</div>
+              <div className="text-[6px] text-gray-700 font-semibold leading-tight text-center">{p.name}</div>
+              <div className="text-[7px] font-black text-[#c05621] text-center mt-0.5">{p.price}</div>
             </div>
           ))}
         </div>
@@ -236,31 +262,44 @@ const MOCKUPS = [
   {
     url: 'www.plomberiepro.mu',
     component: (
-      <div className="h-56 overflow-hidden bg-white">
+      <div className="h-56 overflow-hidden bg-[#0f2744]">
         {/* Nav */}
-        <div className="bg-[#1e3a5f] px-4 py-2 flex items-center justify-between">
-          <span className="text-white text-[9px] font-black">🔧 PlomberiePro MU</span>
-          <button className="bg-[#f59e0b] text-[#1e3a5f] text-[7px] font-black px-2 py-0.5 rounded">Urgence 24h/7j</button>
+        <div className="px-3 py-2 flex items-center justify-between border-b border-white/10">
+          <div className="flex items-center gap-1.5">
+            <div className="w-5 h-5 rounded bg-[#f59e0b] flex items-center justify-center text-[9px]">🔧</div>
+            <span className="text-white text-[8px] font-black">PlomberiePro MU</span>
+          </div>
+          <button className="bg-[#f59e0b] text-[#0f2744] text-[6px] font-black px-2 py-1 rounded-lg animate-pulse">🚨 Urgence 24h/7j</button>
         </div>
-        {/* Hero */}
-        <div className="bg-[#1e3a5f] px-4 py-3 flex items-center justify-between">
+        {/* Hero block */}
+        <div className="px-3 py-3 flex items-center justify-between">
           <div>
-            <h3 className="text-white font-black text-xs">Intervention rapide<br/>dans toute l&apos;île</h3>
-            <div className="flex items-center gap-1 mt-1">
+            <div className="flex items-center gap-1 mb-1">
               {[...Array(5)].map((_,i) => <Star key={i} size={7} className="text-[#f59e0b] fill-[#f59e0b]" />)}
-              <span className="text-white/50 text-[7px] ml-1">4.9 (128 avis)</span>
+              <span className="text-white/50 text-[6px] ml-1">4.9 · 128 avis Google</span>
             </div>
+            <h3 className="text-white font-black text-xs leading-tight">Intervention rapide<br/>dans toute l&apos;île 🇲🇺</h3>
+            <p className="text-white/50 text-[7px] mt-1">Plomberie · Électricité · Climatisation</p>
           </div>
-          <div className="bg-[#f59e0b]/10 border border-[#f59e0b]/30 rounded-xl p-2 text-center">
-            <div className="text-[#f59e0b] font-black text-xs">30 min</div>
-            <div className="text-white/50 text-[7px]">réponse</div>
+          <div className="text-center bg-[#f59e0b]/15 border border-[#f59e0b]/30 rounded-2xl px-3 py-2">
+            <div className="text-[#f59e0b] font-black text-sm">30</div>
+            <div className="text-[#f59e0b]/70 text-[6px] font-bold">MIN</div>
+            <div className="text-white/40 text-[6px]">réponse</div>
           </div>
         </div>
-        {/* Services */}
-        <div className="px-3 py-2 grid grid-cols-3 gap-1.5">
-          {['Fuite d\'eau','Débouchage','Installation','Chauffe-eau','Carrelage','Devis gratuit'].map((s, i) => (
-            <div key={i} className={`rounded-lg px-2 py-1.5 text-center ${i===5?'bg-[#f59e0b] text-[#1e3a5f]':'bg-gray-50 border border-gray-100'}`}>
-              <div className={`text-[6px] font-bold leading-tight ${i===5?'text-[#1e3a5f]':'text-gray-600'}`}>{s}</div>
+        {/* Services grid */}
+        <div className="px-3 grid grid-cols-3 gap-1.5">
+          {[
+            { e:'💧', s:'Fuite d\'eau'  },
+            { e:'🚿', s:'Débouchage'    },
+            { e:'⚡', s:'Électricité'   },
+            { e:'❄️', s:'Climatisation' },
+            { e:'🛁', s:'Salle de bain' },
+            { e:'📋', s:'Devis gratuit' },
+          ].map((item, i) => (
+            <div key={i} className={`rounded-xl px-2 py-2 text-center ${i===5?'bg-[#f59e0b]':'bg-white/8 border border-white/10'}`}>
+              <div className="text-sm mb-0.5">{item.e}</div>
+              <div className={`text-[6px] font-bold leading-tight ${i===5?'text-[#0f2744]':'text-white/70'}`}>{item.s}</div>
             </div>
           ))}
         </div>
