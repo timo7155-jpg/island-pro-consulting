@@ -18,56 +18,155 @@ const USE_CASES = [
     icon: Building2,
     label: 'Government Permit Application',
     color: 'purple',
-    headline: 'Get your permit approved.',
-    desc: 'Authorities want to see a structured, credible plan before granting operational or construction permits. We write plans that speak the language of regulators — clear, compliant, and backed by solid projections.',
+    headline: 'Present a plan that speaks to authorities.',
+    desc: 'Regulatory bodies and ministries expect a structured, credible document before granting operational or construction permits. We write clear, compliant plans that address what reviewers need to see.',
     examples: ['Restaurant & food business permits', 'Tourism activity licences', 'Small business operating permits', 'Healthcare & wellness authorisations'],
   },
   {
     icon: MapPin,
     label: 'Commercial Land Lease — Rodrigues',
     color: 'gold',
-    headline: 'Secure your land in Rodrigues.',
-    desc: 'The Rodrigues Regional Assembly requires a compelling business plan before granting commercial land leases. We have direct experience with Rodrigues-specific requirements and know exactly what reviewers look for.',
-    examples: ['Agricultural & eco-tourism leases', 'Accommodation development projects', 'Fishing & marine activity ventures', 'Craft & local produce businesses'],
+    headline: 'Support your land lease application in Rodrigues.',
+    desc: 'A well-prepared business plan strengthens your application to the Rodrigues Regional Assembly and demonstrates the seriousness of your project. We understand the local context and help you present your case with clarity.',
+    examples: ['Agricultural & eco-tourism projects', 'Accommodation development applications', 'Fishing & marine activity ventures', 'Craft & local produce businesses'],
     badge: 'Rodrigues Specialist',
   },
   {
     icon: TrendingUp,
     label: 'Business Funding & Investment',
     color: 'purple',
-    headline: 'Attract the capital you need.',
-    desc: 'Whether you are pitching to investors, applying for SME grants, or seeking development funding from bodies like SMEDA or DBM — your plan must be compelling, structured, and financially sound.',
-    examples: ['SMEDA grant applications', 'Private investor pitches', 'Development Bank of Mauritius (DBM)', 'Angel investor presentations'],
+    headline: 'Make your project fundable.',
+    desc: 'Whether you are approaching local development bodies, applying for SME support programmes, or presenting to private investors — your plan must be compelling, structured, and financially credible.',
+    examples: ['SME support programmes', 'Local development funding bodies', 'Private investor presentations', 'Grant & subsidy applications'],
   },
   {
     icon: Landmark,
     label: 'Bank Loan Support',
     color: 'gold',
     headline: 'Walk into your bank with confidence.',
-    desc: 'Banks need to see that you understand your market, your numbers, and your risks. We produce loan-ready business plans that satisfy every box on the lender\'s checklist — and give your application a real edge.',
-    examples: ['MCB, SBM, AfrAsia & all local banks', 'MauBank SME financing', 'Property-backed business loans', 'Equipment & vehicle financing'],
+    desc: 'Banks need to see that you understand your market, your numbers, and your risks. We produce loan-ready business plans that satisfy the lender\'s requirements — and give your application a real edge.',
+    examples: ['All local commercial banks', 'SME & entrepreneurship loan schemes', 'Property-backed business loans', 'Equipment & vehicle financing'],
   },
 ];
 
 const WHAT_INCLUDED = [
-  { icon: BookOpen,  title: 'Executive Summary',       desc: '2–3 page compelling overview written to immediately capture the reader\'s attention.' },
-  { icon: Users,     title: 'Company Overview',         desc: 'Business structure, legal form, founders, mission, and vision.' },
-  { icon: Lightbulb, title: 'Products & Services',      desc: 'Detailed description of your offering, pricing strategy, and unique value proposition.' },
-  { icon: BarChart3, title: 'Market Analysis',          desc: 'In-depth research on your target market, competitors, and industry trends in Mauritius.' },
-  { icon: TrendingUp, title: 'Marketing & Sales Plan',  desc: 'Go-to-market strategy, customer acquisition channels, and growth roadmap.' },
-  { icon: Building2, title: 'Operations Plan',          desc: 'Day-to-day operations, suppliers, staffing plan, and key milestones.' },
-  { icon: FileText,  title: '3–5 Year Financial Projections', desc: 'Revenue forecasts, P&L statements, cash flow projections, and break-even analysis.' },
-  { icon: Shield,    title: 'Risk Analysis & Mitigation', desc: 'Identified risks and practical strategies to manage them — builds reviewer confidence.' },
-  { icon: BadgeCheck, title: 'Appendices & Supporting Data', desc: 'Market data, CVs of key personnel, permits, letters of intent, or any supporting documents.' },
+  { icon: BookOpen,   title: 'Executive Summary' },
+  { icon: Users,      title: 'Company Overview' },
+  { icon: Lightbulb,  title: 'Products & Services' },
+  { icon: BarChart3,  title: 'Market Analysis' },
+  { icon: TrendingUp, title: 'Marketing & Sales Strategy' },
+  { icon: Building2,  title: 'Operations Plan' },
+  { icon: FileText,   title: 'Financial Projections (3–5 years)' },
+  { icon: Shield,     title: 'Risk Analysis' },
+  { icon: BadgeCheck, title: 'Appendices & Supporting Documents' },
 ];
 
 const PROCESS = [
-  { step: '01', title: 'Free Consultation',    desc: 'We start with a call or WhatsApp chat to understand your project, goals, and timeline. No commitment required.' },
-  { step: '02', title: 'Discovery & Research', desc: 'We gather all the details about your business, your market, and your specific submission requirements.' },
+  { step: '01', title: 'Free Consultation',    desc: 'We start with a call or WhatsApp chat to understand your project, goals, and deadline. No commitment required.' },
+  { step: '02', title: 'Discovery & Research', desc: 'We gather everything we need about your business, your market, and your submission requirements.' },
   { step: '03', title: 'First Draft',           desc: 'You receive a complete first draft — typically within 5–7 business days — for your review and feedback.' },
   { step: '04', title: 'Revisions',             desc: 'We refine until you are 100% satisfied. Unlimited revision rounds are included at no extra cost.' },
-  { step: '05', title: 'Final Delivery',        desc: 'You receive a polished, professional PDF (and Word file) ready to submit. Payment is due only at this stage.' },
+  { step: '05', title: 'Final Delivery',        desc: 'You receive a polished, professional PDF ready to submit. Payment is due only at this stage.' },
 ];
+
+/* ── CSS Business Plan Cover Mockup ─────────────────────────────────── */
+function BPCoverMockup() {
+  return (
+    <div className="relative hidden lg:flex items-center justify-center">
+      {/* Glow behind document */}
+      <div className="absolute w-72 h-96 rounded-3xl bg-purple/30 blur-[60px]" />
+
+      {/* Document shadow */}
+      <div className="absolute w-64 h-[340px] bg-black/30 blur-xl translate-y-4 translate-x-2 rounded-2xl" />
+
+      {/* Document */}
+      <div className="relative w-64 bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+
+        {/* Header band */}
+        <div className="h-2 w-full" style={{ background: 'linear-gradient(90deg, #8B2FE8, #C040F0)' }} />
+
+        {/* Top section — company color block */}
+        <div className="px-6 pt-6 pb-5" style={{ background: 'linear-gradient(135deg, #0D1126, #1E2547)' }}>
+          {/* Fake logo circle */}
+          <div className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #8B2FE8, #C040F0)' }}>
+            <div className="w-4 h-4 rounded-sm bg-white/80" />
+          </div>
+          <p className="text-white/40 text-[8px] font-bold uppercase tracking-widest mb-1">Business Plan</p>
+          <p className="text-white font-black text-sm leading-tight">Évasion Nature<br />Eco-Lodge Ltd</p>
+          <p className="text-white/30 text-[8px] mt-1">Rodrigues, Republic of Mauritius</p>
+        </div>
+
+        {/* Divider with year */}
+        <div className="px-6 py-2 bg-purple/8 flex items-center justify-between">
+          <span className="text-[8px] text-purple font-black uppercase tracking-widest">Confidential</span>
+          <span className="text-[8px] text-navy/40 font-bold">2026</span>
+        </div>
+
+        {/* Content lines — simulated text */}
+        <div className="px-6 pt-4 pb-2 space-y-3">
+          {/* Section label */}
+          <div className="flex items-center gap-2">
+            <div className="w-1 h-3 rounded-full" style={{ background: 'linear-gradient(180deg,#8B2FE8,#C040F0)' }} />
+            <div className="h-1.5 w-24 bg-navy/20 rounded-full" />
+          </div>
+          {/* Fake text lines */}
+          {[28, 32, 22, 28, 18].map((w, i) => (
+            <div key={i} className="h-1 bg-navy/8 rounded-full" style={{ width: `${w * 3}px` }} />
+          ))}
+        </div>
+
+        {/* Chart placeholder */}
+        <div className="px-6 py-3">
+          <div className="bg-navy/4 rounded-xl p-3 flex items-end gap-1.5 h-16">
+            {[40, 55, 48, 70, 62, 85, 75].map((h, i) => (
+              <div key={i} className="flex-1 rounded-sm"
+                style={{
+                  height: `${h}%`,
+                  background: i % 2 === 0
+                    ? 'linear-gradient(180deg,#8B2FE8,#C040F0)'
+                    : 'rgba(240,180,41,0.5)',
+                }} />
+            ))}
+          </div>
+        </div>
+
+        {/* More fake lines */}
+        <div className="px-6 pb-4 space-y-2">
+          {[32, 26, 30, 20].map((w, i) => (
+            <div key={i} className="h-1 bg-navy/8 rounded-full" style={{ width: `${w * 3}px` }} />
+          ))}
+        </div>
+
+        {/* Footer band */}
+        <div className="px-6 py-3 bg-navy/4 flex items-center justify-between border-t border-navy/8">
+          <span className="text-[7px] text-navy/30 font-bold">Prepared by</span>
+          <span className="text-[7px] text-purple font-black">Island Pro Consulting</span>
+        </div>
+
+        {/* Bottom gradient strip */}
+        <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #F0B429, #F5C842)' }} />
+      </div>
+
+      {/* Floating page count badge */}
+      <div className="absolute -bottom-3 -right-3 bg-white rounded-2xl shadow-lg border border-navy/8 px-3 py-2 flex items-center gap-2">
+        <div className="w-7 h-7 rounded-lg purple-gradient flex items-center justify-center flex-shrink-0">
+          <FileText size={12} className="text-white" />
+        </div>
+        <div>
+          <p className="text-[9px] text-navy/40 font-bold leading-none">Pages</p>
+          <p className="text-navy font-black text-xs leading-none">25–35</p>
+        </div>
+      </div>
+
+      {/* Floating satisfaction badge */}
+      <div className="absolute -top-2 -left-4 bg-gold rounded-2xl shadow-lg px-3 py-2 flex items-center gap-2">
+        <Shield size={11} className="text-navy flex-shrink-0" />
+        <p className="text-[9px] text-navy font-black leading-none">Pay after<br />satisfaction</p>
+      </div>
+    </div>
+  );
+}
 
 export default function BusinessPlanPage() {
   return (
@@ -90,47 +189,53 @@ export default function BusinessPlanPage() {
             <span className="text-purple-light">Business Plan Writing</span>
           </nav>
 
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-6">
-              <FileText size={12} /> Pro Business Plan
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-6">
-              Business plans that open<br />
-              <span className="purple-text">doors in Mauritius.</span>
-            </h1>
-            <p className="text-white/60 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl">
-              Investor-ready. Bank-approved. Government-compliant. Professionally written plans tailored to Mauritian standards — with a simple promise: <span className="text-white font-semibold">you pay only after you are fully satisfied.</span>
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center pb-14">
+            {/* Left — copy */}
+            <div>
+              <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-6">
+                <FileText size={12} /> Pro Business Plan
+              </div>
+              <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
+                Business plans that open<br />
+                <span className="purple-text">doors in Mauritius.</span>
+              </h1>
+              <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-10">
+                Investor-ready. Bank-approved. Government-compliant. Professionally written plans tailored to Mauritian standards — with a simple promise: <span className="text-white font-semibold">you pay only after you are fully satisfied.</span>
+              </p>
 
-            <div className="flex flex-wrap gap-4 mb-14">
-              <a href="#contact"
-                className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all shadow-purple">
-                Get a Free Consultation <ArrowRight size={16} />
-              </a>
-              <a href="https://wa.me/23058137384?text=Hello%2C%20I%20am%20interested%20in%20a%20business%20plan."
-                target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all">
-                <MessageCircle size={16} /> Chat on WhatsApp
-              </a>
+              <div className="flex flex-wrap gap-4 mb-12">
+                <a href="#contact"
+                  className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all shadow-purple">
+                  Get a Free Consultation <ArrowRight size={16} />
+                </a>
+                <a href="https://wa.me/23058137384?text=Hello%2C%20I%20am%20interested%20in%20a%20business%20plan."
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all">
+                  <MessageCircle size={16} /> Chat on WhatsApp
+                </a>
+              </div>
+
+              {/* Trust bar */}
+              <div className="flex flex-wrap gap-x-8 gap-y-3 pt-8 border-t border-white/8">
+                {[
+                  { icon: Shield,     text: 'Pay only after full satisfaction' },
+                  { icon: Clock,      text: 'First draft in 5–7 business days' },
+                  { icon: FileText,   text: '25–35 pages, fully structured' },
+                  { icon: BadgeCheck, text: 'Rodrigues specialist' },
+                ].map(t => {
+                  const Icon = t.icon;
+                  return (
+                    <div key={t.text} className="flex items-center gap-2 text-white/50 text-sm">
+                      <Icon size={15} className="text-gold flex-shrink-0" />
+                      {t.text}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Trust bar */}
-            <div className="flex flex-wrap gap-x-8 gap-y-3 pb-14 border-t border-white/8 pt-8">
-              {[
-                { icon: Shield,    text: 'Pay only after full satisfaction' },
-                { icon: Clock,     text: 'First draft in 5–7 business days' },
-                { icon: FileText,  text: '25–35 pages, fully structured' },
-                { icon: BadgeCheck, text: 'Rodrigues specialist' },
-              ].map(t => {
-                const Icon = t.icon;
-                return (
-                  <div key={t.text} className="flex items-center gap-2 text-white/50 text-sm">
-                    <Icon size={15} className="text-gold flex-shrink-0" />
-                    {t.text}
-                  </div>
-                );
-              })}
-            </div>
+            {/* Right — document mockup */}
+            <BPCoverMockup />
           </div>
         </div>
       </section>
@@ -219,37 +324,36 @@ export default function BusinessPlanPage() {
               <span className="purple-text">substance, not filler.</span>
             </h2>
             <p className="text-white/50 text-lg max-w-xl mx-auto">
-              Every section is written specifically for your business. No copy-paste, no generic templates.
+              Every section is written specifically for your business. We will walk you through every detail during your consultation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {WHAT_INCLUDED.map((item, i) => {
               const Icon = item.icon;
               const useGold = i % 3 === 1;
               return (
                 <div key={i}
-                  className="bg-white/5 border border-white/8 rounded-2xl p-6 hover:bg-white/8 hover:border-purple/30 transition-all">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${
+                  className="bg-white/5 border border-white/8 rounded-2xl px-5 py-4 flex items-center gap-4 hover:bg-white/8 hover:border-purple/30 transition-all">
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${
                     useGold ? 'bg-gold/10' : 'bg-purple/15'
                   }`}>
-                    <Icon size={18} className={useGold ? 'text-gold' : 'text-purple-light'} />
+                    <Icon size={16} className={useGold ? 'text-gold' : 'text-purple-light'} />
                   </div>
-                  <h4 className="text-white font-black text-sm mb-2">{item.title}</h4>
-                  <p className="text-white/45 text-xs leading-relaxed">{item.desc}</p>
+                  <span className="text-white font-bold text-sm">{item.title}</span>
                 </div>
               );
             })}
           </div>
 
           {/* Page count callout */}
-          <div className="mt-10 bg-white/5 border border-purple/20 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <div className="mt-8 bg-white/5 border border-purple/20 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <div className="w-14 h-14 rounded-2xl purple-gradient flex items-center justify-center flex-shrink-0 shadow-purple">
               <span className="text-white font-black text-lg">35</span>
             </div>
             <div>
               <p className="text-white font-black mb-1">Typically 25–35 pages delivered</p>
-              <p className="text-white/40 text-sm">Includes cover page, table of contents, all sections listed above, financial tables, and appendices. Delivered as a polished PDF and editable Word document.</p>
+              <p className="text-white/40 text-sm">Includes cover page, table of contents, all sections above, financial tables, and appendices. Delivered as a polished PDF and editable Word document.</p>
             </div>
           </div>
         </div>
@@ -269,12 +373,10 @@ export default function BusinessPlanPage() {
           </div>
 
           <div className="relative">
-            {/* Connector line */}
             <div className="hidden lg:block absolute top-8 left-[calc(10%+2rem)] right-[calc(10%+2rem)] h-0.5 bg-navy/8" />
-
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {PROCESS.map((p, i) => (
-                <div key={i} className="flex flex-col items-center text-center lg:items-center">
+                <div key={i} className="flex flex-col items-center text-center">
                   <div className="relative w-16 h-16 rounded-2xl purple-gradient flex items-center justify-center mb-4 shadow-purple flex-shrink-0 z-10">
                     <span className="text-white font-black text-lg">{p.step}</span>
                   </div>
@@ -301,7 +403,7 @@ export default function BusinessPlanPage() {
             {[
               { icon: Star,       title: 'Satisfaction First',     desc: 'We do not invoice until you have read, reviewed, and approved every page of your plan.' },
               { icon: Clock,      title: 'Unlimited Revisions',    desc: 'As many revision rounds as you need are included. We keep refining until it is exactly right.' },
-              { icon: BadgeCheck, title: 'Built for Your Purpose', desc: 'Whether it\'s a bank, a regulator, or an investor — your plan is written for that specific reader.' },
+              { icon: BadgeCheck, title: 'Built for Your Purpose', desc: 'Whether it is a bank, a regulator, or an investor — your plan is written for that specific reader.' },
             ].map(g => {
               const Icon = g.icon;
               return (
@@ -314,7 +416,7 @@ export default function BusinessPlanPage() {
             })}
           </div>
           <p className="text-white/40 text-sm">
-            In over three years of writing business plans for Mauritian entrepreneurs, we have never left a client unsatisfied.
+            Every business plan we have delivered has met the expectations of our clients. Your satisfaction is not a bonus — it is the condition.
           </p>
         </div>
       </section>
@@ -339,7 +441,7 @@ export default function BusinessPlanPage() {
               },
               {
                 q: 'Do you work with businesses in Rodrigues?',
-                a: 'Absolutely. We are very familiar with Rodrigues Regional Assembly requirements, land lease processes, and the local business environment. Several of our business plans have been specifically produced for Rodrigues-based ventures.',
+                a: 'Absolutely. We are very familiar with Rodrigues Regional Assembly processes, land lease application requirements, and the local business environment. Several of our business plans have been specifically produced for Rodrigues-based ventures.',
               },
               {
                 q: 'What is the cost?',
