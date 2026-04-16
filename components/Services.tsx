@@ -24,6 +24,7 @@ const SERVICES = [
     badge:    'SaaS Product',
     href:     'https://procashbook.mu',
     external: true,
+    underConstruction: true,
   },
   {
     icon:     FileText,
@@ -32,7 +33,7 @@ const SERVICES = [
     desc:     'Professionally written business plans tailored to Mauritius standards — for funding applications, bank loans, or strategic clarity.',
     features: ['Executive summary', 'Financial projections', 'Market analysis', 'Funding-ready format'],
     accent:   'purple',
-    href:     '#contact',
+    href:     '/services/business-plan',
   },
   {
     icon:     UserCheck,
@@ -87,7 +88,11 @@ export default function Services() {
             const isPurple = s.accent === 'purple';
             return (
               <div key={i}
-                className="group relative bg-white rounded-3xl border-2 border-navy/6 hover:border-purple/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-purple overflow-hidden flex flex-col">
+                className={`group relative bg-white rounded-3xl border-2 overflow-hidden flex flex-col transition-all duration-300 ${
+                  s.underConstruction
+                    ? 'border-navy/6 opacity-70'
+                    : 'border-navy/6 hover:border-purple/30 hover:-translate-y-1 hover:shadow-purple'
+                }`}>
 
                 {/* Hover gradient */}
                 <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
@@ -126,15 +131,22 @@ export default function Services() {
                     ))}
                   </ul>
 
-                  <a href={s.href}
-                    target={s.external ? '_blank' : undefined}
-                    rel={s.external ? 'noopener noreferrer' : undefined}
-                    className={`mt-auto flex items-center justify-between text-white text-sm font-bold px-5 py-3 rounded-xl transition-all group/btn ${
-                      isPurple ? 'purple-gradient hover:opacity-90' : 'gold-gradient text-navy'
-                    }`}>
-                    <span>{s.external ? 'Visit ProCashbook' : 'Get Started'}</span>
-                    <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
+                  {s.underConstruction ? (
+                    <div className="mt-auto flex items-center justify-between bg-navy/10 text-navy/30 text-sm font-bold px-5 py-3 rounded-xl cursor-not-allowed select-none">
+                      <span>🚧 Under Construction</span>
+                      <ArrowRight size={15} />
+                    </div>
+                  ) : (
+                    <a href={s.href}
+                      target={s.external ? '_blank' : undefined}
+                      rel={s.external ? 'noopener noreferrer' : undefined}
+                      className={`mt-auto flex items-center justify-between text-white text-sm font-bold px-5 py-3 rounded-xl transition-all group/btn ${
+                        isPurple ? 'purple-gradient hover:opacity-90' : 'gold-gradient text-navy'
+                      }`}>
+                      <span>{s.external ? 'Visit ProCashbook' : 'Get Started'}</span>
+                      <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </a>
+                  )}
                 </div>
               </div>
             );
