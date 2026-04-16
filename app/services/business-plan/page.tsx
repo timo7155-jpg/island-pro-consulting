@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import {
   FileText, CheckCircle2, ArrowRight, Shield, Clock, Star,
   Building2, MapPin, TrendingUp, Landmark, ChevronRight,
@@ -69,106 +70,49 @@ const PROCESS = [
   { step: '05', title: 'Final Delivery',        desc: 'You receive a polished, professional PDF ready to submit. Payment is due only at this stage.' },
 ];
 
-/* ── CSS Business Plan Cover Mockup ─────────────────────────────────── */
+/* ── Business Plan Cover Image ───────────────────────────────────────── */
 function BPCoverMockup() {
-  const tocItems = [
-    { num: '1', title: 'Executive Summary',         page: '3' },
-    { num: '2', title: 'Company Overview',           page: '5' },
-    { num: '3', title: 'Products & Services',        page: '8' },
-    { num: '4', title: 'Market Analysis',            page: '11' },
-    { num: '5', title: 'Marketing Strategy',         page: '16' },
-    { num: '6', title: 'Operations Plan',            page: '20' },
-    { num: '7', title: 'Financial Projections',      page: '24' },
-    { num: '8', title: 'Risk Analysis',              page: '30' },
-  ];
-
   return (
-    <div className="relative hidden lg:flex items-center justify-center py-10">
-      {/* Soft glow */}
-      <div className="absolute w-80 h-[480px] rounded-3xl bg-purple/25 blur-[80px]" />
+    <div className="relative hidden lg:flex items-center justify-center py-12">
+      {/* Glow behind */}
+      <div className="absolute w-[420px] h-[540px] rounded-3xl bg-purple/30 blur-[90px]" />
 
-      {/* Page shadow (depth effect) */}
-      <div className="absolute w-[230px] h-[320px] bg-black/40 blur-2xl translate-y-6 translate-x-3 rounded" />
+      {/* Secondary shadow for depth */}
+      <div className="absolute w-[340px] h-[460px] bg-black/50 blur-2xl translate-y-8 translate-x-4 rounded-2xl" />
 
-      {/* ── DOCUMENT ── */}
-      <div className="relative w-[230px] bg-white shadow-2xl" style={{ fontFamily: 'Georgia, serif' }}>
-
-        {/* ── COVER PAGE ── */}
-        {/* Purple left sidebar stripe */}
-        <div className="flex h-[320px]">
-          <div className="w-3 flex-shrink-0" style={{ background: 'linear-gradient(180deg, #8B2FE8 0%, #C040F0 60%, #F0B429 100%)' }} />
-
-          <div className="flex-1 flex flex-col">
-            {/* Top dark header */}
-            <div className="px-4 pt-4 pb-3" style={{ background: '#0D1126' }}>
-              {/* Tiny logo placeholder */}
-              <div className="flex items-center gap-1.5 mb-3">
-                <div className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg,#8B2FE8,#C040F0)' }}>
-                  <div className="w-2 h-2 rounded-sm bg-white/90" />
-                </div>
-                <span className="text-white/60 text-[6px] font-bold uppercase tracking-widest">Évasion Nature Eco-Lodge Ltd</span>
-              </div>
-
-              {/* BUSINESS PLAN title */}
-              <p className="text-[8px] font-bold uppercase tracking-[0.2em] mb-0.5" style={{ color: '#C040F0' }}>
-                Business Plan
-              </p>
-              <p className="text-white font-black leading-tight" style={{ fontSize: '11px' }}>
-                Eco-Tourism<br />Development Project
-              </p>
-              <p className="text-white/30 mt-1" style={{ fontSize: '6px' }}>
-                Port Mathurin, Rodrigues — 2026
-              </p>
-            </div>
-
-            {/* Cream body — table of contents */}
-            <div className="flex-1 px-4 pt-3 pb-2" style={{ background: '#FAFAF8' }}>
-              <p className="font-bold uppercase tracking-widest mb-2" style={{ fontSize: '6px', color: '#8B2FE8' }}>
-                Table of Contents
-              </p>
-              <div className="space-y-1">
-                {tocItems.map(item => (
-                  <div key={item.num} className="flex items-center gap-1">
-                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.5, minWidth: '8px' }}>{item.num}.</span>
-                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.7, flex: 1 }}>{item.title}</span>
-                    {/* Dot leader */}
-                    <div className="flex-1 border-b border-dotted border-navy/20 mx-1" />
-                    <span style={{ fontSize: '6px', color: '#0D1126', opacity: 0.4 }}>{item.page}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer */}
-            <div className="px-4 py-2 flex items-center justify-between border-t" style={{ borderColor: '#0D112610', background: '#F5F4FF' }}>
-              <span style={{ fontSize: '5.5px', color: '#0D1126', opacity: 0.35, fontFamily: 'system-ui' }}>CONFIDENTIAL</span>
-              <span style={{ fontSize: '5.5px', color: '#8B2FE8', fontWeight: 700, fontFamily: 'system-ui' }}>Island Pro Consulting</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom gold strip */}
-        <div className="h-1" style={{ background: 'linear-gradient(90deg,#F0B429,#F5C842)' }} />
+      {/* Cover image — slightly tilted */}
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl"
+        style={{ transform: 'rotate(2deg)', width: '320px' }}>
+        <Image
+          src="/cover-bp.jpg"
+          alt="Business Plan Cover — Island Pro Consulting"
+          width={320}
+          height={452}
+          className="w-full h-auto object-cover"
+          priority
+        />
+        {/* Subtle gloss overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Page-count chip */}
-      <div className="absolute -bottom-2 -right-2 bg-white rounded-xl shadow-lg border border-navy/8 px-2.5 py-1.5 flex items-center gap-1.5">
-        <div className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+      <div className="absolute bottom-8 -right-4 bg-white rounded-2xl shadow-xl border border-navy/8 px-3 py-2 flex items-center gap-2"
+        style={{ transform: 'rotate(-2deg)' }}>
+        <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{ background: 'linear-gradient(135deg,#8B2FE8,#C040F0)' }}>
-          <FileText size={11} className="text-white" />
+          <FileText size={14} className="text-white" />
         </div>
         <div>
-          <p className="text-[8px] text-navy/40 font-bold leading-none">Pages</p>
-          <p className="text-navy font-black text-[10px] leading-none">25–35</p>
+          <p className="text-[9px] text-navy/40 font-bold leading-none mb-0.5">Pages</p>
+          <p className="text-navy font-black text-sm leading-none">25–35</p>
         </div>
       </div>
 
       {/* Satisfaction chip */}
-      <div className="absolute -top-1 -left-5 rounded-xl shadow-lg px-2.5 py-1.5 flex items-center gap-1.5"
-        style={{ background: '#F0B429' }}>
-        <Shield size={10} className="text-navy flex-shrink-0" />
-        <p className="text-[8px] text-navy font-black leading-tight">Pay after<br />satisfaction</p>
+      <div className="absolute top-8 -left-6 rounded-2xl shadow-xl px-3 py-2 flex items-center gap-2"
+        style={{ background: '#F0B429', transform: 'rotate(-3deg)' }}>
+        <Shield size={13} className="text-navy flex-shrink-0" />
+        <p className="text-[10px] text-navy font-black leading-tight">Pay after<br />satisfaction</p>
       </div>
     </div>
   );

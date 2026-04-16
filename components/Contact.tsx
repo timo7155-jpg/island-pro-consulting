@@ -8,7 +8,6 @@ const SERVICES_LIST = [
   'Business Plan Writing',
   'CV & Cover Letter',
   'Digital Marketing',
-  'Tax & Compliance',
   'Business Registration',
   'Other',
 ];
