@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Professional CV & Cover Letter | Island Pro Consulting',
@@ -447,47 +448,13 @@ export default function CVPage() {
 
             <div className="bg-white rounded-3xl p-8 shadow-card">
               <h3 className="text-lg font-black text-navy mb-6">Book your free consultation</h3>
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Full Name *</label>
-                    <input type="text" required placeholder="Jean-Marc Dupont"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Email *</label>
-                    <input type="email" required placeholder="you@example.com"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Phone / WhatsApp</label>
-                  <input type="tel" placeholder="+230 5XXX XXXX"
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Your current situation *</label>
-                  <select required
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all appearance-none">
-                    <option value="">Select your profile...</option>
-                    <option>Fresh Graduate</option>
-                    <option>Career Change</option>
-                    <option>Mid-Career Professional</option>
-                    <option>Applying Abroad</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Tell us about your goal *</label>
-                  <textarea required rows={3} placeholder="What role are you targeting? Any specific industry or country?"
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all resize-none" />
-                </div>
-                <button type="submit"
-                  className="w-full flex items-center justify-center gap-2 purple-gradient text-white font-bold text-sm py-3.5 rounded-xl hover:opacity-90 transition-all shadow-purple mt-2">
-                  <ArrowRight size={15} /> Book My Free Call
-                </button>
-                <p className="text-xs text-navy/40 text-center">We respond within 24 hours. No obligation whatsoever.</p>
-              </form>
+              <ContactForm
+                service="CV & Cover Letter"
+                dropdownLabel="Your current situation"
+                dropdownOptions={['Fresh Graduate','Career Change','Mid-Career Professional','Applying Abroad','Other']}
+                messagePlaceholder="What role are you targeting? Any specific industry or country?"
+                submitLabel="Book My Free Call"
+              />
             </div>
           </div>
         </div>

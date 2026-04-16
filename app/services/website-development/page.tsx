@@ -1,13 +1,13 @@
 'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import {
-  ArrowLeft, ArrowRight, Check, CheckCircle2,
+  ArrowLeft, ArrowRight, Check,
   Globe, Smartphone, Search, Star,
   Hotel, ShoppingBag, Scissors, Utensils, Briefcase, Camera,
-  DollarSign, BarChart3, MessageCircle, Calendar,
+  DollarSign, BarChart3, MessageCircle,
   Zap, Shield, Palette, Clock, Users, TrendingUp
 } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
 
 /* ── Realistic browser mockup ───────────────────────────────────────── */
 function BrowserMockup({ children, url }: { children: React.ReactNode; url: string }) {
@@ -344,17 +344,6 @@ const WHAT_WE_DELIVER = [
 ];
 
 export default function WebsiteDevelopmentPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise(r => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
-  }
-
   return (
     <div className="min-h-screen" style={{ background: '#F8F7FF' }}>
 
@@ -578,81 +567,13 @@ export default function WebsiteDevelopmentPage() {
           </div>
 
           <div className="bg-white rounded-3xl border border-navy/8 shadow-card p-8 lg:p-10 max-w-2xl mx-auto">
-            {submitted ? (
-              <div className="text-center py-10">
-                <div className="w-20 h-20 rounded-full bg-purple/10 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={36} className="text-purple" />
-                </div>
-                <h3 className="text-2xl font-black text-navy mb-2">Request received!</h3>
-                <p className="text-gray-500 text-sm max-w-sm mx-auto">
-                  Thank you! We will contact you within 24 hours to confirm your free consultation slot.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Your Name *</label>
-                    <input type="text" required placeholder="Jean-Marc Dupont"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Phone / WhatsApp *</label>
-                    <input type="tel" required placeholder="+230 5XXX XXXX"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Email</label>
-                  <input type="email" placeholder="you@example.com"
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Your Business *</label>
-                  <input type="text" required placeholder="e.g. Mon Guesthouse, Port Mathurin"
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Do you currently have a website?</label>
-                  <select className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all appearance-none">
-                    <option value="">Select...</option>
-                    <option>No website yet</option>
-                    <option>Yes — I want to redesign it</option>
-                    <option>Yes — I want to improve it</option>
-                  </select>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Preferred contact method</label>
-                  <div className="flex gap-4">
-                    {['WhatsApp', 'Phone call', 'Email'].map(m => (
-                      <label key={m} className="flex items-center gap-2 cursor-pointer">
-                        <input type="radio" name="contact_method" value={m} className="accent-purple" />
-                        <span className="text-sm text-navy/70">{m}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Anything else?</label>
-                  <textarea rows={3} placeholder="Tell us briefly about your business and what you have in mind..."
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all resize-none" />
-                </div>
-                <button type="submit" disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 purple-gradient text-white font-bold text-sm py-4 rounded-xl hover:opacity-90 transition-all shadow-purple disabled:opacity-60">
-                  {loading
-                    ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
-                    : <><Calendar size={15} /> Request My Free Consultation</>
-                  }
-                </button>
-                <div className="flex items-center justify-center gap-6 pt-1">
-                  {['No commitment','No invoice','20 minutes max'].map(t => (
-                    <div key={t} className="flex items-center gap-1.5 text-xs text-gray-400">
-                      <Check size={11} className="text-emerald-500" /> {t}
-                    </div>
-                  ))}
-                </div>
-              </form>
-            )}
+            <ContactForm
+              service="Website Development"
+              dropdownLabel="Type of website"
+              dropdownOptions={['Landing page / brochure site','E-commerce / online store','Booking & reservation site','Restaurant / hospitality site','Portfolio / personal site','Other']}
+              messagePlaceholder="Tell us about your business and what you need..."
+              submitLabel="Book My Free Call"
+            />
           </div>
 
           <div className="text-center mt-8">

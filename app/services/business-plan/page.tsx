@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Pro Business Plan Writing | Island Pro Consulting',
@@ -464,52 +465,13 @@ export default function BusinessPlanPage() {
             {/* Right — form */}
             <div className="bg-white rounded-3xl p-8 shadow-card">
               <h3 className="text-lg font-black text-navy mb-6">Request your free consultation</h3>
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Full Name *</label>
-                    <input type="text" required placeholder="Jean-Marc Dupont"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-navy/60">Email *</label>
-                    <input type="email" required placeholder="you@example.com"
-                      className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Phone / WhatsApp</label>
-                  <input type="tel" placeholder="+230 5XXX XXXX"
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all" />
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Purpose of your business plan *</label>
-                  <select required
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all appearance-none">
-                    <option value="">Select the main purpose...</option>
-                    <option>Government Permit Application</option>
-                    <option>Commercial Land Lease — Rodrigues</option>
-                    <option>Business Funding / Investment</option>
-                    <option>Bank Loan Support</option>
-                    <option>Multiple purposes</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-bold text-navy/60">Tell us about your project *</label>
-                  <textarea required rows={4} placeholder="Briefly describe your business idea and what you need the plan for..."
-                    className="px-4 py-3 text-sm border border-navy/15 rounded-xl bg-cream outline-none focus:border-purple focus:ring-2 focus:ring-purple/10 transition-all resize-none" />
-                </div>
-
-                <button type="submit"
-                  className="w-full flex items-center justify-center gap-2 purple-gradient text-white font-bold text-sm py-3.5 rounded-xl hover:opacity-90 transition-all shadow-purple mt-2">
-                  <ArrowRight size={15} /> Request Free Consultation
-                </button>
-                <p className="text-xs text-navy/40 text-center">We respond within 24 hours. No obligation whatsoever.</p>
-              </form>
+              <ContactForm
+                service="Pro Business Plan"
+                dropdownLabel="Purpose of your business plan"
+                dropdownOptions={['Government Permit Application','Commercial Land Lease — Rodrigues','Business Funding / Investment','Bank Loan Support','Multiple purposes','Other']}
+                messagePlaceholder="Briefly describe your business idea and what you need the plan for..."
+                submitLabel="Request Free Consultation"
+              />
             </div>
           </div>
         </div>
