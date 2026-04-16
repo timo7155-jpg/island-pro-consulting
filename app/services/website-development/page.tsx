@@ -570,7 +570,7 @@ export default function WebsiteDevelopmentPage() {
             <ContactForm
               service="Website Development"
               dropdownLabel="Type of website"
-              dropdownOptions={['Landing page / brochure site','E-commerce / online store','Booking & reservation site','Restaurant / hospitality site','Portfolio / personal site','Other']}
+              dropdownOptions={['Hotel / Guesthouse / B&B','Villa / Self-catering','Restaurant / Food Business','Tour & Activity Operator','Retail / E-commerce Shop','Professional Services','Portfolio / Personal Brand','Other']}
               messagePlaceholder="Tell us about your business and what you need..."
               submitLabel="Book My Free Call"
             />
