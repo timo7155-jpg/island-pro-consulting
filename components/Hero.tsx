@@ -1,71 +1,81 @@
-import { ArrowRight, Star, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-navy overflow-hidden flex items-center">
       {/* Background blobs */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full bg-gold/8 blur-[120px] -translate-x-1/2 -translate-y-1/4" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-gold/6 blur-[100px] translate-x-1/4 translate-y-1/4" />
-        <div className="absolute top-1/2 left-1/2 w-[800px] h-[2px] bg-gradient-to-r from-transparent via-gold/20 to-transparent -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute top-0 left-0 w-[700px] h-[700px] rounded-full bg-purple/20 blur-[140px] -translate-x-1/2 -translate-y-1/4" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-gold/10 blur-[120px] translate-x-1/4 translate-y-1/4" />
+        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full bg-purple-light/10 blur-[100px] -translate-x-1/2 -translate-y-1/2" />
       </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03]"
-        style={{ backgroundImage: 'linear-gradient(#C9A84C 1px, transparent 1px), linear-gradient(90deg, #C9A84C 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+      {/* Subtle grid */}
+      <div className="absolute inset-0 opacity-[0.04]"
+        style={{ backgroundImage: 'linear-gradient(#8B2FE8 1px, transparent 1px), linear-gradient(90deg, #8B2FE8 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs font-bold px-4 py-2 rounded-full mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            Mauritius-based Business Consulting
-          </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left */}
+          <div>
+            <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light text-xs font-bold px-4 py-2 rounded-full mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-light animate-pulse" />
+              Mauritius-based Business Consulting
+            </div>
 
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight mb-6">
-            Grow your business<br />
-            <span className="gold-text">the smart way.</span>
-          </h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight mb-6">
+              Grow your business<br />
+              <span className="purple-text">the smart way.</span>
+            </h1>
 
-          <p className="text-white/60 text-lg lg:text-xl leading-relaxed max-w-2xl mb-10">
-            From a professional website to a winning business plan — Island Pro Consulting delivers expert services that help Mauritian SMEs compete, grow, and succeed.
-          </p>
+            <p className="text-white/60 text-lg leading-relaxed max-w-xl mb-8">
+              From a professional website to a winning business plan — Island Pro Consulting delivers expert services that help Mauritian SMEs compete, grow, and succeed.
+            </p>
 
-          {/* Trust badges */}
-          <div className="flex flex-wrap items-center gap-4 mb-10">
-            {[
-              'Rs 500M+ Managed',
-              '10+ Years Experience',
-              'Mauritius & Indian Ocean',
-            ].map(b => (
-              <div key={b} className="flex items-center gap-1.5 text-white/50 text-sm">
-                <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
-                {b}
-              </div>
-            ))}
-          </div>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap gap-4">
-            <a href="#services"
-              className="inline-flex items-center gap-2 bg-gold text-navy font-bold px-7 py-4 rounded-xl hover:bg-gold-light transition-all hover:-translate-y-0.5 shadow-gold text-sm">
-              Explore Services <ArrowRight size={16} />
-            </a>
-            <a href="#contact"
-              className="inline-flex items-center gap-2 border border-white/20 text-white font-bold px-7 py-4 rounded-xl hover:border-gold/50 hover:text-gold transition-all text-sm">
-              Talk to Us
-            </a>
-          </div>
-
-          {/* Social proof */}
-          <div className="flex items-center gap-3 mt-12">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} size={14} className="text-gold fill-gold" />
+            <div className="flex flex-wrap items-center gap-4 mb-10">
+              {[
+                'Rs 500M+ Managed',
+                '10+ Years Experience',
+                'Mauritius & Indian Ocean',
+              ].map(b => (
+                <div key={b} className="flex items-center gap-1.5 text-white/50 text-sm">
+                  <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
+                  {b}
+                </div>
               ))}
             </div>
-            <p className="text-white/40 text-sm">Trusted by SMEs across Mauritius &amp; Rodrigues</p>
+
+            <div className="flex flex-wrap gap-4">
+              <a href="#services"
+                className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple text-sm">
+                Explore Services <ArrowRight size={16} />
+              </a>
+              <a href="#contact"
+                className="inline-flex items-center gap-2 border border-white/20 text-white font-bold px-7 py-4 rounded-xl hover:border-gold/60 hover:text-gold transition-all text-sm">
+                Talk to Us
+              </a>
+            </div>
+          </div>
+
+          {/* Right — logo showcase */}
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="relative">
+              {/* Glowing ring */}
+              <div className="absolute inset-0 rounded-full bg-purple/30 blur-[60px] scale-110" />
+              <div className="relative w-72 h-72 xl:w-80 xl:h-80 rounded-3xl overflow-hidden border border-purple/30 shadow-purple">
+                <Image src="/logo.jpg" alt="Island Pro Consulting" fill className="object-cover" />
+              </div>
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -right-4 bg-navy-mid border border-purple/30 rounded-2xl px-4 py-3 shadow-purple">
+                <div className="text-xl font-black gold-text">10+</div>
+                <div className="text-white/50 text-xs">Years Expertise</div>
+              </div>
+              <div className="absolute -top-4 -left-4 bg-navy-mid border border-gold/30 rounded-2xl px-4 py-3 shadow-gold">
+                <div className="text-xl font-black gold-text">120+</div>
+                <div className="text-white/50 text-xs">Businesses Served</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

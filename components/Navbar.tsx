@@ -1,13 +1,14 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Services',  href: '#services'  },
-  { label: 'About',     href: '#about'     },
-  { label: 'Why Us',    href: '#whyus'     },
-  { label: 'Contact',   href: '#contact'   },
+  { label: 'Services', href: '#services' },
+  { label: 'About',    href: '#about'    },
+  { label: 'Why Us',   href: '#whyus'    },
+  { label: 'Contact',  href: '#contact'  },
 ];
 
 export default function Navbar() {
@@ -27,9 +28,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
-              <span className="text-navy font-black text-sm">IPC</span>
+          <Link href="/" className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
+              <Image src="/logo.jpg" alt="IPC Logo" width={36} height={36} className="w-full h-full object-cover" />
             </div>
             <div className="hidden sm:block">
               <div className="text-white font-black text-sm leading-tight">Island Pro</div>
@@ -48,13 +49,13 @@ export default function Navbar() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <a href="tel:+23058137384"
-              className="flex items-center gap-2 text-white/60 hover:text-gold text-sm font-medium transition-colors">
+              className="flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium transition-colors">
               <Phone size={14} /> +230 5813 7384
             </a>
             <a href="#contact"
-              className="bg-gold text-navy font-bold text-sm px-5 py-2.5 rounded-xl hover:bg-gold-light transition-all hover:-translate-y-0.5 shadow-gold">
+              className="purple-gradient text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple">
               Get a Quote
             </a>
           </div>
@@ -77,7 +78,7 @@ export default function Navbar() {
             </a>
           ))}
           <a href="#contact" onClick={() => setOpen(false)}
-            className="block bg-gold text-navy font-bold text-sm px-5 py-3 rounded-xl text-center mt-2">
+            className="block purple-gradient text-white font-bold text-sm px-5 py-3 rounded-xl text-center mt-2">
             Get a Quote
           </a>
         </div>

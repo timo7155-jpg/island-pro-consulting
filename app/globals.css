@@ -3,25 +3,37 @@
 @tailwind utilities;
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
-  background: #FAF8F3;
-  color: #0D1B2A;
+  background: #F8F7FF;
+  color: #0D1126;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .gold-gradient {
-    background: linear-gradient(135deg, #C9A84C 0%, #E8C96A 50%, #9A7A2E 100%);
-  }
+
   .gold-text {
-    background: linear-gradient(135deg, #C9A84C, #E8C96A);
+    background: linear-gradient(135deg, #F0B429, #F5C842);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .purple-text {
+    background: linear-gradient(135deg, #8B2FE8, #C040F0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .purple-gradient {
+    background: linear-gradient(135deg, #8B2FE8 0%, #C040F0 100%);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #F0B429 0%, #F5C842 100%);
   }
 }
