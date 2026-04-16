@@ -60,7 +60,7 @@ const SERVICES = [
     desc:     'End-to-end assistance for company registration, MRA business registration, permits, and all the paperwork you need to launch legally.',
     features: ['Company registration', 'MRA registration', 'Permit assistance', 'Fast processing'],
     accent:   'purple',
-    href:     '#contact',
+    href:     '/services/business-registration',
   },
 ];
 
