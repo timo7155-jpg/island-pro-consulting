@@ -86,7 +86,7 @@ function BPCoverMockup() {
       <div className="relative rounded-2xl overflow-hidden shadow-2xl"
         style={{ transform: 'rotate(2deg)', width: '320px' }}>
         <Image
-          src="/cover-bp.jpg"
+          src="/bp.png"
           alt="Business Plan Cover — Island Pro Consulting"
           width={320}
           height={452}

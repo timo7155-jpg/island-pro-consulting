@@ -8,6 +8,7 @@ import {
   Zap, Shield, Palette, Clock, Users, TrendingUp
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
+import Navbar from '@/components/Navbar';
 
 /* ── Realistic browser mockup ───────────────────────────────────────── */
 function BrowserMockup({ children, url }: { children: React.ReactNode; url: string }) {
@@ -32,41 +33,51 @@ function BrowserMockup({ children, url }: { children: React.ReactNode; url: stri
 /* ── Invented business mockups ──────────────────────────────────────── */
 const MOCKUPS = [
   {
-    url: 'www.anseblanchevilla.mu',
+    url: 'www.littleparadise.mu',
     component: (
       <div className="h-56 overflow-hidden">
         {/* Nav */}
-        <div className="bg-[#0a2a1a] px-4 py-2 flex items-center justify-between">
-          <span className="text-white text-[9px] font-black tracking-widest uppercase">Anse Blanche Villa</span>
+        <div className="px-4 py-2.5 flex items-center justify-between" style={{background:'#2C1810'}}>
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 rounded-full bg-[#D4A847] flex items-center justify-center">
+              <span className="text-[#2C1810] text-[7px] font-black">LP</span>
+            </div>
+            <span className="text-[#D4A847] text-[9px] font-black tracking-widest uppercase">Little Paradise</span>
+          </div>
           <div className="flex gap-3">
-            {['Rooms','Gallery','Book'].map(t => (
+            {['Lodge','Gallery','Book'].map(t => (
               <span key={t} className="text-white/60 text-[8px]">{t}</span>
             ))}
           </div>
         </div>
-        {/* Hero */}
-        <div className="relative h-28 overflow-hidden" style={{background:'linear-gradient(180deg,#1a5c35 0%,#0d3d22 100%)'}}>
+        {/* Hero — A-frame lodge */}
+        <div className="relative h-32 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="https://images.unsplash.com/photo-1540202404-1b927e27fa8b?w=600&q=80&auto=format&fit=crop" alt="" className="w-full h-full object-cover opacity-60" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            <p className="text-white/80 text-[8px] tracking-widest uppercase mb-1">Rodrigues Island</p>
-            <h3 className="text-white font-black text-sm leading-tight mb-2">Your Paradise<br/>Awaits</h3>
-            <button className="bg-[#c8a84b] text-[#0a2a1a] text-[8px] font-black px-3 py-1 rounded-full">Book Direct</button>
+          <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=700&q=80&auto=format&fit=crop" alt="" className="w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{background:'linear-gradient(to top, rgba(44,24,16,0.85) 0%, rgba(44,24,16,0.2) 60%, transparent 100%)'}} />
+          <div className="absolute bottom-0 left-0 right-0 px-4 pb-3">
+            <p className="text-[#D4A847] text-[7px] font-bold tracking-widest uppercase mb-0.5">Eco Lodge · Rodrigues</p>
+            <h3 className="text-white font-black text-xs leading-tight">A unique retreat in the heart<br/>of Rodrigues Island</h3>
           </div>
+          <div className="absolute top-2 right-2 bg-[#D4A847] text-[#2C1810] text-[7px] font-black px-2 py-0.5 rounded-full">Book Direct</div>
         </div>
-        {/* Rooms strip */}
-        <div className="bg-white px-3 py-2 flex gap-2">
-          {['Sea View Suite','Garden Bungalow','Family Villa'].map((r, i) => (
-            <div key={i} className="flex-1 bg-gray-50 rounded-lg p-1.5 text-center border border-gray-100">
-              <div className="text-[7px] font-black text-gray-700 leading-tight">{r}</div>
-              <div className="text-[7px] text-[#1a5c35] font-bold mt-0.5">From Rs 4,500</div>
+        {/* Info strip */}
+        <div className="px-3 py-2 flex gap-2" style={{background:'#2C1810'}}>
+          {[
+            {label:'Eco Lodges', val:'From Rs 3,800'},
+            {label:'Free Breakfast', val:'Included'},
+            {label:'Rating', val:'⭐ 4.9 / 5'},
+          ].map((s, i) => (
+            <div key={i} className="flex-1 text-center">
+              <div className="text-[#D4A847] text-[7px] font-black">{s.val}</div>
+              <div className="text-white/50 text-[6px] mt-0.5">{s.label}</div>
             </div>
           ))}
         </div>
       </div>
     ),
-    label: 'Anse Blanche Villa',
-    type: 'Accommodation · Direct Bookings',
+    label: 'Little Paradise Eco Lodge',
+    type: 'Hotel · Direct Bookings',
   },
   {
     url: 'www.lelagonbleu.mu',
@@ -347,17 +358,7 @@ export default function WebsiteDevelopmentPage() {
   return (
     <div className="min-h-screen" style={{ background: '#F8F7FF' }}>
 
-      {/* ── NAVBAR ─────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-sm text-gray-500 hover:text-purple transition-colors font-medium">
-            <ArrowLeft size={16} /> Back to Island Pro Consulting
-          </Link>
-          <a href="#book" className="purple-gradient text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:opacity-90 transition-all shadow-purple hidden sm:block">
-            Book Free Consultation
-          </a>
-        </div>
-      </header>
+      <Navbar />
 
       {/* ── HERO — dark navy, bold ──────────────────────────────────── */}
       <section className="bg-navy relative overflow-hidden pt-20 pb-28">
