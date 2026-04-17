@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 
 const NAV_LINKS = [
-  { label: 'Services',  href: '#services'   },
+  { label: 'Services',  href: '/#services'  },
   { label: 'Rodrigues', href: '/rodrigues'  },
-  { label: 'About',     href: '#about'      },
-  { label: 'Why Us',    href: '#whyus'      },
-  { label: 'Contact',   href: '#contact'    },
+  { label: 'About',     href: '/#about'     },
+  { label: 'Why Us',    href: '/#whyus'     },
+  { label: 'Contact',   href: '/#contact'   },
 ];
 
 export default function Navbar() {
@@ -60,7 +60,7 @@ export default function Navbar() {
               className="flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium transition-colors">
               <Phone size={14} /> +230 5813 7384
             </a>
-            <a href="#contact"
+            <a href="/#contact"
               className="purple-gradient text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple">
               Book a Free Call
             </a>
@@ -85,7 +85,7 @@ export default function Navbar() {
               {l.label === 'Rodrigues' && '📍 '}{l.label}
             </a>
           ))}
-          <a href="#contact" onClick={() => setOpen(false)}
+          <a href="/#contact" onClick={() => setOpen(false)}
             className="block purple-gradient text-white font-bold text-sm px-5 py-3 rounded-xl text-center mt-2">
             Book a Free Call
           </a>
