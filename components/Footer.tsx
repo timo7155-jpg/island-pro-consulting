@@ -2,12 +2,15 @@ import Image from 'next/image';
 import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 const SERVICES_COL = [
-  'Website Development',
-  'Finance Management',
-  'Business Plan Writing',
-  'CV & Cover Letter',
-  'Digital Marketing',
-  'Business Registration',
+  { label: 'Website Development',        href: '/services/website-development' },
+  { label: 'Finance Management',         href: 'https://procashbook.mu' },
+  { label: 'Pro Business Plan',          href: '/services/business-plan' },
+  { label: 'CV & Cover Letter',          href: '/services/cv-cover-letter' },
+  { label: 'Digital Marketing',          href: '/services/digital-marketing' },
+  { label: 'Business Registration',      href: '/services/business-registration' },
+  { label: 'Email Marketing Setup',      href: '/services/email-marketing' },
+  { label: 'Social Media Management',    href: '/services/social-media-management' },
+  { label: 'Grants & Funding',           href: '/services/grants-funding' },
 ];
 
 export default function Footer() {
@@ -52,8 +55,8 @@ export default function Footer() {
             <h4 className="text-white font-black text-sm mb-4">Services</h4>
             <ul className="space-y-2.5">
               {SERVICES_COL.map(s => (
-                <li key={s}>
-                  <a href="#services" className="text-white/40 hover:text-purple-light text-sm transition-colors">{s}</a>
+                <li key={s.label}>
+                  <a href={s.href} className="text-white/40 hover:text-purple-light text-sm transition-colors">{s.label}</a>
                 </li>
               ))}
             </ul>

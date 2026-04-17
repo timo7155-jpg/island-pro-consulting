@@ -1,6 +1,7 @@
 import {
   Globe, BarChart3, FileText, UserCheck,
-  Megaphone, Building2, ArrowRight
+  Megaphone, Building2, ArrowRight,
+  Mail, Share2, Landmark,
 } from 'lucide-react';
 
 const SERVICES = [
@@ -59,8 +60,35 @@ const SERVICES = [
     tagline:  'Start right from day one.',
     desc:     'End-to-end assistance for company registration, MRA business registration, permits, and all the paperwork you need to launch legally.',
     features: ['Company registration', 'MRA registration', 'Permit assistance', 'Fast processing'],
-    accent:   'purple',
+    accent:   'gold',
     href:     '/services/business-registration',
+  },
+  {
+    icon:     Mail,
+    title:    'Email Marketing Setup',
+    tagline:  'Turn your list into revenue.',
+    desc:     'We set up Brevo or Mailchimp, design branded templates, build automated sequences, and manage your campaigns — so every email drives bookings.',
+    features: ['Brevo / Mailchimp setup', 'Automated sequences', 'Bilingual FR/EN', 'Monthly reporting'],
+    accent:   'purple',
+    href:     '/services/email-marketing',
+  },
+  {
+    icon:     Share2,
+    title:    'Social Media Management',
+    tagline:  'Consistent presence. Real results.',
+    desc:     'Monthly content calendar, post scheduling, community management, and analytics for Facebook, Instagram, and TikTok — fully handled.',
+    features: ['Monthly content calendar', 'FB & Instagram & TikTok', 'Community management', 'Monthly analytics'],
+    accent:   'gold',
+    href:     '/services/social-media-management',
+  },
+  {
+    icon:     Landmark,
+    title:    'Grants & Funding Applications',
+    tagline:  'Free money. We find it for you.',
+    desc:     'DBM loans, SMEDA grants, SME Mauritius matching funds, EDB incentives — we identify what you qualify for and write the full application.',
+    features: ['Free eligibility check', 'DBM & SMEDA specialists', 'End-to-end application', 'Rodrigues grants included'],
+    accent:   'purple',
+    href:     '/services/grants-funding',
   },
 ];
 
@@ -77,7 +105,7 @@ export default function Services() {
             Everything your business needs
           </h2>
           <p className="text-navy/60 text-lg max-w-2xl mx-auto">
-            One consulting partner. Seven professional services. All built for Mauritian SMEs.
+            One consulting partner. Ten professional services. All built for Mauritian SMEs.
           </p>
         </div>
 
@@ -158,7 +186,7 @@ export default function Services() {
               <span className="text-purple/40 text-xl font-black">+</span>
             </div>
             <p className="text-navy/40 font-bold text-sm mb-1">More Coming Soon</p>
-            <p className="text-navy/30 text-xs">Training, HR consulting, and more services launching soon.</p>
+            <p className="text-navy/30 text-xs">Bookkeeping, tax filing, and more services launching soon.</p>
           </div>
         </div>
       </div>
