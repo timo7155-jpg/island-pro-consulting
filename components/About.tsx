@@ -39,7 +39,7 @@ export default function About() {
               <span className="purple-text">who&apos;s been there.</span>
             </h2>
             <p className="text-navy/60 leading-relaxed mb-5">
-              Island Pro Consulting was founded by <strong className="text-navy">Timothee Lisette</strong>, a seasoned finance and business consultant based in Mauritius with over a decade of experience helping SMEs grow, comply, and thrive.
+              Island Pro Consulting was founded by <strong className="text-navy">Timothee Lisette</strong> — known as <span className="text-purple font-bold italic">The Coding Banker</span> — a seasoned finance and business consultant based in Mauritius with over a decade of experience helping SMEs grow, comply, and thrive.
             </p>
             <p className="text-navy/60 leading-relaxed mb-8">
               Having managed over Rs 500M in client portfolios and worked across industries from retail to hospitality, Timothee brings real-world expertise to every engagement — combined with cutting-edge digital tools like ProCashbook.
