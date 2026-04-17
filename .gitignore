@@ -36,3 +36,13 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# private / working files — never commit to public repo
+*.sql
+*.pdf
+rodrigues_*.txt
+rodrigues_*.json
+rodrigues_*.tsv
+public/*.pdf
+public/*.sql
+public/screenshot*.png
