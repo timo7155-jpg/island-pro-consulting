@@ -24,6 +24,17 @@ function FounderPhoto() {
       {/* Photo */}
       <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-transparent z-10"
         style={{ boxShadow: '0 0 40px rgba(139,47,232,0.4), 0 0 80px rgba(139,47,232,0.15)' }}>
+        {/* Placeholder shown until founder.jpg is added to /public/ */}
+        <div className="absolute inset-0 flex items-end justify-center"
+          style={{ background: 'linear-gradient(160deg, #1a0f35 0%, #2d1060 50%, #1a0830 100%)' }}>
+          {/* Silhouette */}
+          <svg viewBox="0 0 256 280" className="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="128" cy="95" rx="46" ry="50" fill="rgba(139,47,232,0.35)" />
+            <ellipse cx="128" cy="95" rx="36" ry="40" fill="rgba(139,47,232,0.5)" />
+            <path d="M40 260 C40 180 216 180 216 260" fill="rgba(139,47,232,0.4)" />
+            <path d="M55 260 C55 192 201 192 201 260" fill="rgba(139,47,232,0.55)" />
+          </svg>
+        </div>
         <Image
           src="/founder.jpg"
           alt="Founder — Island Pro Consulting"
