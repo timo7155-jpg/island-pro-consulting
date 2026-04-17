@@ -111,9 +111,10 @@ export default function WebsiteCheckPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          businessId:   b.id,
-          businessName: b.name,
-          location:     b.location ?? '',
+          businessId:    b.id,
+          businessName:  b.name,
+          location:      b.location ?? '',
+          businessEmail: b.email,
         }),
       });
       if (!res.ok) return null;
@@ -396,10 +397,12 @@ export default function WebsiteCheckPage() {
               <AlertCircle size={11} className="inline mr-1.5" />How scanning works
             </div>
             <div className="text-xs space-y-1" style={{ color: '#4b4560' }}>
-              <div>1. Searches Google Maps / Places for the business by name + location</div>
-              <div>2. If a website is found, fetches the page and scores 10 quality signals</div>
-              <div>3. Scores 7-10 → <span style={{ color: '#4ade80' }}>Good</span> · 4-6 → <span style={{ color: '#60a5fa' }}>OK</span> · 1-3 → <span style={{ color: '#fbbf24' }}>Outdated</span> · 0 → <span style={{ color: '#f87171' }}>None</span></div>
-              <div>4. Results saved automatically to database</div>
+              <div>1. Google Maps / Places API lookup by name + location</div>
+              <div>2. Email domain check (custom domain → likely their website)</div>
+              <div>3. URL pattern guessing (slug, -rodrigues, gite-, villa-…)</div>
+              <div>4. Bing / DuckDuckGo web search fallback</div>
+              <div>5. Fetches page and scores 10 quality signals</div>
+              <div>Scores: 7-10 → <span style={{ color: '#4ade80' }}>Good</span> · 4-6 → <span style={{ color: '#60a5fa' }}>OK</span> · 1-3 → <span style={{ color: '#fbbf24' }}>Outdated</span></div>
             </div>
           </div>
           <div className="rounded-xl p-4 flex-1 min-w-[240px]"
