@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const SERVICES_COL = [
   { label: 'Website Development',        href: '/services/website-development' },
@@ -67,10 +67,10 @@ export default function Footer() {
             <h4 className="text-white font-black text-sm mb-4">Products</h4>
             <ul className="space-y-2.5 mb-8">
               <li>
-                <a href="https://procashbook.mu" target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-white/40 hover:text-gold text-sm transition-colors">
-                  ProCashbook <ExternalLink size={11} />
-                </a>
+                <span className="flex items-center gap-2 text-white/25 text-sm cursor-default select-none">
+                  ProCashbook
+                  <span className="text-[9px] font-black bg-gold/15 text-gold/60 px-1.5 py-0.5 rounded-full uppercase tracking-wide">Soon</span>
+                </span>
               </li>
             </ul>
             <h4 className="text-white font-black text-sm mb-4">Legal</h4>

@@ -105,7 +105,7 @@ export default function Services() {
             Everything your business needs
           </h2>
           <p className="text-navy/60 text-lg max-w-2xl mx-auto">
-            One consulting partner. Ten professional services. All built for Mauritian SMEs.
+            One consulting partner. Nine professional services. All built for Mauritian SMEs.
           </p>
         </div>
 
