@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import {
-  ArrowLeft, ArrowRight, Check,
+  ArrowRight, Check,
   Globe, Smartphone, Search, Star,
   Hotel, ShoppingBag, Scissors, Utensils, Briefcase, Camera,
   DollarSign, BarChart3, MessageCircle,
