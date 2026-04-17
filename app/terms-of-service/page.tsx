@@ -26,7 +26,7 @@ export default function TermsOfService() {
           <div className="space-y-10">
 
             <Section title="1. Agreement">
-              <p>By engaging the services of Island Pro Consulting ("we", "us", "our"), you ("the Client") agree to be bound by these Terms of Service. These terms apply to all services provided by Island Pro Consulting, including website development, business plan writing, digital marketing, CV writing, social media management, business registration, and consulting.</p>
+              <p>By engaging the services of Island Pro Consulting (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;), you (&ldquo;the Client&rdquo;) agree to be bound by these Terms of Service. These terms apply to all services provided by Island Pro Consulting, including website development, business plan writing, digital marketing, CV writing, social media management, business registration, and consulting.</p>
             </Section>
 
             <Section title="2. Services">
