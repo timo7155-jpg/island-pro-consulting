@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import {
   ArrowRight, Shield, Clock, ChevronRight, BadgeCheck,
-  BarChart3, Mail, Phone, MessageCircle,
-  TrendingUp, Search, FileText, Building2, RefreshCw,
+  Mail, Phone, MessageCircle,
+  Search, FileText, Building2, RefreshCw,
   Landmark, Award,
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
