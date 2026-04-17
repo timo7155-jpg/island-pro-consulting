@@ -3,7 +3,7 @@ import { Award, Users, MapPin, Mail } from 'lucide-react';
 
 const HIGHLIGHTS = [
   { icon: Award,  text: '10+ years in finance & business consulting'  },
-  { icon: Users,  text: 'Served 120+ SMEs across Mauritius'           },
+  { icon: Users,  text: 'Served 120+ businesses — guesthouses to retailers' },
   { icon: MapPin, text: 'Based in Mauritius, serving the Indian Ocean' },
   { icon: Mail,   text: 'contact@islandproconsulting.mu'               },
 ];
@@ -42,7 +42,7 @@ export default function About() {
               Island Pro Consulting was founded by <strong className="text-navy">Timothee Lisette</strong>, a seasoned finance and business consultant based in Mauritius with over a decade of experience helping SMEs grow, comply, and thrive.
             </p>
             <p className="text-navy/60 leading-relaxed mb-8">
-              Having managed over Rs 500M in client portfolios and worked across industries from retail to tourism, Timothee brings real-world expertise to every engagement — combined with cutting-edge digital tools like ProCashbook.
+              Having managed over Rs 500M in client portfolios and worked across industries from retail to hospitality, Timothee brings real-world expertise to every engagement — combined with cutting-edge digital tools like ProCashbook.
             </p>
 
             <div className="space-y-3 mb-8">

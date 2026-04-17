@@ -5,7 +5,7 @@ const REASONS = [
   { icon: Shield,          title: 'Mauritius Expertise',   desc: 'Deep knowledge of local regulations, MRA requirements, and the Mauritian business landscape.' },
   { icon: HeartHandshake,  title: 'Personal Service',      desc: 'You work directly with the founder — no junior staff, no outsourcing. Dedicated attention on every project.' },
   { icon: Globe,           title: 'Bilingual',             desc: 'Fully bilingual services in English and French to serve all Mauritian businesses.' },
-  { icon: Clock,           title: 'End-to-End Support',    desc: 'From concept to launch and beyond — we support your business at every stage of growth.' },
+  { icon: Clock,           title: 'End-to-End Support',    desc: 'From concept to launch and beyond — we support your business at every stage of growth, from your first enquiry to a full calendar.' },
   { icon: Sparkles,        title: 'AI-Powered Tools',      desc: 'We leverage the latest AI technology through ProCashbook and other digital tools to give you a competitive edge.' },
 ];
 

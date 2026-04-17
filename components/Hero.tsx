@@ -95,7 +95,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-white/60 text-lg leading-relaxed max-w-xl mb-8">
-              From a professional website to a winning business plan — Island Pro Consulting delivers expert services that help Mauritian SMEs compete, grow, and succeed.
+              From a direct booking website to a winning business plan — Island Pro Consulting delivers expert services that help Mauritian businesses attract more guests, grow revenue, and succeed.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-10">
