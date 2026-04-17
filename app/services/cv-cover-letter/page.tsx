@@ -12,6 +12,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Professional CV & Cover Letter | Island Pro Consulting',
   description: 'ATS-optimised CVs and tailored cover letters crafted by professionals. Stand out in Mauritius and beyond. No payment before full satisfaction.',
+  keywords: 'CV writing Mauritius, cover letter Mauritius, ATS CV Mauritius, professional CV Rodrigues, job application Mauritius',
 };
 
 const WHO_FOR = [

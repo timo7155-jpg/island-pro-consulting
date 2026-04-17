@@ -13,6 +13,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Pro Business Plan Writing | Island Pro Consulting',
   description: 'Professionally written, investor-ready business plans tailored for Mauritius. Permit applications, land lease, funding & bank loans. No payment before full satisfaction.',
+  keywords: 'business plan Mauritius, investor business plan, bank loan business plan, land lease business plan Rodrigues, business plan writing Mauritius',
 };
 
 const USE_CASES = [

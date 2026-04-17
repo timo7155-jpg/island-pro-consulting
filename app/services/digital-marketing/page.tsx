@@ -13,6 +13,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Digital Marketing for Mauritius SMEs | Island Pro Consulting',
   description: 'Social media, SEO, Google Ads, and content marketing tailored for Mauritian businesses. Reach more customers, grow your revenue.',
+  keywords: 'digital marketing Mauritius, SEO Mauritius, Google Ads Mauritius, social media marketing Mauritius, digital marketing Rodrigues',
 };
 
 const SERVICES_OFFERED = [

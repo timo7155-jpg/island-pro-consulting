@@ -11,6 +11,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Social Media Management Mauritius | Island Pro Consulting',
   description: 'Professional social media management for Mauritius businesses. Facebook, Instagram & TikTok content creation, scheduling, and community management in French and English.',
+  keywords: 'social media management Mauritius, Facebook management Mauritius, Instagram management Mauritius, content creation Mauritius, TikTok Mauritius',
 };
 
 const SERVICES_OFFERED = [

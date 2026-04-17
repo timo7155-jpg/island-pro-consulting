@@ -12,6 +12,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Grant & Funding Applications Mauritius | Island Pro Consulting',
   description: 'Expert support for government grants, subsidised loans, and tax incentives for Mauritius SMEs. End-to-end application writing and submission — we find what you qualify for.',
+  keywords: 'grants Mauritius, funding SME Mauritius, government grants Mauritius, subsidised loans Mauritius, grants Rodrigues',
 };
 
 const SERVICES_OFFERED = [

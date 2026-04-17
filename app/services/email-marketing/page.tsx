@@ -11,6 +11,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Email Marketing for Mauritius Businesses | Island Pro Consulting',
   description: 'Professional email marketing campaigns for accommodation and tourism businesses in Mauritius. Brevo & Mailchimp setup, automated sequences, and list building.',
+  keywords: 'email marketing Mauritius, Mailchimp Mauritius, Brevo Mauritius, email campaigns Mauritius, newsletter Mauritius',
 };
 
 const SERVICES_OFFERED = [

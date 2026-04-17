@@ -12,6 +12,7 @@ import ContactForm from '@/components/ContactForm';
 export const metadata: Metadata = {
   title: 'Business Registration Mauritius | Island Pro Consulting',
   description: 'End-to-end company registration, MRA registration, permits and licences in Mauritius. We handle the paperwork so you can focus on your business.',
+  keywords: 'business registration Mauritius, company registration Mauritius, MRA registration, business licence Mauritius, start company Mauritius',
 };
 
 const STEPS_WE_HANDLE = [
