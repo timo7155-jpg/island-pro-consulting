@@ -1,6 +1,6 @@
 [
   {
-    "name": "Auberge Anse Aux",
+    "name": "Auberge Anse Aux Anglais (Hotel)",
     "email": "aubergehung@intnet.mu",
     "phone": "8312179",
     "location": "Anse Aux Anglais",
@@ -44,7 +44,7 @@
     "notes": ""
   },
   {
-    "name": "Cotton Bay Resort &",
+    "name": "Cotton Bay Resort & Spa",
     "email": "administration@cottonbay.intnet.mu",
     "phone": "83 18 001 Fax:83 18 003 (Resident",
     "location": "Pte Cotton",
@@ -132,7 +132,7 @@
     "notes": ""
   },
   {
-    "name": "Beau S�jour",
+    "name": "Beau Séjour",
     "email": "jraffaut2021@gmail.com",
     "phone": "83 11 754/59302121",
     "location": "Anse Aux Anglais",
@@ -187,7 +187,7 @@
     "notes": ""
   },
   {
-    "name": "Letan Lontan",
+    "name": "Letan Lontan Kunal 5 495 9393)",
     "email": "ejhuboo@trimetys.com",
     "phone": "83 16 628/483 4091/57290104/(mR",
     "location": "Bassin Gallard",
@@ -355,7 +355,7 @@
     "name": "Lacaze TiMay",
     "email": "lacazetimay@gmail.com",
     "phone": "57038245",
-    "location": "Barclays St,Port Mathurin",
+    "location": "Port Mathurin",
     "type": "Tourist Residence",
     "website_status": "unknown",
     "outreach_status": "pending",
@@ -572,7 +572,7 @@
     "notes": ""
   },
   {
-    "name": "Residence Anse Aux",
+    "name": "Residence Anse Aux Huitres",
     "email": "ginette.ibrahim@hotmail.com",
     "phone": "8311859/Fax:8310645/5 877 4480",
     "location": "Baie Aux Huitres",
@@ -794,7 +794,7 @@
   {
     "name": "Mont Des Oliviers",
     "email": "mtdesoli2510@gmail.com",
-    "phone": "M83r10J0.M69E/5y8n7a5u4d05921520280, Mme Eynaud",
+    "phone": null,
     "location": "Anse Aux Anglais",
     "type": "Tourist Residence",
     "website_status": "unknown",
@@ -817,7 +817,7 @@
     "name": "Mouck's Paradise",
     "email": "chelindominique@gmail.com",
     "phone": "57270491",
-    "location": "Petit Brul�",
+    "location": "Petit Brulé",
     "type": "Tourist Residence",
     "website_status": "unknown",
     "outreach_status": "pending",
@@ -825,7 +825,7 @@
     "notes": ""
   },
   {
-    "name": "Centre Cardinal Jean",
+    "name": "Centre Cardinal Jean Margeot",
     "email": "vicaposrod@hotmail.com",
     "phone": "83 21 537 Fax: 83 21 538 /(57699837",
     "location": "Centre Cardinal Jean Margeot,",
@@ -839,7 +839,7 @@
     "name": "Residence Bethel",
     "email": "augustinvirginie4@gmail.com",
     "phone": "58764073/54962396",
-    "location": "PAollrete MTaatmhaurriinn",
+    "location": "Port Mathurin",
     "type": "Tourist Residence",
     "website_status": "unknown",
     "outreach_status": "pending",
@@ -1375,7 +1375,7 @@
     "notes": ""
   },
   {
-    "name": "Villa D�tente Hackel",
+    "name": "Villa Détente Hackel",
     "email": "jeanmichel@novonotarius.mu",
     "phone": "52526742 / 58364570",
     "location": "Nassola",
@@ -1419,7 +1419,7 @@
     "notes": ""
   },
   {
-    "name": "La Case Cr�ole",
+    "name": "La Case Créole",
     "email": "lacasecreole@gmail.com",
     "phone": "8312343/58767400",
     "location": "Anse Aux Anglais",
@@ -1430,7 +1430,7 @@
     "notes": ""
   },
   {
-    "name": "La Giraudi�re",
+    "name": "La Giraudière",
     "email": "dolainelebrun@hotmail.fr",
     "phone": "8321805/5 745 86 33",
     "location": "Mt Charlot",
@@ -1507,7 +1507,7 @@
     "notes": ""
   },
   {
-    "name": "Mamy Ch�rie",
+    "name": "Mamy Chérie",
     "email": "raffyrodrigues@yahoo.com",
     "phone": "57490565",
     "location": "La Ferme",
@@ -1540,10 +1540,10 @@
     "notes": ""
   },
   {
-    "name": "La Collini�re",
+    "name": "La Collinière",
     "email": "fificolliniere@gmail.com",
     "phone": "8318028/5 875 6824",
-    "location": "Brul�e",
+    "location": "Brulée",
     "type": "Chambre D'Hôtes",
     "website_status": "unknown",
     "outreach_status": "pending",
@@ -1573,7 +1573,7 @@
     "notes": ""
   },
   {
-    "name": "Le Tropical - Chez",
+    "name": "Le Tropical - Chez Jeanette",
     "email": "gilrod2006@yahoo.com",
     "phone": "8315860/57225665",
     "location": "Mt Bois Noir",
@@ -1672,7 +1672,7 @@
     "notes": ""
   },
   {
-    "name": "Societ� Des Filaos",
+    "name": "Societé Des Filaos (Auberge Les Filaos)",
     "email": "58762222",
     "phone": "8311644/8310896/",
     "location": "Anse Aux Anglais",
@@ -1727,7 +1727,7 @@
     "notes": ""
   },
   {
-    "name": "Eden Bay Beachfront &",
+    "name": "Eden Bay Beachfront & Wellness Resorts",
     "email": "resa@edenbayresorts.com",
     "phone": "5321576/59241536",
     "location": "Jean Tac",
@@ -1738,7 +1738,7 @@
     "notes": ""
   },
   {
-    "name": "Domaine D�cid� -",
+    "name": "Domaine Décidé - Auberge St Francois",
     "email": "hello.stfrancois@gmail.com",
     "phone": "8318752/59850975",
     "location": "St Francois",
@@ -1793,7 +1793,7 @@
     "notes": ""
   },
   {
-    "name": "Pointe Des Iles/Oasis",
+    "name": "Pointe Des Iles/Oasis Vacances",
     "email": "aubergehung@intnet.mu",
     "phone": "5 875 0557",
     "location": "Baie Du Nord",
@@ -1826,10 +1826,10 @@
     "notes": ""
   },
   {
-    "name": "Coromandel",
-    "email": "bruno.collard@autempsdantan.mu /",
+    "name": "Au Temps D'Antan",
+    "email": "bruno.collard@autempsdantan.mu",
     "phone": null,
-    "location": "Guest House",
+    "location": "Coromandel",
     "type": "Guest House",
     "website_status": "unknown",
     "outreach_status": "pending",
@@ -1848,7 +1848,7 @@
     "notes": ""
   },
   {
-    "name": "Origin Eco Chalet",
+    "name": "Origin Eco Chalet Rodrigues",
     "email": "eloiseharel@gmail.com",
     "phone": "59428331/59219616/8324959",
     "location": "Vainqueur",
@@ -2057,7 +2057,7 @@
     "notes": ""
   },
   {
-    "name": "Royal Attitude",
+    "name": "Royal Attitude Ismael Sahebally 59016070)",
     "email": "royalattituderod@gmail.com",
     "phone": "258 8603/ 5 8274723/ (Rep by Mr",
     "location": "Port Mathurin",
@@ -2343,7 +2343,7 @@
     "notes": ""
   },
   {
-    "name": "Ciel D'Et�",
+    "name": "Ciel D'Eté",
     "email": "pensioncield'ete@gmail.com",
     "phone": "8311587",
     "location": "Port Mathurin",
