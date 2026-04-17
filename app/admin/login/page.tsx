@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ShieldAlert, Eye, EyeOff } from 'lucide-react';
+import Link from 'next/link';
+import { ShieldAlert, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -135,9 +136,17 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-center text-xs mt-6" style={{ color: '#2e2845' }}>
-          This area is restricted to authorized staff only.
-        </p>
+        <div className="flex items-center justify-between mt-6">
+          <Link href="/"
+            className="flex items-center gap-1.5 text-xs transition-colors hover:opacity-80"
+            style={{ color: '#4b4560' }}>
+            <ArrowLeft size={12} />
+            Back to homepage
+          </Link>
+          <p className="text-xs" style={{ color: '#2e2845' }}>
+            Authorized staff only
+          </p>
+        </div>
       </div>
     </div>
   );
