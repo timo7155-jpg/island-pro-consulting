@@ -11,7 +11,7 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Grant & Funding Applications Mauritius | Island Pro Consulting',
-  description: 'Expert support for DBM loans, SMEDA grants, SME Mauritius funding, and EDB incentives. End-to-end grant application writing and submission for Mauritius SMEs.',
+  description: 'Expert support for government grants, subsidised loans, and tax incentives for Mauritius SMEs. End-to-end application writing and submission — we find what you qualify for.',
 };
 
 const SERVICES_OFFERED = [
@@ -19,7 +19,7 @@ const SERVICES_OFFERED = [
     icon: Search,
     color: 'purple',
     title: 'Funding Eligibility Assessment',
-    desc: 'We review your business profile, age, sector, and financials against every available grant, loan, and incentive scheme to identify exactly what you qualify for — including Rodrigues-specific programmes.',
+    desc: 'We review your business profile, age, sector, and financials against every available grant, loan, and incentive scheme to identify exactly what you qualify for — including programmes specific to Rodrigues.',
     tags: ['Free initial assessment', 'All schemes covered', 'Rodrigues-specific grants'],
   },
   {
@@ -32,22 +32,22 @@ const SERVICES_OFFERED = [
   {
     icon: Landmark,
     color: 'purple',
-    title: 'DBM Loan Applications',
-    desc: 'Development Bank of Mauritius SME loans, working capital facilities, and equipment financing — we prepare the complete application pack and guide you through every stage of the process.',
+    title: 'Development Bank Loans',
+    desc: 'State-backed SME loans, working capital facilities, and equipment financing — we prepare the complete application pack and guide you through every stage of the process.',
     tags: ['SME loans', 'Working capital', 'Equipment financing'],
   },
   {
     icon: Award,
     color: 'gold',
-    title: 'SMEDA & SME Mauritius Grants',
-    desc: 'SMEDA training grants, SME Mauritius matching grants, digitisation subsidies, and productivity improvement schemes — we identify which apply to you and handle the full submission.',
+    title: 'Government Grants & Subsidies',
+    desc: 'Training grants, matching grants, digitisation subsidies, and productivity improvement schemes — we identify which apply to your business and handle the full submission.',
     tags: ['Training grants', 'Matching grants', 'Digitisation subsidies'],
   },
   {
     icon: Building2,
     color: 'purple',
-    title: 'EDB & BOI Incentives',
-    desc: 'Economic Development Board and Board of Investment tax holidays, investment certificates, pioneer status applications, and export incentives — we navigate the process so you capture every available benefit.',
+    title: 'Investment Incentives',
+    desc: 'Tax holidays, investment certificates, pioneer status applications, and export incentives offered through national investment bodies — we navigate the process so you capture every available benefit.',
     tags: ['Tax holidays', 'Investment certificates', 'Export incentives'],
   },
   {
@@ -69,9 +69,9 @@ const PROCESS = [
 /* ── Funding Tracker Mockup ─────────────────────────────────────────── */
 function FundingMockup() {
   const schemes = [
-    { name: 'SME Mauritius Grant',  status: 'Applied',    statusColor: '#22c55e', statusBg: 'rgba(34,197,94,0.15)',  amount: 'Rs 200,000' },
-    { name: 'DBM SME Loan',         status: 'In Review',  statusColor: '#F0B429', statusBg: 'rgba(240,180,41,0.15)', amount: 'Rs 500,000' },
-    { name: 'SMEDA Training Grant', status: 'Eligible',   statusColor: '#60a5fa', statusBg: 'rgba(96,165,250,0.15)', amount: 'Rs 150,000' },
+    { name: 'SME Matching Grant',     status: 'Applied',    statusColor: '#22c55e', statusBg: 'rgba(34,197,94,0.15)',  amount: 'Rs 200,000' },
+    { name: 'Development Bank Loan',  status: 'In Review',  statusColor: '#F0B429', statusBg: 'rgba(240,180,41,0.15)', amount: 'Rs 500,000' },
+    { name: 'Training Subsidy',        status: 'Eligible',   statusColor: '#60a5fa', statusBg: 'rgba(96,165,250,0.15)', amount: 'Rs 150,000' },
   ];
 
   return (
@@ -128,7 +128,7 @@ function FundingMockup() {
       <div className="absolute top-8 -right-4 bg-white rounded-2xl shadow-xl border border-navy/8 px-3 py-2"
         style={{ transform: 'rotate(3deg)' }}>
         <p className="text-[9px] text-navy/40 font-bold leading-none mb-0.5">Potential funding</p>
-        <p className="text-navy font-black text-sm leading-none">Rs 850K potential</p>
+        <p className="text-navy font-black text-sm leading-none">Rs 850K available</p>
       </div>
 
       <div className="absolute bottom-8 -left-4 rounded-2xl shadow-xl px-3 py-2"
@@ -171,7 +171,7 @@ export default function GrantsFundingPage() {
                 <span className="purple-text">Let us do it for you.</span>
               </h1>
               <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-10">
-                The Mauritian government and development banks offer millions in grants, subsidised loans, and tax incentives every year — but most SME owners don&apos;t know where to start. We do.
+                The Mauritian government and public financial institutions offer millions in grants, subsidised loans, and tax incentives every year — but most SME owners don&apos;t know where to start. We do.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
@@ -188,7 +188,7 @@ export default function GrantsFundingPage() {
 
               <div className="flex flex-wrap gap-x-8 gap-y-3 pt-8 border-t border-white/8">
                 {[
-                  { icon: BadgeCheck, text: 'DBM & SMEDA specialists' },
+                  { icon: BadgeCheck, text: 'Government grant specialists' },
                   { icon: ArrowRight, text: 'End-to-end application support' },
                   { icon: Shield,     text: 'No upfront fee' },
                   { icon: Clock,      text: 'Success-based approach' },
@@ -214,10 +214,10 @@ export default function GrantsFundingPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { stat: 'Rs 2B+',    label: 'Available annually through DBM, SMEDA, and SME Mauritius programmes' },
-              { stat: '73%',       label: 'Of eligible SMEs never apply — leaving grants unclaimed' },
-              { stat: 'Up to 50%', label: 'Of project costs covered by SMEDA and SME Mauritius grants' },
-              { stat: 'Rs 10M',    label: 'Maximum DBM SME loan amount for qualifying businesses' },
+              { stat: 'Rs 2B+',    label: 'Available annually through government grants, public loans, and national incentive programmes' },
+              { stat: '73%',       label: 'Of eligible SMEs never apply — leaving grants and subsidies unclaimed each year' },
+              { stat: 'Up to 50%', label: 'Of project costs covered by national SME grant and matching fund schemes' },
+              { stat: 'Rs 10M',    label: 'Maximum state-backed SME loan amount for qualifying businesses' },
             ].map(s => (
               <div key={s.stat}>
                 <p className="text-navy font-black text-2xl lg:text-3xl">{s.stat}</p>
@@ -243,7 +243,7 @@ export default function GrantsFundingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              { stat: 'Rs 2B+',   label: 'In funding available annually — but most goes unclaimed by SMEs who do not know how to apply', color: 'purple' },
+              { stat: 'Rs 2B+',   label: 'In public funding available annually — but most goes unclaimed by SMEs who do not know how to apply', color: 'purple' },
               { stat: '6–12 wks', label: 'Average application processing time — starting early is critical to securing funding before year-end', color: 'gold' },
               { stat: '3×',       label: 'Higher success rate for professionally prepared applications vs self-submitted ones', color: 'purple' },
             ].map((c, i) => (
@@ -349,8 +349,8 @@ export default function GrantsFundingPage() {
           <div className="space-y-4">
             {[
               { q: 'Is this service free?', a: 'The initial eligibility assessment is completely free. For application writing and submission support, we charge a fixed service fee agreed in advance. Some engagements use a success-based model — we always agree on terms before starting any work.' },
-              { q: 'What grants are available in Mauritius right now?', a: 'Key active schemes include: SME Mauritius matching grants (up to Rs 200,000), DBM SME loans (up to Rs 10M), SMEDA training grants, MTPA tourism grants for Rodrigues, and EDB investment certificates. We maintain an updated database of active schemes and will match you to the right ones.' },
-              { q: 'My business is in Rodrigues — does that change what is available?', a: 'Actually it helps. Rodrigues businesses qualify for additional RDCO (Rodrigues Regional Council) development grants and tourism-specific MTPA incentives not available to mainland Mauritius businesses. Being based in Rodrigues is often an advantage.' },
+              { q: 'What types of funding are available in Mauritius?', a: 'There are several active categories: SME matching grants, training and skills subsidies, digitisation incentives, state-backed development loans, investment tax holidays, and sector-specific tourism or export incentives. Rodrigues businesses also qualify for additional regional development programmes. We keep an updated database and will match you to the right ones.' },
+              { q: 'My business is in Rodrigues — does that change what is available?', a: 'It actually helps. Rodrigues-based businesses qualify for additional regional development funding and tourism-specific incentives that are not available to mainland Mauritius businesses. Being based in Rodrigues is often an advantage when applying.' },
               { q: 'How long does an application take?', a: 'Preparation typically takes 1–3 weeks depending on the complexity of the scheme and the documents required. Processing by the funding body then takes 6–12 weeks on average. We advise starting early — especially before the financial year end when budgets are allocated.' },
               { q: 'What are my chances of success?', a: 'Success depends on your business profile, the quality of the application, and the specific scheme. Professionally prepared applications consistently achieve a significantly higher approval rate than self-submitted ones. We will only recommend applying where we believe there is a genuine, strong case.' },
               { q: 'Do I need an accountant or lawyer?', a: 'Not necessarily for most grant applications. We handle the business case and narrative writing. For applications that require audited accounts, legal documents, or formal financial projections, we coordinate with your existing advisors or can recommend trusted partners in Mauritius.' },
@@ -416,10 +416,10 @@ export default function GrantsFundingPage() {
                 dropdownLabel="What are you looking for?"
                 dropdownOptions={[
                   'General funding eligibility check',
-                  'DBM loan application',
-                  'SMEDA / SME Mauritius grant',
-                  'EDB / BOI incentive',
-                  'Rodrigues-specific grants',
+                  'State-backed development loan',
+                  'SME grant or matching fund',
+                  'Investment incentive or tax holiday',
+                  'Rodrigues regional funding',
                   'Not sure — advise me',
                 ]}
                 messagePlaceholder="Tell us about your business — how long have you been operating? How many employees? What project or need would the funding support?"
