@@ -47,7 +47,7 @@ const PROCESS = [
 /* ── Document stack mockup ───────────────────────────────────────────── */
 function DocStackMockup() {
   return (
-    <div className="relative hidden lg:flex items-center justify-center py-12">
+    <div className="relative flex items-center justify-center py-8 lg:py-12">
       <div className="absolute w-[380px] h-[480px] rounded-3xl bg-purple/25 blur-[90px]" />
 
       {/* Back document */}

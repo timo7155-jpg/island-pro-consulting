@@ -80,7 +80,7 @@ const PROCESS = [
 /* ── Phone Mockup with stats ────────────────────────────────────────── */
 function PhoneMockup() {
   return (
-    <div className="relative hidden lg:flex items-center justify-center py-12">
+    <div className="relative flex items-center justify-center py-8 lg:py-12">
       {/* Glow */}
       <div className="absolute w-[380px] h-[520px] rounded-3xl bg-purple/25 blur-[90px]" />
       <div className="absolute w-[280px] h-[440px] bg-black/40 blur-2xl translate-y-8 rounded-3xl" />

@@ -75,7 +75,7 @@ const PROCESS = [
 /* ── Business Plan Cover Image ───────────────────────────────────────── */
 function BPCoverMockup() {
   return (
-    <div className="relative hidden lg:flex items-center justify-center py-12">
+    <div className="relative flex items-center justify-center py-8 lg:py-12">
       {/* Glow behind */}
       <div className="absolute w-[420px] h-[540px] rounded-3xl bg-purple/30 blur-[90px]" />
 
