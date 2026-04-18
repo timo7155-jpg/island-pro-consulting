@@ -104,7 +104,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-10">
-              {[txt.stat1, txt.stat2, txt.stat3].map(b => (
+              {[txt.stat1, txt.stat2, txt.stat3, txt.stat4].map(b => (
                 <div key={b} className="flex items-center gap-1.5 text-white/50 text-sm">
                   <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
                   {b}
