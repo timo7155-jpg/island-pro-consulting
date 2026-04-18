@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+'use client';
+
 import {
   ArrowRight, Shield, Clock, ChevronRight, BadgeCheck,
   BarChart3, Mail, PenTool, Phone, MessageCircle,
@@ -7,79 +8,269 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Lang } from '@/contexts/LanguageContext';
 
-export const metadata: Metadata = {
-  title: 'Social Media Management Mauritius | Island Pro Consulting',
-  description: 'Professional social media management for Mauritius businesses. Facebook, Instagram & TikTok content creation, scheduling, and community management in French and English.',
-  keywords: 'social media management Mauritius, Facebook management Mauritius, Instagram management Mauritius, content creation Mauritius, TikTok Mauritius',
-  openGraph: {
-    title: 'Social Media Management Mauritius | Island Pro Consulting',
-    description: 'Facebook, Instagram & TikTok fully managed for Mauritius businesses. Content, scheduling, community management in FR & EN.',
-    images: [{ url: '/logo.jpg', width: 800, height: 600, alt: 'Social Media Management — Island Pro Consulting' }],
+const T: Record<Lang, {
+  breadcrumbHome: string;
+  breadcrumbServices: string;
+  breadcrumbCurrent: string;
+  badge: string;
+  h1Line1: string;
+  h1Line2: string;
+  heroPara: string;
+  ctaPrimary: string;
+  ctaWhatsApp: string;
+  trust1: string;
+  trust2: string;
+  trust3: string;
+  trust4: string;
+  statsItems: { stat: string; label: string }[];
+  whyItMattersBadge: string;
+  whyH2Line1: string;
+  whyH2Line2: string;
+  whyStats: { stat: string; label: string; color: string }[];
+  whyCallout: string;
+  whyCalloutBold: string;
+  whatWeDoBadge: string;
+  whatWeDoH2Line1: string;
+  whatWeDoH2Line2: string;
+  whatWeDoPara: string;
+  services: { title: string; desc: string; tags: string[] }[];
+  ourProcessBadge: string;
+  ourProcessH2Line1: string;
+  ourProcessH2Line2: string;
+  process: { step: string; title: string; desc: string }[];
+  faqTitle: string;
+  faqs: { q: string; a: string }[];
+  contactBadge: string;
+  contactH2Line1: string;
+  contactH2Line2: string;
+  contactPara: string;
+  contactPhoneLabel: string;
+  contactEmailLabel: string;
+  whatsAppBtn: string;
+  formTitle: string;
+  formDropdownLabel: string;
+  formDropdownOptions: string[];
+  formMessagePlaceholder: string;
+  formSubmitLabel: string;
+}> = {
+  en: {
+    breadcrumbHome: 'Home',
+    breadcrumbServices: 'Services',
+    breadcrumbCurrent: 'Social Media Management',
+    badge: 'Social Media Management',
+    h1Line1: 'Consistent presence',
+    h1Line2: 'builds trust. Trust drives bookings.',
+    heroPara: '859,000 Mauritians are active on social media daily. But showing up inconsistently is worse than not showing up at all. We handle it for you, every single day.',
+    ctaPrimary: 'Get a Free Social Audit',
+    ctaWhatsApp: 'Chat on WhatsApp',
+    trust1: 'Facebook & Instagram managed',
+    trust2: 'Monthly content calendar',
+    trust3: 'Bilingual FR/EN content',
+    trust4: 'No long-term contracts',
+    statsItems: [
+      { stat: '859K', label: 'Mauritians active on social media — 67.7% of the population' },
+      { stat: '4.2%', label: 'Average engagement rate for Mauritian hospitality businesses' },
+      { stat: '71%', label: 'Of purchase decisions are influenced by social media' },
+      { stat: '3×', label: 'More enquiries for businesses with active social profiles vs inactive ones' },
+    ],
+    whyItMattersBadge: 'Why It Matters',
+    whyH2Line1: 'Silence on social media',
+    whyH2Line2: 'costs you bookings.',
+    whyStats: [
+      { stat: '<5%', label: 'Organic reach on Facebook for business pages without a paid strategy — almost no one sees your posts', color: 'purple' },
+      { stat: '78%', label: 'Of people research a business on social before visiting or booking', color: 'gold' },
+      { stat: '60%', label: "Drop in trust when a business's last post is over 3 months old", color: 'purple' },
+    ],
+    whyCallout: 'Your competitors are posting. Your potential guests are scrolling. Every week your page sits silent is a week of missed impressions, missed trust, and',
+    whyCalloutBold: 'missed bookings.',
+    whatWeDoBadge: 'What We Do',
+    whatWeDoH2Line1: 'Full-service social media,',
+    whatWeDoH2Line2: 'done for you.',
+    whatWeDoPara: 'We handle every aspect of your social presence — so you can focus on running your business.',
+    services: [
+      {
+        title: 'Monthly Content Calendar',
+        desc: 'We plan your posts a full month in advance — seasonal themes, local holidays, Rodrigues-specific content, and promotional campaigns mapped out so there are no last-minute scrambles.',
+        tags: ['30-day planning', 'Seasonal themes', 'Holiday promotions'],
+      },
+      {
+        title: 'Content Creation',
+        desc: 'We write every caption, design every graphic, and source or guide the visuals your business needs. Everything is tailored to your brand voice and your audience — not recycled templates.',
+        tags: ['Caption writing', 'Graphic design', 'Bilingual FR/EN'],
+      },
+      {
+        title: 'Post Scheduling & Publishing',
+        desc: 'We schedule and publish at the optimal times for your audience on Facebook, Instagram, and TikTok — so your content reaches people when they are actually scrolling.',
+        tags: ['Facebook & Instagram', 'TikTok', 'Optimal timing'],
+      },
+      {
+        title: 'Community Management',
+        desc: 'We respond to comments and DMs, manage reviews, and maintain a consistent brand voice across every interaction — so your audience feels heard and your reputation stays strong.',
+        tags: ['Comment replies', 'DM management', 'Review responses'],
+      },
+      {
+        title: 'Growth Strategy',
+        desc: 'We research the right hashtags, identify collaboration and cross-promotion opportunities, and apply proven follower growth tactics specifically for the Mauritius and Rodrigues market.',
+        tags: ['Hashtag strategy', 'Account growth', 'Competitor analysis'],
+      },
+      {
+        title: 'Monthly Analytics Report',
+        desc: 'Every month you receive a clear, jargon-free report showing reach, engagement, follower growth, and top-performing content — plus specific recommendations on what to do next.',
+        tags: ['Monthly reporting', 'Engagement tracking', 'Reach & impressions'],
+      },
+    ],
+    ourProcessBadge: 'Our Process',
+    ourProcessH2Line1: 'Strategy first.',
+    ourProcessH2Line2: 'Consistency always.',
+    process: [
+      { step: '01', title: 'Social Audit', desc: 'We review your current profiles, analyse your competitors, and identify exactly where the opportunities are for your audience and sector.' },
+      { step: '02', title: 'Content Strategy', desc: 'We define your brand voice, content pillars, and posting frequency — creating a clear framework before we ever write a single word.' },
+      { step: '03', title: 'Create & Schedule', desc: 'We produce content month by month, schedule posts at optimal times, and manage your community daily so nothing slips through.' },
+      { step: '04', title: 'Report & Refine', desc: 'Monthly performance review with clear numbers. We adjust content themes, timing, and strategy based on what the data tells us.' },
+    ],
+    faqTitle: 'Common questions',
+    faqs: [
+      { q: 'Which platforms do you manage?', a: 'Facebook and Instagram are our core focus for Mauritius. We also manage TikTok for businesses targeting younger audiences. We recommend starting with 1–2 platforms done well rather than spreading thin across every channel.' },
+      { q: 'Do I need to provide photos?', a: 'Not necessarily. We can work with what you have, guide you on taking simple phone photos, or arrange professional photography as an add-on. Many clients get strong results with guided phone photography from day one.' },
+      { q: 'Will the content sound like me?', a: 'Yes. We start with a brand voice session to understand your tone, your values, and your audience before writing a single word. The result should feel like you — just more consistent and polished.' },
+      { q: 'Do you run paid ads too?', a: 'Social media management covers organic (unpaid) content. Paid ads — boosting posts, Meta Ads — are a separate service we offer as an add-on or as part of our Digital Marketing package. We are happy to advise on the right mix.' },
+      { q: 'How do I know it is working?', a: 'Every month you receive a clear report with follower growth, post reach, engagement rate, and top-performing content. No jargon — just clear numbers and specific recommendations for the month ahead.' },
+      { q: 'Can you post in Creole too?', a: 'We currently write in French and English. For Creole captions, we work closely with your input or a local partner to ensure authenticity. Getting the language right matters — we will never publish something that feels off.' },
+    ],
+    contactBadge: 'Free Social Audit',
+    contactH2Line1: "Let's build your",
+    contactH2Line2: 'social presence together.',
+    contactPara: 'A free, no-pressure audit of your current social profiles. We review your content, your competitors, and your audience — and show you exactly what we would do before any commitment.',
+    contactPhoneLabel: 'Phone / WhatsApp',
+    contactEmailLabel: 'Email',
+    whatsAppBtn: 'Chat on WhatsApp',
+    formTitle: 'Get your free social media audit',
+    formDropdownLabel: 'Which platforms?',
+    formDropdownOptions: [
+      'Facebook & Instagram',
+      'TikTok',
+      'All platforms',
+      'Facebook only',
+      'Instagram only',
+      'Not sure — advise me',
+    ],
+    formMessagePlaceholder: "Tell us about your business — what sector are you in? Do you have existing social profiles? What's your main goal (more followers, more bookings, more visibility)?",
+    formSubmitLabel: 'Get My Free Social Media Audit',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Social Media Management Mauritius | Island Pro Consulting',
-    description: 'Facebook, Instagram & TikTok fully managed for Mauritius businesses in French and English.',
-    images: ['/logo.jpg'],
+  fr: {
+    breadcrumbHome: 'Accueil',
+    breadcrumbServices: 'Services',
+    breadcrumbCurrent: 'Gestion des réseaux sociaux',
+    badge: 'Gestion des réseaux sociaux',
+    h1Line1: 'Une présence régulière',
+    h1Line2: 'crée la confiance. La confiance génère des réservations.',
+    heroPara: '859 000 Mauriciens sont actifs sur les réseaux sociaux chaque jour. Mais une présence irrégulière est pire que l\'absence. Nous nous en occupons pour vous, chaque jour sans exception.',
+    ctaPrimary: 'Obtenir un audit social gratuit',
+    ctaWhatsApp: 'Écrire sur WhatsApp',
+    trust1: 'Facebook & Instagram gérés',
+    trust2: 'Calendrier éditorial mensuel',
+    trust3: 'Contenu bilingue FR/EN',
+    trust4: 'Sans engagement à long terme',
+    statsItems: [
+      { stat: '859K', label: 'Mauriciens actifs sur les réseaux sociaux — 67,7 % de la population' },
+      { stat: '4,2 %', label: 'Taux d\'engagement moyen pour les entreprises hôtelières mauriciennes' },
+      { stat: '71 %', label: 'Des décisions d\'achat sont influencées par les réseaux sociaux' },
+      { stat: '3×', label: 'Plus de demandes pour les entreprises avec des profils actifs vs inactifs' },
+    ],
+    whyItMattersBadge: 'Pourquoi c\'est important',
+    whyH2Line1: 'Le silence sur les réseaux sociaux',
+    whyH2Line2: 'vous coûte des réservations.',
+    whyStats: [
+      { stat: '<5 %', label: 'De portée organique sur Facebook pour les pages d\'entreprise sans stratégie payante — presque personne ne voit vos publications', color: 'purple' },
+      { stat: '78 %', label: 'Des personnes recherchent une entreprise sur les réseaux avant de visiter ou de réserver', color: 'gold' },
+      { stat: '60 %', label: 'De perte de confiance lorsque la dernière publication d\'une entreprise date de plus de 3 mois', color: 'purple' },
+    ],
+    whyCallout: 'Vos concurrents publient. Vos clients potentiels font défiler leur fil. Chaque semaine où votre page reste silencieuse est une semaine d\'impressions manquées, de confiance perdue et de',
+    whyCalloutBold: 'réservations perdues.',
+    whatWeDoBadge: 'Ce que nous faisons',
+    whatWeDoH2Line1: 'Gestion complète des réseaux,',
+    whatWeDoH2Line2: 'prise en charge totale.',
+    whatWeDoPara: 'Nous gérons chaque aspect de votre présence sur les réseaux — pour que vous puissiez vous concentrer sur votre activité.',
+    services: [
+      {
+        title: 'Calendrier éditorial mensuel',
+        desc: 'Nous planifions vos publications un mois à l\'avance — thèmes saisonniers, jours fériés locaux, contenu spécifique à Rodrigues et campagnes promotionnelles, pour ne jamais improviser en dernière minute.',
+        tags: ['Planification 30 jours', 'Thèmes saisonniers', 'Promotions de fêtes'],
+      },
+      {
+        title: 'Création de contenu',
+        desc: 'Nous rédigeons chaque légende, concevons chaque visuel et guidons les images dont votre entreprise a besoin. Tout est adapté à votre identité de marque et à votre audience — pas de modèles recyclés.',
+        tags: ['Rédaction de légendes', 'Graphisme', 'Bilingue FR/EN'],
+      },
+      {
+        title: 'Programmation & publication',
+        desc: 'Nous programmons et publions aux horaires optimaux pour votre audience sur Facebook, Instagram et TikTok — pour que votre contenu atteigne les gens au bon moment.',
+        tags: ['Facebook & Instagram', 'TikTok', 'Horaires optimaux'],
+      },
+      {
+        title: 'Community management',
+        desc: 'Nous répondons aux commentaires et messages privés, gérons les avis et maintenons une voix de marque cohérente dans chaque interaction — pour que votre audience se sente écoutée et votre réputation reste solide.',
+        tags: ['Réponses aux commentaires', 'Gestion des DM', 'Réponses aux avis'],
+      },
+      {
+        title: 'Stratégie de croissance',
+        desc: 'Nous recherchons les bons hashtags, identifions les opportunités de collaboration et appliquons des tactiques de croissance de followers éprouvées pour le marché mauricien et rodriguais.',
+        tags: ['Stratégie hashtags', 'Croissance du compte', 'Analyse concurrentielle'],
+      },
+      {
+        title: 'Rapport analytique mensuel',
+        desc: 'Chaque mois, vous recevez un rapport clair et sans jargon montrant la portée, l\'engagement, la croissance des abonnés et le contenu le plus performant — avec des recommandations spécifiques.',
+        tags: ['Rapport mensuel', 'Suivi de l\'engagement', 'Portée & impressions'],
+      },
+    ],
+    ourProcessBadge: 'Notre processus',
+    ourProcessH2Line1: 'La stratégie d\'abord.',
+    ourProcessH2Line2: 'La régularité toujours.',
+    process: [
+      { step: '01', title: 'Audit social', desc: 'Nous examinons vos profils actuels, analysons vos concurrents et identifions précisément les opportunités pour votre audience et votre secteur.' },
+      { step: '02', title: 'Stratégie de contenu', desc: 'Nous définissons votre voix de marque, vos piliers de contenu et votre fréquence de publication — en créant un cadre clair avant d\'écrire le moindre mot.' },
+      { step: '03', title: 'Créer & programmer', desc: 'Nous produisons du contenu mois après mois, programmons les publications aux horaires optimaux et gérons votre communauté quotidiennement.' },
+      { step: '04', title: 'Rapport & affinage', desc: 'Bilan de performance mensuel avec des chiffres clairs. Nous ajustons les thèmes, le timing et la stratégie en fonction de ce que les données nous indiquent.' },
+    ],
+    faqTitle: 'Questions fréquentes',
+    faqs: [
+      { q: 'Quels réseaux gérez-vous ?', a: 'Facebook et Instagram sont notre cœur de métier pour Maurice. Nous gérons aussi TikTok pour les entreprises ciblant un public plus jeune. Nous recommandons de commencer par 1 à 2 plateformes bien gérées plutôt que de se disperser sur tous les canaux.' },
+      { q: 'Dois-je fournir des photos ?', a: 'Pas nécessairement. Nous pouvons travailler avec ce que vous avez, vous guider pour des photos simples avec votre téléphone, ou organiser une séance photo professionnelle en option. Beaucoup de clients obtiennent d\'excellents résultats avec des photos guidées dès le premier jour.' },
+      { q: 'Le contenu ressemblera-t-il à ce que je ferais ?', a: 'Oui. Nous commençons par une session sur votre voix de marque pour comprendre votre ton, vos valeurs et votre audience avant d\'écrire le moindre mot. Le résultat doit vous ressembler — juste plus régulier et soigné.' },
+      { q: 'Gérez-vous aussi les publicités payantes ?', a: 'La gestion des réseaux sociaux couvre le contenu organique (non payant). Les publicités payantes — boosts de publications, Meta Ads — sont un service distinct proposé en option ou dans notre forfait Marketing Digital. Nous sommes heureux de vous conseiller sur la bonne combinaison.' },
+      { q: 'Comment saurai-je si ça fonctionne ?', a: 'Chaque mois, vous recevez un rapport clair avec la croissance des abonnés, la portée des publications, le taux d\'engagement et le contenu le plus performant. Pas de jargon — juste des chiffres clairs et des recommandations spécifiques.' },
+      { q: 'Pouvez-vous publier en créole aussi ?', a: 'Nous rédigeons actuellement en français et en anglais. Pour les légendes en créole, nous travaillons en étroite collaboration avec vos suggestions ou un partenaire local pour garantir l\'authenticité. La justesse de la langue est essentielle — nous ne publierons jamais quelque chose qui sonne faux.' },
+    ],
+    contactBadge: 'Audit social gratuit',
+    contactH2Line1: 'Construisons ensemble',
+    contactH2Line2: 'votre présence sur les réseaux.',
+    contactPara: 'Un audit gratuit et sans pression de vos profils actuels. Nous examinons votre contenu, vos concurrents et votre audience — et vous montrons exactement ce que nous ferions avant tout engagement.',
+    contactPhoneLabel: 'Téléphone / WhatsApp',
+    contactEmailLabel: 'E-mail',
+    whatsAppBtn: 'Écrire sur WhatsApp',
+    formTitle: 'Obtenez votre audit réseaux sociaux gratuit',
+    formDropdownLabel: 'Quels réseaux ?',
+    formDropdownOptions: [
+      'Facebook & Instagram',
+      'TikTok',
+      'Tous les réseaux',
+      'Facebook uniquement',
+      'Instagram uniquement',
+      'Je ne sais pas — conseillez-moi',
+    ],
+    formMessagePlaceholder: 'Parlez-nous de votre activité — dans quel secteur êtes-vous ? Avez-vous déjà des profils sur les réseaux ? Quel est votre objectif principal (plus d\'abonnés, plus de réservations, plus de visibilité) ?',
+    formSubmitLabel: 'Obtenir mon audit réseaux sociaux gratuit',
   },
 };
 
-const SERVICES_OFFERED = [
-  {
-    icon: Calendar,
-    color: 'purple',
-    title: 'Monthly Content Calendar',
-    desc: 'We plan your posts a full month in advance — seasonal themes, local holidays, Rodrigues-specific content, and promotional campaigns mapped out so there are no last-minute scrambles.',
-    tags: ['30-day planning', 'Seasonal themes', 'Holiday promotions'],
-  },
-  {
-    icon: PenTool,
-    color: 'gold',
-    title: 'Content Creation',
-    desc: 'We write every caption, design every graphic, and source or guide the visuals your business needs. Everything is tailored to your brand voice and your audience — not recycled templates.',
-    tags: ['Caption writing', 'Graphic design', 'Bilingual FR/EN'],
-  },
-  {
-    icon: Share2,
-    color: 'purple',
-    title: 'Post Scheduling & Publishing',
-    desc: 'We schedule and publish at the optimal times for your audience on Facebook, Instagram, and TikTok — so your content reaches people when they are actually scrolling.',
-    tags: ['Facebook & Instagram', 'TikTok', 'Optimal timing'],
-  },
-  {
-    icon: MessageCircle,
-    color: 'gold',
-    title: 'Community Management',
-    desc: 'We respond to comments and DMs, manage reviews, and maintain a consistent brand voice across every interaction — so your audience feels heard and your reputation stays strong.',
-    tags: ['Comment replies', 'DM management', 'Review responses'],
-  },
-  {
-    icon: TrendingUp,
-    color: 'purple',
-    title: 'Growth Strategy',
-    desc: 'We research the right hashtags, identify collaboration and cross-promotion opportunities, and apply proven follower growth tactics specifically for the Mauritius and Rodrigues market.',
-    tags: ['Hashtag strategy', 'Account growth', 'Competitor analysis'],
-  },
-  {
-    icon: BarChart3,
-    color: 'gold',
-    title: 'Monthly Analytics Report',
-    desc: 'Every month you receive a clear, jargon-free report showing reach, engagement, follower growth, and top-performing content — plus specific recommendations on what to do next.',
-    tags: ['Monthly reporting', 'Engagement tracking', 'Reach & impressions'],
-  },
-];
-
-const PROCESS = [
-  { step: '01', title: 'Social Audit',      desc: 'We review your current profiles, analyse your competitors, and identify exactly where the opportunities are for your audience and sector.' },
-  { step: '02', title: 'Content Strategy',  desc: 'We define your brand voice, content pillars, and posting frequency — creating a clear framework before we ever write a single word.' },
-  { step: '03', title: 'Create & Schedule', desc: 'We produce content month by month, schedule posts at optimal times, and manage your community daily so nothing slips through.' },
-  { step: '04', title: 'Report & Refine',   desc: 'Monthly performance review with clear numbers. We adjust content themes, timing, and strategy based on what the data tells us.' },
-];
+const SERVICES_ICONS = [Calendar, PenTool, Share2, MessageCircle, TrendingUp, BarChart3];
+const SERVICES_COLORS = ['purple', 'gold', 'purple', 'gold', 'purple', 'gold'];
 
 /* ── Social Media Content Calendar Mockup ──────────────────────────── */
 function SocialMockup() {
-  // 9 thumbnail cells in a 3x3 grid with varied purple/gold fills
   const thumbColors = [
     'linear-gradient(135deg,#8B2FE8,#C040F0)',
     'linear-gradient(135deg,#F0B429,#D99F20)',
@@ -113,7 +304,6 @@ function SocialMockup() {
           <div className="grid grid-cols-3 gap-1">
             {thumbColors.map((bg, i) => (
               <div key={i} className="rounded-lg" style={{ height: '62px', background: bg, position: 'relative', overflow: 'hidden' }}>
-                {/* subtle pattern overlay */}
                 <div style={{
                   position: 'absolute', inset: 0,
                   backgroundImage: i % 3 === 0
@@ -159,6 +349,9 @@ function SocialMockup() {
 }
 
 export default function SocialMediaManagementPage() {
+  const { lang } = useLanguage();
+  const txt = T[lang];
+
   return (
     <>
     <Navbar />
@@ -171,45 +364,44 @@ export default function SocialMediaManagementPage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-4">
           <nav className="flex items-center gap-2 text-white/30 text-xs mb-12">
-            <a href="/" className="hover:text-white/60 transition-colors">Home</a>
+            <a href="/" className="hover:text-white/60 transition-colors">{txt.breadcrumbHome}</a>
             <ChevronRight size={12} />
-            <a href="/#services" className="hover:text-white/60 transition-colors">Services</a>
+            <a href="/#services" className="hover:text-white/60 transition-colors">{txt.breadcrumbServices}</a>
             <ChevronRight size={12} />
-            <span className="text-purple-light">Social Media Management</span>
+            <span className="text-purple-light">{txt.breadcrumbCurrent}</span>
           </nav>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center pb-14">
             <div>
               <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-6">
-                <Share2 size={12} /> Social Media Management
+                <Share2 size={12} /> {txt.badge}
               </div>
               <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-6">
-                Consistent presence<br />
-                builds trust.{' '}
-                <span className="purple-text">Trust drives bookings.</span>
+                {txt.h1Line1}<br />
+                <span className="purple-text">{txt.h1Line2}</span>
               </h1>
               <p className="text-white/60 text-base lg:text-lg leading-relaxed mb-10">
-                859,000 Mauritians are active on social media daily. But showing up inconsistently is worse than not showing up at all. We handle it for you, every single day.
+                {txt.heroPara}
               </p>
 
               <div className="flex flex-wrap gap-4 mb-12">
                 <a href="#contact"
                   className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all shadow-purple">
-                  Get a Free Social Audit <ArrowRight size={16} />
+                  {txt.ctaPrimary} <ArrowRight size={16} />
                 </a>
                 <a href="https://wa.me/23058137384?text=Hello%2C%20I%20am%20interested%20in%20social%20media%20management."
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all">
-                  <MessageCircle size={16} /> Chat on WhatsApp
+                  <MessageCircle size={16} /> {txt.ctaWhatsApp}
                 </a>
               </div>
 
               <div className="flex flex-wrap gap-x-8 gap-y-3 pt-8 border-t border-white/8">
                 {[
-                  { icon: BadgeCheck, text: 'Facebook & Instagram managed' },
-                  { icon: Calendar,   text: 'Monthly content calendar' },
-                  { icon: Clock,      text: 'Bilingual FR/EN content' },
-                  { icon: Shield,     text: 'No long-term contracts' },
+                  { icon: BadgeCheck, text: txt.trust1 },
+                  { icon: Calendar,   text: txt.trust2 },
+                  { icon: Clock,      text: txt.trust3 },
+                  { icon: Shield,     text: txt.trust4 },
                 ].map(t => {
                   const Icon = t.icon;
                   return (
@@ -231,12 +423,7 @@ export default function SocialMediaManagementPage() {
       <section className="bg-gold py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-            {[
-              { stat: '859K', label: 'Mauritians active on social media — 67.7% of the population' },
-              { stat: '4.2%', label: 'Average engagement rate for Mauritian hospitality businesses' },
-              { stat: '71%',  label: 'Of purchase decisions are influenced by social media' },
-              { stat: '3×',   label: 'More enquiries for businesses with active social profiles vs inactive ones' },
-            ].map(s => (
+            {txt.statsItems.map(s => (
               <div key={s.stat}>
                 <p className="text-navy font-black text-2xl lg:text-3xl">{s.stat}</p>
                 <p className="text-navy/70 text-xs leading-snug mt-1">{s.label}</p>
@@ -251,20 +438,16 @@ export default function SocialMediaManagementPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/30 text-purple font-bold text-xs px-4 py-2 rounded-full mb-4">
-              Why It Matters
+              {txt.whyItMattersBadge}
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tight mb-4">
-              Silence on social media<br />
-              <span className="purple-text">costs you bookings.</span>
+              {txt.whyH2Line1}<br />
+              <span className="purple-text">{txt.whyH2Line2}</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {[
-              { stat: '<5%',  label: 'Organic reach on Facebook for business pages without a paid strategy — almost no one sees your posts', color: 'purple' },
-              { stat: '78%',  label: 'Of people research a business on social before visiting or booking', color: 'gold' },
-              { stat: '60%',  label: 'Drop in trust when a business\'s last post is over 3 months old', color: 'purple' },
-            ].map((c, i) => (
+            {txt.whyStats.map((c, i) => (
               <div key={i} className={`rounded-3xl p-8 text-center ${c.color === 'purple' ? 'bg-purple/8 border border-purple/15' : 'bg-gold/8 border border-gold/20'}`}>
                 <p className={`font-black text-4xl mb-3 ${c.color === 'purple' ? 'text-purple' : 'text-gold-dark'}`}>{c.stat}</p>
                 <p className="text-navy/65 text-sm leading-relaxed">{c.label}</p>
@@ -274,8 +457,8 @@ export default function SocialMediaManagementPage() {
 
           <div className="bg-navy rounded-3xl p-8 lg:p-10 text-center">
             <p className="text-white/70 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
-              Your competitors are posting. Your potential guests are scrolling. Every week your page sits silent is a week of missed impressions, missed trust, and{' '}
-              <span className="text-white font-semibold">missed bookings.</span>
+              {txt.whyCallout}{' '}
+              <span className="text-white font-semibold">{txt.whyCalloutBold}</span>
             </p>
           </div>
         </div>
@@ -289,21 +472,21 @@ export default function SocialMediaManagementPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-4">
-              What We Do
+              {txt.whatWeDoBadge}
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-4">
-              Full-service social media,<br />
-              <span className="purple-text">done for you.</span>
+              {txt.whatWeDoH2Line1}<br />
+              <span className="purple-text">{txt.whatWeDoH2Line2}</span>
             </h2>
             <p className="text-white/50 text-lg max-w-xl mx-auto">
-              We handle every aspect of your social presence — so you can focus on running your business.
+              {txt.whatWeDoPara}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {SERVICES_OFFERED.map((s, i) => {
-              const Icon = s.icon;
-              const isPurple = s.color === 'purple';
+            {txt.services.map((s, i) => {
+              const Icon = SERVICES_ICONS[i];
+              const isPurple = SERVICES_COLORS[i] === 'purple';
               return (
                 <div key={i}
                   className="group bg-white/5 border border-white/8 rounded-2xl p-6 hover:bg-white/8 hover:border-purple/30 transition-all">
@@ -333,16 +516,16 @@ export default function SocialMediaManagementPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/30 text-purple font-bold text-xs px-4 py-2 rounded-full mb-4">
-              Our Process
+              {txt.ourProcessBadge}
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tight mb-4">
-              Strategy first.<br />
-              <span className="purple-text">Consistency always.</span>
+              {txt.ourProcessH2Line1}<br />
+              <span className="purple-text">{txt.ourProcessH2Line2}</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROCESS.map((p, i) => (
+            {txt.process.map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-navy/8 p-6 hover:border-purple/20 hover:-translate-y-0.5 transition-all">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl purple-gradient flex items-center justify-center flex-shrink-0">
@@ -362,17 +545,10 @@ export default function SocialMediaManagementPage() {
       <section className="py-24 bg-cream">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-black text-navy tracking-tight">Common questions</h2>
+            <h2 className="text-3xl font-black text-navy tracking-tight">{txt.faqTitle}</h2>
           </div>
           <div className="space-y-4">
-            {[
-              { q: 'Which platforms do you manage?', a: 'Facebook and Instagram are our core focus for Mauritius. We also manage TikTok for businesses targeting younger audiences. We recommend starting with 1–2 platforms done well rather than spreading thin across every channel.' },
-              { q: 'Do I need to provide photos?', a: 'Not necessarily. We can work with what you have, guide you on taking simple phone photos, or arrange professional photography as an add-on. Many clients get strong results with guided phone photography from day one.' },
-              { q: 'Will the content sound like me?', a: 'Yes. We start with a brand voice session to understand your tone, your values, and your audience before writing a single word. The result should feel like you — just more consistent and polished.' },
-              { q: 'Do you run paid ads too?', a: 'Social media management covers organic (unpaid) content. Paid ads — boosting posts, Meta Ads — are a separate service we offer as an add-on or as part of our Digital Marketing package. We are happy to advise on the right mix.' },
-              { q: 'How do I know it is working?', a: 'Every month you receive a clear report with follower growth, post reach, engagement rate, and top-performing content. No jargon — just clear numbers and specific recommendations for the month ahead.' },
-              { q: 'Can you post in Creole too?', a: 'We currently write in French and English. For Creole captions, we work closely with your input or a local partner to ensure authenticity. Getting the language right matters — we will never publish something that feels off.' },
-            ].map((faq, i) => (
+            {txt.faqs.map((faq, i) => (
               <div key={i} className="bg-white rounded-2xl border border-navy/8 p-6">
                 <h4 className="text-navy font-black text-sm mb-2 flex items-start gap-2">
                   <span className="text-purple mt-0.5 flex-shrink-0">Q</span>
@@ -392,19 +568,19 @@ export default function SocialMediaManagementPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-6">
-                Free Social Audit
+                {txt.contactBadge}
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight mb-5">
-                Let&apos;s build your<br />
-                <span className="purple-text">social presence together.</span>
+                {txt.contactH2Line1}<br />
+                <span className="purple-text">{txt.contactH2Line2}</span>
               </h2>
               <p className="text-white/55 leading-relaxed mb-10">
-                A free, no-pressure audit of your current social profiles. We review your content, your competitors, and your audience — and show you exactly what we would do before any commitment.
+                {txt.contactPara}
               </p>
               <div className="space-y-5 mb-8">
                 {[
-                  { icon: Phone, label: 'Phone / WhatsApp', value: '+230 5813 7384', href: 'https://wa.me/23058137384' },
-                  { icon: Mail,  label: 'Email',            value: 'contact@islandproconsulting.mu', href: 'mailto:contact@islandproconsulting.mu' },
+                  { icon: Phone, label: txt.contactPhoneLabel, value: '+230 5813 7384', href: 'https://wa.me/23058137384' },
+                  { icon: Mail,  label: txt.contactEmailLabel, value: 'contact@islandproconsulting.mu', href: 'mailto:contact@islandproconsulting.mu' },
                 ].map(c => {
                   const Icon = c.icon;
                   return (
@@ -423,25 +599,18 @@ export default function SocialMediaManagementPage() {
               <a href="https://wa.me/23058137384?text=Hello%2C%20I%20am%20interested%20in%20social%20media%20management."
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:opacity-90 transition-all">
-                <MessageCircle size={16} /> Chat on WhatsApp
+                <MessageCircle size={16} /> {txt.whatsAppBtn}
               </a>
             </div>
 
             <div className="bg-white rounded-3xl p-8 shadow-card">
-              <h3 className="text-lg font-black text-navy mb-6">Get your free social media audit</h3>
+              <h3 className="text-lg font-black text-navy mb-6">{txt.formTitle}</h3>
               <ContactForm
                 service="Social Media Management"
-                dropdownLabel="Which platforms?"
-                dropdownOptions={[
-                  'Facebook & Instagram',
-                  'TikTok',
-                  'All platforms',
-                  'Facebook only',
-                  'Instagram only',
-                  'Not sure — advise me',
-                ]}
-                messagePlaceholder="Tell us about your business — what sector are you in? Do you have existing social profiles? What's your main goal (more followers, more bookings, more visibility)?"
-                submitLabel="Get My Free Social Media Audit"
+                dropdownLabel={txt.formDropdownLabel}
+                dropdownOptions={txt.formDropdownOptions}
+                messagePlaceholder={txt.formMessagePlaceholder}
+                submitLabel={txt.formSubmitLabel}
               />
             </div>
           </div>
