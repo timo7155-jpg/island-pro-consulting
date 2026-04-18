@@ -7,17 +7,27 @@ import {
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/lib/translations';
 
-const SERVICE_META = [
+interface ServiceMeta {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  icon: any;
+  accent: 'purple' | 'gold';
+  badge?: string;
+  href: string;
+  external?: boolean;
+  underConstruction?: boolean;
+}
+
+const SERVICE_META: ServiceMeta[] = [
   { icon: Globe,     accent: 'purple', badge: 'Most Popular', href: '/services/website-development' },
   { icon: BarChart3, accent: 'gold',   badge: 'SaaS Product', href: 'https://procashbook.mu', external: true, underConstruction: true },
-  { icon: FileText,  accent: 'purple', badge: undefined,      href: '/services/business-plan' },
-  { icon: UserCheck, accent: 'gold',   badge: undefined,      href: '/services/cv-cover-letter' },
-  { icon: Megaphone, accent: 'purple', badge: undefined,      href: '/services/digital-marketing' },
-  { icon: Building2, accent: 'gold',   badge: undefined,      href: '/services/business-registration' },
-  { icon: Mail,      accent: 'purple', badge: undefined,      href: '/services/email-marketing' },
-  { icon: Share2,    accent: 'gold',   badge: undefined,      href: '/services/social-media-management' },
-  { icon: Landmark,  accent: 'purple', badge: undefined,      href: '/services/grants-funding' },
-] as const;
+  { icon: FileText,  accent: 'purple', href: '/services/business-plan' },
+  { icon: UserCheck, accent: 'gold',   href: '/services/cv-cover-letter' },
+  { icon: Megaphone, accent: 'purple', href: '/services/digital-marketing' },
+  { icon: Building2, accent: 'gold',   href: '/services/business-registration' },
+  { icon: Mail,      accent: 'purple', href: '/services/email-marketing' },
+  { icon: Share2,    accent: 'gold',   href: '/services/social-media-management' },
+  { icon: Landmark,  accent: 'purple', href: '/services/grants-funding' },
+];
 
 export default function Services() {
   const { lang } = useLanguage();
