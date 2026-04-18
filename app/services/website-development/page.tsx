@@ -9,6 +9,236 @@ import {
 } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import Navbar from '@/components/Navbar';
+import { useLanguage, Lang } from '@/contexts/LanguageContext';
+
+/* ── Translations ───────────────────────────────────────────────────── */
+const T: Record<Lang, {
+  heroBadge: string;
+  heroH1a: string;
+  heroH1b: string;
+  heroPara: string;
+  ctaBook: string;
+  ctaShowcase: string;
+  stats: { v: string; l: string }[];
+  whyBadge: string;
+  whyH2: string;
+  whyReasons: { title: string; desc: string }[];
+  showcaseBadge: string;
+  showcaseH2a: string;
+  showcaseH2b: string;
+  showcaseSub: string;
+  serveBadge: string;
+  serveSub: string;
+  targets: { label: string; desc: string }[];
+  includedBadge: string;
+  includedH2a: string;
+  includedH2b: string;
+  includedPara: string;
+  includedCards: { title: string; desc: string }[];
+  whatWeDeliver: string[];
+  contactBadge: string;
+  contactH2: string;
+  contactPara: string;
+  contactDirect: string;
+  contactWa: string;
+  dropdownLabel: string;
+  dropdownOptions: string[];
+  messagePlaceholder: string;
+  submitLabel: string;
+  backLink: string;
+}> = {
+  en: {
+    heroBadge: 'Website Development · Mauritius & Rodrigues',
+    heroH1a: 'Your business,',
+    heroH1b: 'beautifully online.',
+    heroPara: 'We design and build fast, modern websites that turn visitors into customers — and give your guests a direct way to reach you, any time of day.',
+    ctaBook: 'Book a Free Call',
+    ctaShowcase: 'See Examples',
+    stats: [
+      { v: '5–10 days',    l: 'delivery time' },
+      { v: 'Mobile-first', l: 'every project' },
+      { v: 'Bilingual',    l: 'EN + FR available' },
+      { v: '30 days',      l: 'free support after launch' },
+    ],
+    whyBadge: 'Why It Matters',
+    whyH2: '6 reasons your business needs a website right now',
+    whyReasons: [
+      { title: 'Enable direct bookings',      desc: 'Give your guests a simple way to book directly with you, with no platform in between.' },
+      { title: 'Own your guest relationship', desc: 'Build your contact list, send offers, and encourage guests to come back — on your terms.' },
+      { title: 'Be found on Google',          desc: 'A professional website with SEO puts you in front of people actively searching for you.' },
+      { title: 'Build your brand',            desc: 'Your story, your photos, your personality. Guests book experiences — not anonymous listings.' },
+      { title: 'Open 24/7, on any device',    desc: 'Your website works while you sleep — fast-loading on phones, tablets, and laptops alike.' },
+      { title: 'Credibility that converts',   desc: 'In 2026, a professional website is expected. It signals that your business is serious.' },
+    ],
+    showcaseBadge: 'Website Showcase',
+    showcaseH2a: 'What your website',
+    showcaseH2b: 'could look like',
+    showcaseSub: 'Every site is custom-designed for your business. Here are examples across different industries — all invented for illustration.',
+    serveBadge: 'Built for every business in Mauritius & Rodrigues',
+    serveSub: 'If you serve customers, you deserve a beautiful online presence.',
+    targets: [
+      { label: 'Guesthouses & Villas',   desc: 'Showcase your rooms, amenities, and take direct reservations.' },
+      { label: 'Restaurants & Cafes',    desc: 'Online menu, opening hours, table reservations — all in one place.' },
+      { label: 'Tourism & Activities',   desc: 'Dive centres, hiking tours, fishing trips. Book directly online.' },
+      { label: 'Beauty & Wellness',      desc: 'Salons, spas, clinics. Online appointment booking, 24/7.' },
+      { label: 'Retail & E-commerce',    desc: 'Sell your products online across Mauritius and beyond.' },
+      { label: 'Services & Consultants', desc: 'Any professional service needs a credible, modern online presence.' },
+    ],
+    includedBadge: "What's Included",
+    includedH2a: 'Everything you need.',
+    includedH2b: "Nothing you don't.",
+    includedPara: 'We handle everything from design to launch. No technical knowledge needed on your side.',
+    includedCards: [
+      { title: 'Custom Design',  desc: 'Unique to your brand — not a template' },
+      { title: 'Fast Delivery',  desc: '5–10 days from brief to launch' },
+      { title: 'SEO Ready',      desc: 'Built to rank on Google from day one' },
+      { title: '30-day Support', desc: 'Free adjustments after launch' },
+    ],
+    whatWeDeliver: [
+      'Custom design — built around your brand',
+      'Mobile-first, fast-loading',
+      'SEO optimised from day one',
+      'Direct booking / enquiry form',
+      'Google Maps integration',
+      'WhatsApp chat button',
+      'Social media links',
+      'Photo gallery',
+      'Bilingual (EN + FR) on request',
+      'Delivered in 5–10 business days',
+      'Free minor revisions for 30 days',
+      'Hosting guidance included',
+    ],
+    contactBadge: 'Zero Commitment',
+    contactH2: 'Book a free 20-minute call',
+    contactPara: "Tell us about your business. We'll listen, answer your questions, and give you an honest picture of what a website can do for you. No pressure, no invoice.",
+    contactDirect: 'Prefer to reach out directly?',
+    contactWa: 'WhatsApp us now',
+    dropdownLabel: 'Type of website',
+    dropdownOptions: [
+      'Hotel / Guesthouse / B&B',
+      'Villa / Self-catering',
+      'Restaurant / Food Business',
+      'Tour & Activity Operator',
+      'Retail / E-commerce Shop',
+      'Professional Services',
+      'Portfolio / Personal Brand',
+      'Other',
+    ],
+    messagePlaceholder: 'Tell us about your business and what you need...',
+    submitLabel: 'Book My Free Call',
+    backLink: '← Back to Island Pro Consulting',
+  },
+  fr: {
+    heroBadge: 'Création de Sites Web · Maurice & Rodrigues',
+    heroH1a: 'Votre entreprise,',
+    heroH1b: 'magnifiquement en ligne.',
+    heroPara: 'Nous concevons et construisons des sites web rapides et modernes qui transforment les visiteurs en clients — et donnent à vos clients un moyen direct de vous contacter, à toute heure.',
+    ctaBook: 'Appel gratuit',
+    ctaShowcase: 'Voir des exemples',
+    stats: [
+      { v: '5–10 jours',   l: 'délai de livraison' },
+      { v: 'Mobile-first', l: 'chaque projet' },
+      { v: 'Bilingue',     l: 'EN + FR disponible' },
+      { v: '30 jours',     l: 'support gratuit après lancement' },
+    ],
+    whyBadge: "Pourquoi c'est essentiel",
+    whyH2: "6 raisons pour lesquelles votre entreprise a besoin d'un site maintenant",
+    whyReasons: [
+      { title: 'Activez les réservations directes',  desc: 'Offrez à vos clients un moyen simple de réserver directement chez vous, sans intermédiaire.' },
+      { title: 'Maîtrisez votre relation client',    desc: 'Constituez votre liste de contacts, envoyez des offres et fidélisez vos clients — selon vos propres conditions.' },
+      { title: 'Soyez trouvé sur Google',            desc: 'Un site professionnel avec SEO vous place devant les personnes qui vous recherchent activement.' },
+      { title: 'Construisez votre marque',           desc: 'Votre histoire, vos photos, votre personnalité. Les clients réservent des expériences — pas des listings anonymes.' },
+      { title: "Ouvert 24h/24, sur tout appareil",  desc: 'Votre site travaille pendant que vous dormez — rapide sur les téléphones, tablettes et ordinateurs.' },
+      { title: 'Crédibilité qui convertit',          desc: 'En 2026, un site professionnel est attendu. Il signale que votre entreprise est sérieuse.' },
+    ],
+    showcaseBadge: 'Vitrine de Sites',
+    showcaseH2a: 'À quoi pourrait ressembler',
+    showcaseH2b: 'votre site web',
+    showcaseSub: "Chaque site est conçu sur mesure pour votre entreprise. Voici des exemples dans différents secteurs — tous inventés pour illustration.",
+    serveBadge: 'Conçu pour toutes les entreprises de Maurice & Rodrigues',
+    serveSub: 'Si vous servez des clients, vous méritez une belle présence en ligne.',
+    targets: [
+      { label: "Chambres d'hôtes & Villas",        desc: 'Présentez vos chambres, équipements et acceptez des réservations directes.' },
+      { label: 'Restaurants & Cafés',              desc: 'Menu en ligne, horaires, réservations de tables — tout en un seul endroit.' },
+      { label: 'Tourisme & Activités',             desc: 'Centres de plongée, randonnées, sorties pêche. Réservez directement en ligne.' },
+      { label: 'Beauté & Bien-être',               desc: 'Salons, spas, cliniques. Prise de rendez-vous en ligne, 24h/24.' },
+      { label: 'Commerce & E-commerce',            desc: 'Vendez vos produits en ligne à travers Maurice et au-delà.' },
+      { label: 'Services & Consultants',           desc: 'Tout service professionnel mérite une présence en ligne moderne et crédible.' },
+    ],
+    includedBadge: 'Ce qui est inclus',
+    includedH2a: 'Tout ce dont vous avez besoin.',
+    includedH2b: 'Rien de superflu.',
+    includedPara: 'Nous gérons tout, de la conception au lancement. Aucune connaissance technique requise de votre côté.',
+    includedCards: [
+      { title: 'Design Personnalisé', desc: 'Unique à votre marque — pas un modèle' },
+      { title: 'Livraison Rapide',    desc: '5–10 jours du brief au lancement' },
+      { title: 'SEO Optimisé',        desc: 'Conçu pour être trouvé sur Google dès le premier jour' },
+      { title: 'Support 30 jours',    desc: 'Ajustements gratuits après le lancement' },
+    ],
+    whatWeDeliver: [
+      'Design personnalisé — adapté à votre marque',
+      'Mobile-first, chargement rapide',
+      'SEO optimisé dès le départ',
+      'Formulaire de réservation / contact direct',
+      'Intégration Google Maps',
+      'Bouton WhatsApp',
+      'Liens réseaux sociaux',
+      'Galerie photos',
+      'Bilingue (EN + FR) sur demande',
+      'Livré en 5–10 jours ouvrables',
+      'Révisions mineures gratuites pendant 30 jours',
+      'Conseils hébergement inclus',
+    ],
+    contactBadge: 'Aucun engagement',
+    contactH2: 'Réservez un appel gratuit de 20 minutes',
+    contactPara: "Parlez-nous de votre entreprise. Nous vous écouterons, répondrons à vos questions et vous donnerons une vision honnête de ce qu'un site web peut faire pour vous. Pas de pression, pas de facture.",
+    contactDirect: 'Vous préférez nous contacter directement ?',
+    contactWa: 'Écrivez-nous sur WhatsApp',
+    dropdownLabel: 'Type de site web',
+    dropdownOptions: [
+      "Hôtel / Chambre d'hôtes / B&B",
+      'Villa / Location saisonnière',
+      'Restaurant / Activité alimentaire',
+      'Opérateur touristique & activités',
+      'Commerce / E-commerce',
+      'Services professionnels',
+      'Portfolio / Marque personnelle',
+      'Autre',
+    ],
+    messagePlaceholder: 'Parlez-nous de votre entreprise et de vos besoins...',
+    submitLabel: 'Réserver mon appel gratuit',
+    backLink: '← Retour à Island Pro Consulting',
+  },
+};
+
+/* ── Static meta for WHY_REASONS (icon, stat, statLabel, bg, iconColor, statColor) ── */
+const WHY_REASONS_META = [
+  { icon: DollarSign, stat: '0%',   statLabel: 'commission on direct bookings',      bg: 'bg-purple/8',   iconColor: 'text-purple',       statColor: 'purple-text' },
+  { icon: Users,      stat: '100%', statLabel: 'of guest data stays yours',           bg: 'bg-gold/8',     iconColor: 'text-gold-dark',    statColor: 'gold-text' },
+  { icon: Search,     stat: '3.5B', statLabel: 'Google searches per day',             bg: 'bg-blue-50',    iconColor: 'text-blue-600',     statColor: 'text-blue-600' },
+  { icon: TrendingUp, stat: '80%',  statLabel: 'of travelers research online first',  bg: 'bg-emerald-50', iconColor: 'text-emerald-600',  statColor: 'text-emerald-600' },
+  { icon: Smartphone, stat: '60%',  statLabel: 'of web traffic is mobile',            bg: 'bg-orange-50',  iconColor: 'text-orange-500',   statColor: 'text-orange-500' },
+  { icon: BarChart3,  stat: '75%',  statLabel: 'judge credibility by website',        bg: 'bg-pink-50',    iconColor: 'text-pink-600',     statColor: 'text-pink-600' },
+];
+
+/* ── Static meta for TARGETS (icon) ── */
+const TARGETS_META = [
+  { icon: Hotel       },
+  { icon: Utensils    },
+  { icon: Camera      },
+  { icon: Scissors    },
+  { icon: ShoppingBag },
+  { icon: Briefcase   },
+];
+
+/* ── Static icons for includedCards ── */
+const INCLUDED_ICONS = [Palette, Zap, Shield, Clock];
+const INCLUDED_COLORS = [
+  'bg-purple/20 text-purple-light',
+  'bg-gold/15 text-gold',
+  'bg-blue-500/15 text-blue-400',
+  'bg-emerald-500/15 text-emerald-400',
+];
 
 /* ── Realistic browser mockup ───────────────────────────────────────── */
 function BrowserMockup({ children, url }: { children: React.ReactNode; url: string }) {
@@ -321,40 +551,10 @@ const MOCKUPS = [
   },
 ];
 
-const WHY_REASONS = [
-  { icon: DollarSign, title: 'Enable direct bookings',     desc: 'Give your guests a simple way to book directly with you, with no platform in between.',      stat: '0%',   statLabel: 'commission on direct bookings', bg: 'bg-purple/8',   iconColor: 'text-purple',   statColor: 'purple-text' },
-  { icon: Users,      title: 'Own your guest relationship', desc: 'Build your contact list, send offers, and encourage guests to come back — on your terms.',  stat: '100%', statLabel: 'of guest data stays yours',      bg: 'bg-gold/8',     iconColor: 'text-gold-dark', statColor: 'gold-text'   },
-  { icon: Search,     title: 'Be found on Google',          desc: 'A professional website with SEO puts you in front of people actively searching for you.',    stat: '3.5B', statLabel: 'Google searches per day',        bg: 'bg-blue-50',    iconColor: 'text-blue-600', statColor: 'text-blue-600' },
-  { icon: TrendingUp, title: 'Build your brand',            desc: 'Your story, your photos, your personality. Guests book experiences — not anonymous listings.', stat: '80%',  statLabel: 'of travelers research online first', bg: 'bg-emerald-50', iconColor: 'text-emerald-600', statColor: 'text-emerald-600' },
-  { icon: Smartphone, title: 'Open 24/7, on any device',    desc: 'Your website works while you sleep — fast-loading on phones, tablets, and laptops alike.',   stat: '60%',  statLabel: 'of web traffic is mobile',       bg: 'bg-orange-50',  iconColor: 'text-orange-500', statColor: 'text-orange-500' },
-  { icon: BarChart3,  title: 'Credibility that converts',   desc: 'In 2026, a professional website is expected. It signals that your business is serious.',     stat: '75%',  statLabel: 'judge credibility by website',   bg: 'bg-pink-50',    iconColor: 'text-pink-600', statColor: 'text-pink-600' },
-];
-
-const TARGETS = [
-  { icon: Hotel,       label: 'Guesthouses & Villas',   desc: 'Showcase your rooms, amenities, and take direct reservations.' },
-  { icon: Utensils,    label: 'Restaurants & Cafes',    desc: 'Online menu, opening hours, table reservations — all in one place.' },
-  { icon: Camera,      label: 'Tourism & Activities',   desc: 'Dive centres, hiking tours, fishing trips. Book directly online.' },
-  { icon: Scissors,    label: 'Beauty & Wellness',      desc: 'Salons, spas, clinics. Online appointment booking, 24/7.' },
-  { icon: ShoppingBag, label: 'Retail & E-commerce',    desc: 'Sell your products online across Mauritius and beyond.' },
-  { icon: Briefcase,   label: 'Services & Consultants', desc: 'Any professional service needs a credible, modern online presence.' },
-];
-
-const WHAT_WE_DELIVER = [
-  'Custom design — built around your brand',
-  'Mobile-first, fast-loading',
-  'SEO optimised from day one',
-  'Direct booking / enquiry form',
-  'Google Maps integration',
-  'WhatsApp chat button',
-  'Social media links',
-  'Photo gallery',
-  'Bilingual (EN + FR) on request',
-  'Delivered in 5–10 business days',
-  'Free minor revisions for 30 days',
-  'Hosting guidance included',
-];
-
 export default function WebsiteDevelopmentPage() {
+  const { lang } = useLanguage();
+  const txt = T[lang];
+
   return (
     <div className="min-h-screen" style={{ background: '#F8F7FF' }}>
 
@@ -371,32 +571,27 @@ export default function WebsiteDevelopmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light text-xs font-bold px-4 py-2 rounded-full mb-8">
-              <Globe size={12} /> Website Development · Mauritius & Rodrigues
+              <Globe size={12} /> {txt.heroBadge}
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.02] tracking-tight mb-6">
-              Your business,<br />
-              <span className="purple-text">beautifully online.</span>
+              {txt.heroH1a}<br />
+              <span className="purple-text">{txt.heroH1b}</span>
             </h1>
             <p className="text-white/60 text-xl leading-relaxed max-w-2xl mb-10">
-              We design and build fast, modern websites that turn visitors into customers — and give your guests a direct way to reach you, any time of day.
+              {txt.heroPara}
             </p>
             <div className="flex flex-wrap gap-4 mb-14">
               <a href="#book" className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all shadow-purple text-sm">
-                Book a Free Call <ArrowRight size={16} />
+                {txt.ctaBook} <ArrowRight size={16} />
               </a>
               <a href="#showcase" className="inline-flex items-center gap-2 border border-white/20 text-white font-bold px-7 py-4 rounded-xl hover:border-gold/50 hover:text-gold transition-all text-sm">
-                See Examples
+                {txt.ctaShowcase}
               </a>
             </div>
 
             {/* Stats row */}
             <div className="flex flex-wrap gap-8">
-              {[
-                { v: '5–10 days', l: 'delivery time'         },
-                { v: 'Mobile-first', l: 'every project'      },
-                { v: 'Bilingual', l: 'EN + FR available'     },
-                { v: '30 days', l: 'free support after launch'},
-              ].map(s => (
+              {txt.stats.map(s => (
                 <div key={s.l}>
                   <div className="text-lg font-black gold-text">{s.v}</div>
                   <div className="text-white/40 text-xs">{s.l}</div>
@@ -412,16 +607,21 @@ export default function WebsiteDevelopmentPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/25 text-purple font-bold text-xs px-4 py-2 rounded-full mb-4">
-              Why It Matters
+              {txt.whyBadge}
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tight mb-3">
-              6 reasons your business<br />needs a website <span className="purple-text">right now</span>
+              {txt.whyH2.split(' right now').length > 1 ? (
+                <>{txt.whyH2.replace(' right now', '')}<span className="purple-text"> right now</span></>
+              ) : (
+                txt.whyH2
+              )}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {WHY_REASONS.map((r, i) => {
+            {WHY_REASONS_META.map((r, i) => {
               const Icon = r.icon;
+              const texts = txt.whyReasons[i];
               return (
                 <div key={i} className={`${r.bg} rounded-3xl p-6 border border-white hover:shadow-card transition-all group`}>
                   <div className="flex items-start justify-between mb-5">
@@ -433,8 +633,8 @@ export default function WebsiteDevelopmentPage() {
                       <div className="text-[9px] text-gray-400 leading-tight max-w-[80px]">{r.statLabel}</div>
                     </div>
                   </div>
-                  <h3 className="font-black text-navy text-sm mb-2">{r.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{r.desc}</p>
+                  <h3 className="font-black text-navy text-sm mb-2">{texts.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{texts.desc}</p>
                 </div>
               );
             })}
@@ -448,14 +648,14 @@ export default function WebsiteDevelopmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold font-bold text-xs px-4 py-2 rounded-full mb-4">
-              Website Showcase
+              {txt.showcaseBadge}
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-3">
-              What your website<br />
-              <span className="gold-text">could look like</span>
+              {txt.showcaseH2a}<br />
+              <span className="gold-text">{txt.showcaseH2b}</span>
             </h2>
             <p className="text-white/50 max-w-xl mx-auto">
-              Every site is custom-designed for your business. Here are examples across different industries — all invented for illustration.
+              {txt.showcaseSub}
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -480,22 +680,23 @@ export default function WebsiteDevelopmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-3">
-              Built for every business<br />in Mauritius &amp; Rodrigues
+              {txt.serveBadge}
             </h2>
             <p className="text-white/70 max-w-xl mx-auto">
-              If you serve customers, you deserve a beautiful online presence.
+              {txt.serveSub}
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {TARGETS.map((t, i) => {
+            {TARGETS_META.map((t, i) => {
               const Icon = t.icon;
+              const texts = txt.targets[i];
               return (
                 <div key={i} className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-5 hover:bg-white/15 transition-all group">
                   <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center mb-3 group-hover:bg-white/25 transition-colors">
                     <Icon size={20} className="text-white" />
                   </div>
-                  <h3 className="font-black text-white text-sm mb-1">{t.label}</h3>
-                  <p className="text-white/60 text-xs leading-relaxed">{t.desc}</p>
+                  <h3 className="font-black text-white text-sm mb-1">{texts.label}</h3>
+                  <p className="text-white/60 text-xs leading-relaxed">{texts.desc}</p>
                 </div>
               );
             })}
@@ -509,17 +710,17 @@ export default function WebsiteDevelopmentPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-gold/15 border border-gold/30 text-gold font-bold text-xs px-4 py-2 rounded-full mb-6">
-                What&apos;s Included
+                {txt.includedBadge}
               </div>
               <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tight mb-5">
-                Everything you need.<br />
-                <span className="gold-text">Nothing you don&apos;t.</span>
+                {txt.includedH2a}<br />
+                <span className="gold-text">{txt.includedH2b}</span>
               </h2>
               <p className="text-white/60 leading-relaxed mb-8">
-                We handle everything from design to launch. No technical knowledge needed on your side.
+                {txt.includedPara}
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {WHAT_WE_DELIVER.map(item => (
+                {txt.whatWeDeliver.map(item => (
                   <div key={item} className="flex items-center gap-2.5 text-sm text-white/70">
                     <div className="w-5 h-5 rounded-full bg-purple/20 flex items-center justify-center flex-shrink-0">
                       <Check size={11} className="text-purple-light" />
@@ -530,16 +731,11 @@ export default function WebsiteDevelopmentPage() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Palette, title: 'Custom Design',  desc: 'Unique to your brand — not a template', color: 'bg-purple/20 text-purple-light' },
-                { icon: Zap,     title: 'Fast Delivery',  desc: '5–10 days from brief to launch',          color: 'bg-gold/15 text-gold'         },
-                { icon: Shield,  title: 'SEO Ready',      desc: 'Built to rank on Google from day one',     color: 'bg-blue-500/15 text-blue-400' },
-                { icon: Clock,   title: '30-day Support', desc: 'Free adjustments after launch',             color: 'bg-emerald-500/15 text-emerald-400' },
-              ].map(c => {
-                const Icon = c.icon;
+              {txt.includedCards.map((c, i) => {
+                const Icon = INCLUDED_ICONS[i];
                 return (
                   <div key={c.title} className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 transition-all">
-                    <div className={`w-10 h-10 rounded-xl ${c.color} flex items-center justify-center mb-3`}>
+                    <div className={`w-10 h-10 rounded-xl ${INCLUDED_COLORS[i]} flex items-center justify-center mb-3`}>
                       <Icon size={18} />
                     </div>
                     <h3 className="text-white font-black text-sm mb-1">{c.title}</h3>
@@ -557,32 +753,32 @@ export default function WebsiteDevelopmentPage() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/25 text-purple font-bold text-xs px-4 py-2 rounded-full mb-4">
-              Zero Commitment
+              {txt.contactBadge}
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-navy tracking-tight mb-3">
-              Book a free 20-minute call
+              {txt.contactH2}
             </h2>
             <p className="text-gray-500 max-w-lg mx-auto">
-              Tell us about your business. We&apos;ll listen, answer your questions, and give you an honest picture of what a website can do for you. No pressure, no invoice.
+              {txt.contactPara}
             </p>
           </div>
 
           <div className="bg-white rounded-3xl border border-navy/8 shadow-card p-8 lg:p-10 max-w-2xl mx-auto">
             <ContactForm
               service="Website Development"
-              dropdownLabel="Type of website"
-              dropdownOptions={['Hotel / Guesthouse / B&B','Villa / Self-catering','Restaurant / Food Business','Tour & Activity Operator','Retail / E-commerce Shop','Professional Services','Portfolio / Personal Brand','Other']}
-              messagePlaceholder="Tell us about your business and what you need..."
-              submitLabel="Book My Free Call"
+              dropdownLabel={txt.dropdownLabel}
+              dropdownOptions={txt.dropdownOptions}
+              messagePlaceholder={txt.messagePlaceholder}
+              submitLabel={txt.submitLabel}
             />
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-gray-400 text-sm mb-3">Prefer to reach out directly?</p>
+            <p className="text-gray-400 text-sm mb-3">{txt.contactDirect}</p>
             <a href="https://wa.me/23058137384?text=Hello!+I+am+interested+in+a+website+for+my+business."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#25D366] text-white font-bold text-sm px-6 py-3 rounded-xl hover:opacity-90 transition-all">
-              <MessageCircle size={16} /> WhatsApp us now
+              <MessageCircle size={16} /> {txt.contactWa}
             </a>
           </div>
         </div>
@@ -591,7 +787,7 @@ export default function WebsiteDevelopmentPage() {
       {/* ── FOOTER ─────────────────────────────────────────────────── */}
       <div className="bg-navy py-8 text-center border-t border-white/8">
         <Link href="/" className="text-white/40 hover:text-gold text-sm transition-colors">
-          &larr; Back to Island Pro Consulting
+          {txt.backLink}
         </Link>
         <p className="text-white/20 text-xs mt-2">&copy; 2026 Island Pro Consulting · Mauritius</p>
       </div>

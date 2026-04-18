@@ -331,18 +331,6 @@ function FundingMockup() {
         </div>
       </div>
 
-      {/* Floating chips */}
-      <div className="absolute top-8 -right-4 bg-white rounded-2xl shadow-xl border border-navy/8 px-3 py-2"
-        style={{ transform: 'rotate(3deg)' }}>
-        <p className="text-[9px] text-navy/40 font-bold leading-none mb-0.5">Potential funding</p>
-        <p className="text-navy font-black text-sm leading-none">Rs 850K available</p>
-      </div>
-
-      <div className="absolute bottom-8 -left-4 rounded-2xl shadow-xl px-3 py-2"
-        style={{ background: '#F0B429', transform: 'rotate(-3deg)' }}>
-        <p className="text-[9px] text-navy font-black leading-none mb-0.5">Active schemes</p>
-        <p className="text-navy font-bold text-sm leading-none">3 open schemes</p>
-      </div>
     </div>
   );
 }
