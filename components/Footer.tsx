@@ -1,19 +1,13 @@
+'use client';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
-
-const SERVICES_COL = [
-  { label: 'Website Development',        href: '/services/website-development' },
-  { label: 'Finance Management',         href: 'https://procashbook.mu' },
-  { label: 'Pro Business Plan',          href: '/services/business-plan' },
-  { label: 'CV & Cover Letter',          href: '/services/cv-cover-letter' },
-  { label: 'Digital Marketing',          href: '/services/digital-marketing' },
-  { label: 'Business Registration',      href: '/services/business-registration' },
-  { label: 'Email Marketing Setup',      href: '/services/email-marketing' },
-  { label: 'Social Media Management',    href: '/services/social-media-management' },
-  { label: 'Grants & Funding',           href: '/services/grants-funding' },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const txt = translations[lang].footer;
+
   return (
     <footer className="border-t border-white/8" style={{ background: 'linear-gradient(160deg, #100720 0%, #0A0415 60%, #06030F 100%)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
@@ -30,7 +24,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-6">
-              Professional business consulting services for Mauritian SMEs. From websites to financial management — we help you grow smarter.
+              {txt.tagline}
             </p>
             <div className="space-y-2.5">
               {[
@@ -52,10 +46,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-black text-sm mb-4">Services</h4>
+            <h4 className="text-white font-black text-sm mb-4">{txt.services}</h4>
             <ul className="space-y-2.5">
-              {SERVICES_COL.map(s => (
-                <li key={s.label}>
+              {txt.serviceLinks.map(s => (
+                <li key={s.href}>
                   <a href={s.href} className="text-white/40 hover:text-purple-light text-sm transition-colors">{s.label}</a>
                 </li>
               ))}
@@ -64,7 +58,7 @@ export default function Footer() {
 
           {/* Products & Legal */}
           <div>
-            <h4 className="text-white font-black text-sm mb-4">Products</h4>
+            <h4 className="text-white font-black text-sm mb-4">{txt.products}</h4>
             <ul className="space-y-2.5 mb-8">
               <li>
                 <span className="flex items-center gap-2 text-white/25 text-sm cursor-default select-none">
@@ -73,25 +67,19 @@ export default function Footer() {
                 </span>
               </li>
             </ul>
-            <h4 className="text-white font-black text-sm mb-4">Legal</h4>
+            <h4 className="text-white font-black text-sm mb-4">{txt.legal}</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: 'Privacy Policy',   href: '/privacy-policy'   },
-                { label: 'Terms of Service', href: '/terms-of-service' },
-              ].map(l => (
-                <li key={l.label}>
-                  <a href={l.href} className="text-white/40 hover:text-purple-light text-sm transition-colors">{l.label}</a>
-                </li>
-              ))}
+              <li><a href="/privacy-policy"   className="text-white/40 hover:text-purple-light text-sm transition-colors">{txt.privacy}</a></li>
+              <li><a href="/terms-of-service" className="text-white/40 hover:text-purple-light text-sm transition-colors">{txt.terms}</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom */}
         <div className="border-t border-white/8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs">&copy; 2026 Island Pro Consulting. All rights reserved.</p>
+          <p className="text-white/30 text-xs">{txt.copyright}</p>
           <div className="flex items-center gap-4">
-            <p className="text-white/20 text-xs">Made with care in Mauritius 🇲🇺</p>
+            <p className="text-white/20 text-xs">{txt.madeWith}</p>
             <a href="/admin" className="text-white/10 hover:text-white/25 text-xs transition-colors">Admin</a>
           </div>
         </div>

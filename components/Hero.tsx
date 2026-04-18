@@ -1,5 +1,8 @@
+'use client';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 /* ── Founder photo ──────────────────────────────────────────────────────── */
 function FounderPhoto() {
@@ -65,6 +68,9 @@ function FounderPhoto() {
 }
 
 export default function Hero() {
+  const { lang } = useLanguage();
+  const txt = translations[lang].hero;
+
   return (
     <section className="relative min-h-screen bg-navy overflow-hidden flex items-center">
       {/* Background blobs */}
@@ -80,28 +86,25 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-0 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
           {/* Left — text (below photo on mobile, left on desktop) */}
           <div className="order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light text-xs font-bold px-4 py-2 rounded-full mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-light animate-pulse" />
-              Mauritius-based Business Consulting
+              {txt.badge}
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight mb-6">
-              Grow your business<br />
-              <span className="purple-text">the smart way.</span>
+              {txt.h1Line1}<br />
+              <span className="purple-text">{txt.h1Line2}</span>
             </h1>
 
             <p className="text-white/60 text-lg leading-relaxed max-w-xl mb-8">
-              From a direct booking website to a winning business plan — Island Pro Consulting delivers expert services that help Mauritian businesses attract more guests, grow revenue, and succeed.
+              {txt.desc}
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-10">
-              {[
-                'Rs 500M+ Managed',
-                '10+ Years Experience',
-                'Mauritius & Indian Ocean',
-              ].map(b => (
+              {[txt.stat1, txt.stat2, txt.stat3].map(b => (
                 <div key={b} className="flex items-center gap-1.5 text-white/50 text-sm">
                   <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
                   {b}
@@ -110,13 +113,13 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <a href="#services"
+              <a href="/#services"
                 className="inline-flex items-center gap-2 purple-gradient text-white font-bold px-7 py-4 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple text-sm">
-                Explore Services <ArrowRight size={16} />
+                {txt.cta1} <ArrowRight size={16} />
               </a>
-              <a href="#contact"
+              <a href="/#contact"
                 className="inline-flex items-center gap-2 border border-white/20 text-white font-bold px-7 py-4 rounded-xl hover:border-gold/60 hover:text-gold transition-all text-sm">
-                Talk to Us
+                {txt.cta2}
               </a>
             </div>
 
@@ -124,7 +127,7 @@ export default function Hero() {
             <a href="/rodrigues"
               className="mt-6 inline-flex items-center gap-2 bg-gold/10 border border-gold/25 hover:border-gold/50 text-gold text-xs font-bold px-4 py-2.5 rounded-full transition-all hover:bg-gold/15">
               <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-              Based in Rodrigues — in-person meetings available
+              {txt.rodriguesBadge}
             </a>
           </div>
 

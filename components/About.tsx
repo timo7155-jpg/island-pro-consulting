@@ -1,14 +1,20 @@
+'use client';
 import Image from 'next/image';
 import { Award, Users, MapPin, Mail } from 'lucide-react';
-
-const HIGHLIGHTS = [
-  { icon: Award,  text: '10+ years in finance & business consulting'  },
-  { icon: Users,  text: 'Served 120+ businesses — guesthouses to retailers' },
-  { icon: MapPin, text: 'Based in Mauritius, serving the Indian Ocean' },
-  { icon: Mail,   text: 'contact@islandproconsulting.mu'               },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function About() {
+  const { lang } = useLanguage();
+  const txt = translations[lang].about;
+
+  const HIGHLIGHTS = [
+    { icon: Award,  text: txt.hl1 },
+    { icon: Users,  text: txt.hl2 },
+    { icon: MapPin, text: txt.hl3 },
+    { icon: Mail,   text: txt.hl4 },
+  ];
+
   return (
     <section id="about" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -32,17 +38,17 @@ export default function About() {
           {/* Right — content */}
           <div>
             <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/30 text-purple font-bold text-xs px-4 py-2 rounded-full mb-6">
-              About the Founder
+              {txt.badge}
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tight leading-tight mb-5">
-              Built by a consultant<br />
-              <span className="purple-text">who&apos;s been there.</span>
+              {txt.h2Line1}<br />
+              <span className="purple-text">{txt.h2Line2}</span>
             </h2>
             <p className="text-navy/60 leading-relaxed mb-5">
-              Island Pro Consulting was founded by <strong className="text-navy">Timothee Lisette</strong> — known as <span className="text-purple font-bold italic">The Coding Banker</span> — a seasoned finance and business consultant based in Mauritius with over a decade of experience helping SMEs grow, comply, and thrive.
+              {txt.p1} <strong className="text-navy">{txt.founderName}</strong> — {lang === 'en' ? 'known as' : 'connu sous le nom de'} <span className="text-purple font-bold italic">{txt.nickname}</span> {txt.p1rest}
             </p>
             <p className="text-navy/60 leading-relaxed mb-8">
-              Having managed over Rs 500M in client portfolios and worked across industries from retail to hospitality, Timothee brings real-world expertise to every engagement — combined with cutting-edge digital tools like ProCashbook.
+              {txt.p2}
             </p>
 
             <div className="space-y-3 mb-8">
@@ -59,9 +65,9 @@ export default function About() {
               })}
             </div>
 
-            <a href="#contact"
+            <a href="/#contact"
               className="inline-flex items-center gap-2 purple-gradient text-white font-bold text-sm px-6 py-3.5 rounded-xl hover:opacity-90 transition-all shadow-purple">
-              Work with Timothee
+              {txt.cta}
             </a>
           </div>
         </div>

@@ -1,15 +1,14 @@
+'use client';
 import { Zap, Shield, HeartHandshake, Globe, Clock, Sparkles } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
-const REASONS = [
-  { icon: Zap,             title: 'Fast Turnaround',       desc: 'We deliver on time. Most projects completed within 48-72 hours, with urgent options available.' },
-  { icon: Shield,          title: 'Mauritius Expertise',   desc: 'Deep knowledge of local regulations, MRA requirements, and the Mauritian business landscape.' },
-  { icon: HeartHandshake,  title: 'Personal Service',      desc: 'You work directly with the founder — no junior staff, no outsourcing. Dedicated attention on every project.' },
-  { icon: Globe,           title: 'Bilingual',             desc: 'Fully bilingual services in English and French to serve all Mauritian businesses.' },
-  { icon: Clock,           title: 'End-to-End Support',    desc: 'From concept to launch and beyond — we support your business at every stage of growth, from your first enquiry to a full calendar.' },
-  { icon: Sparkles,        title: 'AI-Powered Tools',      desc: 'We leverage the latest AI technology through ProCashbook and other digital tools to give you a competitive edge.' },
-];
+const ICONS = [Zap, Shield, HeartHandshake, Globe, Clock, Sparkles];
 
 export default function WhyUs() {
+  const { lang } = useLanguage();
+  const txt = translations[lang].whyUs;
+
   return (
     <section id="whyus" className="py-24 lg:py-32 bg-navy relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-purple/15 blur-[120px] pointer-events-none" />
@@ -18,20 +17,20 @@ export default function WhyUs() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light font-bold text-xs px-4 py-2 rounded-full mb-4">
-            Why Island Pro Consulting
+            {txt.badge}
           </div>
           <h2 className="text-3xl lg:text-5xl font-black text-white tracking-tight mb-4">
-            The difference is in<br />
-            <span className="purple-text">the details.</span>
+            {txt.h2Line1}<br />
+            <span className="purple-text">{txt.h2Line2}</span>
           </h2>
           <p className="text-white/50 text-lg max-w-xl mx-auto">
-            We are not a faceless agency. We are a partner invested in your success.
+            {txt.sub}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {REASONS.map((r, i) => {
-            const Icon = r.icon;
+          {txt.reasons.map((r, i) => {
+            const Icon = ICONS[i];
             const useGold = i % 2 !== 0;
             return (
               <div key={i}

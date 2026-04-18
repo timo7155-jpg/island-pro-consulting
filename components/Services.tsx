@@ -1,111 +1,43 @@
+'use client';
 import {
   Globe, BarChart3, FileText, UserCheck,
   Megaphone, Building2, ArrowRight,
   Mail, Share2, Landmark,
 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
-const SERVICES = [
-  {
-    icon:     Globe,
-    title:    'Website Development',
-    tagline:  'Your digital presence, perfected.',
-    desc:     'Modern, fast, and mobile-first websites that represent your brand professionally. From direct booking pages to full e-commerce solutions.',
-    features: ['Custom design', 'Mobile responsive', 'SEO optimised', 'Fast delivery'],
-    accent:   'purple',
-    badge:    'Most Popular',
-    href:     '/services/website-development',
-  },
-  {
-    icon:     BarChart3,
-    title:    'Finance Management',
-    tagline:  'Smart cashbook for Mauritian SMEs.',
-    desc:     'ProCashbook — track income & expenses, generate reports, and get AI-powered insights. Your finances, finally under control.',
-    features: ['Income & expense tracking', 'AI insights', 'Financial reports', '7-day free trial'],
-    accent:   'gold',
-    badge:    'SaaS Product',
-    href:     'https://procashbook.mu',
-    external: true,
-    underConstruction: true,
-  },
-  {
-    icon:     FileText,
-    title:    'Pro Business Plan',
-    tagline:  'Investor-ready. Bank-approved.',
-    desc:     'Professionally written business plans tailored to Mauritius standards — for funding applications, bank loans, or strategic clarity.',
-    features: ['Executive summary', 'Financial projections', 'Market analysis', 'Funding-ready format'],
-    accent:   'purple',
-    href:     '/services/business-plan',
-  },
-  {
-    icon:     UserCheck,
-    title:    'Professional CV & Cover Letter',
-    tagline:  'Stand out from the crowd.',
-    desc:     'ATS-friendly CVs and compelling cover letters crafted by professionals. Land more interviews with documents that make an impression.',
-    features: ['ATS-optimised', 'Cover letter included', '48h turnaround', 'Unlimited revisions'],
-    accent:   'gold',
-    href:     '/services/cv-cover-letter',
-  },
-  {
-    icon:     Megaphone,
-    title:    'Digital Marketing',
-    tagline:  'Reach more, sell more.',
-    desc:     'Social media strategy, SEO, Google Ads, and content creation — everything your business needs to attract more customers and grow bookings.',
-    features: ['Social media management', 'SEO & Google Ads', 'Content creation', 'Monthly reporting'],
-    accent:   'purple',
-    href:     '/services/digital-marketing',
-  },
-  {
-    icon:     Building2,
-    title:    'Business Registration',
-    tagline:  'Start right from day one.',
-    desc:     'End-to-end assistance for company registration, MRA business registration, permits, and all the paperwork you need to launch legally.',
-    features: ['Company registration', 'MRA registration', 'Permit assistance', 'Fast processing'],
-    accent:   'gold',
-    href:     '/services/business-registration',
-  },
-  {
-    icon:     Mail,
-    title:    'Email Marketing Setup',
-    tagline:  'Turn your list into revenue.',
-    desc:     'We set up Brevo or Mailchimp, design branded templates, build automated sequences, and manage your campaigns — so every email drives bookings.',
-    features: ['Brevo / Mailchimp setup', 'Automated sequences', 'Bilingual FR/EN', 'Monthly reporting'],
-    accent:   'purple',
-    href:     '/services/email-marketing',
-  },
-  {
-    icon:     Share2,
-    title:    'Social Media Management',
-    tagline:  'Consistent presence. Real results.',
-    desc:     'Monthly content calendar, post scheduling, community management, and analytics for Facebook, Instagram, and TikTok — fully handled.',
-    features: ['Monthly content calendar', 'FB & Instagram & TikTok', 'Community management', 'Monthly analytics'],
-    accent:   'gold',
-    href:     '/services/social-media-management',
-  },
-  {
-    icon:     Landmark,
-    title:    'Grants & Funding Applications',
-    tagline:  'Free money. We find it for you.',
-    desc:     'Government grants, subsidised loans, matching funds, and investment incentives — we identify what your business qualifies for and write the full application.',
-    features: ['Free eligibility check', 'All schemes covered', 'End-to-end application', 'Rodrigues grants included'],
-    accent:   'purple',
-    href:     '/services/grants-funding',
-  },
-];
+const SERVICE_META = [
+  { icon: Globe,     accent: 'purple', badge: 'Most Popular', href: '/services/website-development' },
+  { icon: BarChart3, accent: 'gold',   badge: 'SaaS Product', href: 'https://procashbook.mu', external: true, underConstruction: true },
+  { icon: FileText,  accent: 'purple', badge: undefined,      href: '/services/business-plan' },
+  { icon: UserCheck, accent: 'gold',   badge: undefined,      href: '/services/cv-cover-letter' },
+  { icon: Megaphone, accent: 'purple', badge: undefined,      href: '/services/digital-marketing' },
+  { icon: Building2, accent: 'gold',   badge: undefined,      href: '/services/business-registration' },
+  { icon: Mail,      accent: 'purple', badge: undefined,      href: '/services/email-marketing' },
+  { icon: Share2,    accent: 'gold',   badge: undefined,      href: '/services/social-media-management' },
+  { icon: Landmark,  accent: 'purple', badge: undefined,      href: '/services/grants-funding' },
+] as const;
 
 export default function Services() {
+  const { lang } = useLanguage();
+  const txt = translations[lang].services;
+
+  const SERVICES = SERVICE_META.map((meta, i) => ({ ...meta, ...txt.items[i] }));
+
   return (
     <section id="services" className="py-24 lg:py-32 bg-cream">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-purple/10 border border-purple/30 text-purple font-bold text-xs px-4 py-2 rounded-full mb-4">
-            Our Services
+            {txt.badge}
           </div>
           <h2 className="text-3xl lg:text-5xl font-black text-navy tracking-tight mb-4">
-            Everything your business needs
+            {txt.h2}
           </h2>
           <p className="text-navy/60 text-lg max-w-2xl mx-auto">
-            One consulting partner. Nine professional services. All built for Mauritian SMEs.
+            {txt.sub}
           </p>
         </div>
 
@@ -161,7 +93,7 @@ export default function Services() {
 
                   {s.underConstruction ? (
                     <div className="mt-auto flex items-center justify-between bg-navy/10 text-navy/30 text-sm font-bold px-5 py-3 rounded-xl cursor-not-allowed select-none">
-                      <span>🚧 Under Construction</span>
+                      <span>🚧 {txt.underConstruction}</span>
                       <ArrowRight size={15} />
                     </div>
                   ) : (
@@ -171,7 +103,7 @@ export default function Services() {
                       className={`mt-auto flex items-center justify-between text-white text-sm font-bold px-5 py-3 rounded-xl transition-all group/btn ${
                         isPurple ? 'purple-gradient hover:opacity-90' : 'gold-gradient text-navy'
                       }`}>
-                      <span>{s.external ? 'Visit ProCashbook' : 'Get Started'}</span>
+                      <span>{s.external ? txt.visitProCashbook : txt.getStarted}</span>
                       <ArrowRight size={15} className="group-hover/btn:translate-x-1 transition-transform" />
                     </a>
                   )}
@@ -185,8 +117,8 @@ export default function Services() {
             <div className="w-12 h-12 rounded-2xl border-2 border-dashed border-purple/20 flex items-center justify-center mb-4">
               <span className="text-purple/40 text-xl font-black">+</span>
             </div>
-            <p className="text-navy/40 font-bold text-sm mb-1">More Coming Soon</p>
-            <p className="text-navy/30 text-xs">Bookkeeping, tax filing, and more services launching soon.</p>
+            <p className="text-navy/40 font-bold text-sm mb-1">{txt.moreComingSoon}</p>
+            <p className="text-navy/30 text-xs">{txt.moreComingSoonDesc}</p>
           </div>
         </div>
       </div>

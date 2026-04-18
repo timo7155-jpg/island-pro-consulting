@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 interface Props {
   service:       string;           // e.g. "Business Plan"
@@ -16,9 +18,14 @@ export default function ContactForm({
   service,
   dropdownLabel,
   dropdownOptions,
-  messagePlaceholder = 'Tell us about your project...',
-  submitLabel = 'Book My Free Call',
+  messagePlaceholder,
+  submitLabel,
 }: Props) {
+  const { lang } = useLanguage();
+  const txt = translations[lang].contact;
+  const mp = messagePlaceholder ?? txt.formPlaceholder;
+  const sl = submitLabel ?? txt.formSubmit;
+
   const [loading, setLoading] = useState(false);
   const [sent,    setSent]    = useState(false);
   const [error,   setError]   = useState('');
@@ -48,10 +55,10 @@ export default function ContactForm({
       if (res.ok) {
         setSent(true);
       } else {
-        setError('Something went wrong. Please try WhatsApp or email us directly.');
+        setError(txt.formError);
       }
     } catch {
-      setError('Could not send. Please try WhatsApp or email us directly.');
+      setError(txt.formError);
     } finally {
       setLoading(false);
     }
@@ -63,10 +70,8 @@ export default function ContactForm({
         <div className="w-16 h-16 rounded-full bg-purple/10 flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 size={30} className="text-purple" />
         </div>
-        <h3 className="text-xl font-black text-navy mb-2">Message sent!</h3>
-        <p className="text-navy/60 text-sm">
-          Thank you for reaching out. We will get back to you within 24 hours.
-        </p>
+        <h3 className="text-xl font-black text-navy mb-2">{txt.formSent}</h3>
+        <p className="text-navy/60 text-sm">{txt.formSentDesc}</p>
       </div>
     );
   }
@@ -75,17 +80,17 @@ export default function ContactForm({
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-bold text-navy/60">Full Name *</label>
+          <label className="text-xs font-bold text-navy/60">{txt.formName} *</label>
           <input name="name" type="text" required placeholder="Jean-Marc Dupont" className={inputCls} />
         </div>
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-bold text-navy/60">Email *</label>
+          <label className="text-xs font-bold text-navy/60">{txt.formEmail} *</label>
           <input name="email" type="email" required placeholder="you@example.com" className={inputCls} />
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-bold text-navy/60">Phone / WhatsApp</label>
+        <label className="text-xs font-bold text-navy/60">{txt.formPhone}</label>
         <input name="phone" type="tel" placeholder="+230 5XXX XXXX" className={inputCls} />
       </div>
 
@@ -93,15 +98,15 @@ export default function ContactForm({
         <div className="flex flex-col gap-1.5">
           <label className="text-xs font-bold text-navy/60">{dropdownLabel} *</label>
           <select name="dropdown" required className={`${inputCls} appearance-none`}>
-            <option value="">Select an option...</option>
+            <option value="">{txt.formSelect}</option>
             {dropdownOptions.map(o => <option key={o}>{o}</option>)}
           </select>
         </div>
       )}
 
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-bold text-navy/60">Your Message *</label>
-        <textarea name="message" required rows={4} placeholder={messagePlaceholder}
+        <label className="text-xs font-bold text-navy/60">{txt.formMessage} *</label>
+        <textarea name="message" required rows={4} placeholder={mp}
           className={`${inputCls} resize-none`} />
       </div>
 
@@ -112,11 +117,11 @@ export default function ContactForm({
       <button type="submit" disabled={loading}
         className="w-full flex items-center justify-center gap-2 purple-gradient text-white font-bold text-sm py-3.5 rounded-xl hover:opacity-90 transition-all shadow-purple mt-2 disabled:opacity-60">
         {loading
-          ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Sending...</>
-          : <><ArrowRight size={15} /> {submitLabel}</>
+          ? <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {txt.formSending}</>
+          : <><ArrowRight size={15} /> {sl}</>
         }
       </button>
-      <p className="text-xs text-navy/40 text-center">We respond within 24 hours. No obligation whatsoever.</p>
+      <p className="text-xs text-navy/40 text-center">{txt.formReply}</p>
     </form>
   );
 }

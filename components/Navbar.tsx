@@ -3,18 +3,22 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
-
-const NAV_LINKS = [
-  { label: 'Services',  href: '/#services'  },
-  { label: 'Rodrigues', href: '/rodrigues'  },
-  { label: 'About',     href: '/#about'     },
-  { label: 'Why Us',    href: '/#whyus'     },
-  { label: 'Contact',   href: '/#contact'   },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
+import { translations } from '@/lib/translations';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const txt = translations[lang].nav;
+
+  const NAV_LINKS = [
+    { label: txt.services,  href: '/#services'  },
+    { label: txt.rodrigues, href: '/rodrigues',  isRodrigue: true },
+    { label: txt.about,     href: '/#about'     },
+    { label: txt.whyUs,     href: '/#whyus'     },
+    { label: txt.contact,   href: '/#contact'   },
+  ];
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -44,33 +48,46 @@ export default function Navbar() {
             {NAV_LINKS.map(l => (
               <a key={l.label} href={l.href}
                 className={`text-sm font-medium transition-colors ${
-                  l.label === 'Rodrigues'
+                  l.isRodrigue
                     ? 'text-gold hover:text-gold-light font-bold flex items-center gap-1'
                     : 'text-white/70 hover:text-gold'
                 }`}>
-                {l.label === 'Rodrigues' && <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />}
+                {l.isRodrigue && <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />}
                 {l.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* CTA + language toggle */}
+          <div className="hidden lg:flex items-center gap-3">
             <a href="tel:+23058137384"
               className="flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium transition-colors">
               <Phone size={14} /> +230 5813 7384
             </a>
+            {/* Language toggle */}
+            <button
+              onClick={() => setLang(lang === 'en' ? 'fr' : 'en')}
+              className="text-xs font-black border border-white/25 rounded-lg px-3 py-1.5 text-white/70 hover:text-white hover:border-gold/50 hover:text-gold transition-all tracking-wide">
+              {lang === 'en' ? 'FR' : 'EN'}
+            </button>
             <a href="/#contact"
               className="purple-gradient text-white font-bold text-sm px-5 py-2.5 rounded-xl hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-purple">
-              Book a Free Call
+              {txt.bookCall}
             </a>
           </div>
 
-          {/* Mobile burger */}
-          <button onClick={() => setOpen(o => !o)}
-            className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile: language toggle + burger */}
+          <div className="lg:hidden flex items-center gap-2">
+            <button
+              onClick={() => setLang(lang === 'en' ? 'fr' : 'en')}
+              className="text-xs font-black border border-white/25 rounded-lg px-2.5 py-1.5 text-white/70 hover:text-gold hover:border-gold/50 transition-all tracking-wide">
+              {lang === 'en' ? 'FR' : 'EN'}
+            </button>
+            <button onClick={() => setOpen(o => !o)}
+              className="text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
+              {open ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -80,14 +97,14 @@ export default function Navbar() {
           {NAV_LINKS.map(l => (
             <a key={l.label} href={l.href} onClick={() => setOpen(false)}
               className={`block font-medium py-2 transition-colors ${
-                l.label === 'Rodrigues' ? 'text-gold font-bold' : 'text-white/70 hover:text-gold'
+                l.isRodrigue ? 'text-gold font-bold' : 'text-white/70 hover:text-gold'
               }`}>
-              {l.label === 'Rodrigues' && '📍 '}{l.label}
+              {l.isRodrigue && '📍 '}{l.label}
             </a>
           ))}
           <a href="/#contact" onClick={() => setOpen(false)}
             className="block purple-gradient text-white font-bold text-sm px-5 py-3 rounded-xl text-center mt-2">
-            Book a Free Call
+            {txt.bookCall}
           </a>
         </div>
       )}
