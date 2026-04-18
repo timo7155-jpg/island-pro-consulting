@@ -22,6 +22,13 @@ export const metadata: Metadata = {
     description: 'Professional consulting services for Mauritian SMEs. Websites, business plans, grants, digital marketing & more.',
     images: ['/logo.jpg'],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
