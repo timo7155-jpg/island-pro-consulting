@@ -94,8 +94,8 @@ function BPCoverMockup() {
       <div className="absolute w-[340px] h-[460px] bg-black/50 blur-2xl translate-y-8 translate-x-4 rounded-2xl" />
 
       {/* Cover image — slightly tilted */}
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl"
-        style={{ transform: 'rotate(2deg)', width: '320px' }}>
+      <div className="relative rounded-2xl overflow-hidden shadow-2xl w-[200px] lg:w-[320px]"
+        style={{ transform: 'rotate(2deg)' }}>
         <Image
           src="/bp.png"
           alt="Business Plan Cover — Island Pro Consulting"
@@ -109,7 +109,7 @@ function BPCoverMockup() {
       </div>
 
       {/* Page-count chip */}
-      <div className="absolute bottom-8 -right-4 bg-white rounded-2xl shadow-xl border border-navy/8 px-3 py-2 flex items-center gap-2"
+      <div className="hidden lg:flex absolute bottom-8 -right-4 bg-white rounded-2xl shadow-xl border border-navy/8 px-3 py-2 items-center gap-2"
         style={{ transform: 'rotate(-2deg)' }}>
         <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
           style={{ background: 'linear-gradient(135deg,#8B2FE8,#C040F0)' }}>
@@ -122,7 +122,7 @@ function BPCoverMockup() {
       </div>
 
       {/* Satisfaction chip */}
-      <div className="absolute top-8 -left-6 rounded-2xl shadow-xl px-3 py-2 flex items-center gap-2"
+      <div className="hidden lg:flex absolute top-8 -left-6 rounded-2xl shadow-xl px-3 py-2 items-center gap-2"
         style={{ background: '#F0B429', transform: 'rotate(-3deg)' }}>
         <Shield size={13} className="text-navy flex-shrink-0" />
         <p className="text-[10px] text-navy font-black leading-tight">Pay after<br />satisfaction</p>
