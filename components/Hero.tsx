@@ -4,30 +4,28 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 /* ── Founder photo ──────────────────────────────────────────────────────── */
 function FounderPhoto() {
   return (
-    <div className="relative hidden lg:flex items-center justify-center">
+    <div className="relative flex items-center justify-center h-[260px] lg:h-auto">
       {/* Ambient glows */}
-      <div className="absolute w-[380px] h-[380px] rounded-full bg-purple/20 blur-[80px]" />
-      <div className="absolute w-[260px] h-[260px] rounded-full bg-gold/8 blur-[60px]" />
+      <div className="absolute w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full bg-purple/20 blur-[80px]" />
+      <div className="absolute w-[180px] h-[180px] lg:w-[260px] lg:h-[260px] rounded-full bg-gold/8 blur-[60px]" />
 
       {/* Rotating dashed ring */}
-      <div className="absolute w-[340px] h-[340px] rounded-full border border-dashed border-purple/25"
+      <div className="absolute w-[220px] h-[220px] lg:w-[340px] lg:h-[340px] rounded-full border border-dashed border-purple/25"
         style={{ animation: 'spin 18s linear infinite' }} />
-      <div className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-gold/15"
+      <div className="absolute w-[190px] h-[190px] lg:w-[300px] lg:h-[300px] rounded-full border border-dashed border-gold/15"
         style={{ animation: 'spin 28s linear infinite reverse' }} />
 
       {/* Solid ring frame */}
-      <div className="absolute w-[268px] h-[268px] rounded-full"
+      <div className="absolute w-[168px] h-[168px] lg:w-[268px] lg:h-[268px] rounded-full"
         style={{ background: 'conic-gradient(from 0deg, #8B2FE8, #F0B429, #C040F0, #8B2FE8)', padding: '3px' }}>
         <div className="w-full h-full rounded-full" style={{ background: '#09060F' }} />
       </div>
 
       {/* Photo */}
-      <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-transparent z-10"
+      <div className="relative w-40 h-40 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-transparent z-10"
         style={{ boxShadow: '0 0 40px rgba(139,47,232,0.4), 0 0 80px rgba(139,47,232,0.15)' }}>
-        {/* Placeholder shown until founder.jpg is added to /public/ */}
         <div className="absolute inset-0 flex items-end justify-center"
           style={{ background: 'linear-gradient(160deg, #1a0f35 0%, #2d1060 50%, #1a0830 100%)' }}>
-          {/* Silhouette */}
           <svg viewBox="0 0 256 280" className="w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="128" cy="95" rx="46" ry="50" fill="rgba(139,47,232,0.35)" />
             <ellipse cx="128" cy="95" rx="36" ry="40" fill="rgba(139,47,232,0.5)" />
@@ -45,19 +43,19 @@ function FounderPhoto() {
       </div>
 
       {/* Founder label */}
-      <div className="absolute bottom-8 z-20 bg-navy-mid border border-purple/30 rounded-full px-5 py-2 backdrop-blur-sm"
+      <div className="absolute bottom-2 lg:bottom-8 z-20 bg-navy-mid border border-purple/30 rounded-full px-3 lg:px-5 py-1.5 lg:py-2 backdrop-blur-sm"
         style={{ boxShadow: '0 4px 24px rgba(139,47,232,0.2)' }}>
-        <p className="text-white font-black text-sm text-center leading-tight">Founder</p>
-        <p className="text-purple-light text-[10px] font-bold text-center tracking-wide">Island Pro Consulting</p>
+        <p className="text-white font-black text-xs lg:text-sm text-center leading-tight">Founder</p>
+        <p className="text-purple-light text-[9px] lg:text-[10px] font-bold text-center tracking-wide">Island Pro Consulting</p>
       </div>
 
-      {/* Floating stat badges */}
-      <div className="absolute top-4 -right-4 z-20 bg-navy-mid border border-purple/30 rounded-2xl px-4 py-3"
+      {/* Floating stat badges — desktop only */}
+      <div className="hidden lg:block absolute top-4 -right-4 z-20 bg-navy-mid border border-purple/30 rounded-2xl px-4 py-3"
         style={{ boxShadow: '0 4px 24px rgba(139,47,232,0.25)' }}>
         <div className="text-xl font-black gold-text">10+</div>
         <div className="text-white/50 text-xs">Years Expertise</div>
       </div>
-      <div className="absolute top-4 -left-4 z-20 bg-navy-mid border border-gold/30 rounded-2xl px-4 py-3"
+      <div className="hidden lg:block absolute top-4 -left-4 z-20 bg-navy-mid border border-gold/30 rounded-2xl px-4 py-3"
         style={{ boxShadow: '0 4px 24px rgba(240,180,41,0.15)' }}>
         <div className="text-xl font-black gold-text">120+</div>
         <div className="text-white/50 text-xs">Businesses Served</div>
@@ -80,10 +78,10 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.04]"
         style={{ backgroundImage: 'linear-gradient(#8B2FE8 1px, transparent 1px), linear-gradient(90deg, #8B2FE8 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-0 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left */}
-          <div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-0 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left — text (below photo on mobile, left on desktop) */}
+          <div className="order-2 lg:order-1">
             <div className="inline-flex items-center gap-2 bg-purple/20 border border-purple/40 text-purple-light text-xs font-bold px-4 py-2 rounded-full mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-light animate-pulse" />
               Mauritius-based Business Consulting
@@ -130,8 +128,10 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Right — Founder photo */}
-          <FounderPhoto />
+          {/* Right — Founder photo (top on mobile, right on desktop) */}
+          <div className="order-1 lg:order-2">
+            <FounderPhoto />
+          </div>
         </div>
       </div>
 

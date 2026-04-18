@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
               <Image src="/logo.jpg" alt="IPC Logo" width={36} height={36} className="w-full h-full object-cover" />
             </div>
-            <div className="hidden sm:block">
+            <div>
               <div className="text-white font-black text-sm leading-tight">Island Pro</div>
               <div className="text-gold text-xs font-semibold leading-tight">Consulting</div>
             </div>
