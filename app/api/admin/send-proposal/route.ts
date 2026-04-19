@@ -106,6 +106,8 @@ function buildEmailHtml(name: string, hook: string, trackingToken: string): stri
       </td></tr>
     </table>
 
+    <p style="color:#374151;font-size:14px;line-height:1.8;margin:0 0 24px;font-family:Arial,sans-serif;">Ces chiffres parlent d&apos;eux-m&ecirc;mes&nbsp;: dans le secteur touristique actuel, votre visibilit&eacute; en ligne d&eacute;termine directement vos revenus. Sans site web, des centaines de voyageurs qui cherchent un h&eacute;bergement &agrave; Rodrigues passent &agrave; c&ocirc;t&eacute; de vous &mdash; et r&eacute;servent chez un concurrent qui a d&eacute;j&agrave; fait ce pas.</p>
+
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;margin:0 0 26px;">
       <tr><td style="padding:18px 22px;">
         <div style="color:#92400e;font-size:14px;font-weight:900;margin-bottom:7px;font-family:Arial,sans-serif;">&#9992;&#65039; Extension de l&apos;a&eacute;roport de Rodrigues</div>
