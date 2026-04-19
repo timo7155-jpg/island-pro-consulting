@@ -8,6 +8,146 @@ import { createClient } from '@supabase/supabase-js';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const SITE   = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://islandproconsulting.mu';
 
+function trackClick(token: string, targetUrl: string): string {
+  const b64 = Buffer.from(targetUrl).toString('base64');
+  return `${SITE}/api/admin/track/${token}?action=click&target=${encodeURIComponent(b64)}`;
+}
+
+function buildEmailHtml(name: string, hook: string, trackingToken: string): string {
+  const waRaw    = `https://wa.me/23058137384?text=${encodeURIComponent('Hello Mr. Lisette, I want to have more details about your services, can we book a meeting please?')}`;
+  const waLink   = trackClick(trackingToken, waRaw);
+  const siteLink = trackClick(trackingToken, SITE);
+  const pixelUrl = `${SITE}/api/admin/track/${trackingToken}`;
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Island Pro Consulting</title></head>
+<body style="margin:0;padding:0;background:#ede9fe;font-family:Arial,Helvetica,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ede9fe;padding:32px 16px;"><tr><td align="center">
+<table width="620" cellpadding="0" cellspacing="0" style="max-width:620px;width:100%;background:#ffffff;border-radius:18px;overflow:hidden;box-shadow:0 6px 40px rgba(107,33,216,0.12);">
+
+  <tr><td style="background:linear-gradient(135deg,#6B21D8 0%,#A855F7 100%);padding:26px 36px 22px;">
+    <table width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td>
+        <div style="color:#fff;font-size:21px;font-weight:900;letter-spacing:-0.5px;font-family:Arial,sans-serif;">Island Pro Consulting</div>
+        <div style="color:rgba(255,255,255,0.65);font-size:12px;margin-top:3px;font-family:Arial,sans-serif;">Solutions num&eacute;riques &middot; Rodrigues &amp; Maurice</div>
+      </td>
+      <td align="right" style="vertical-align:middle;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:6px 12px;display:inline-block;">
+          <span style="color:#fff;font-size:11px;font-weight:700;font-family:Arial,sans-serif;">&#127965; Rodrigues</span>
+        </div>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <tr><td style="padding:34px 36px 30px;">
+    <p style="color:#1e1b4b;font-size:16px;font-weight:700;margin:0 0 6px;font-family:Arial,sans-serif;">Bonjour,</p>
+    <p style="color:#374151;font-size:15px;line-height:1.8;margin:0 0 28px;font-family:Arial,sans-serif;">${hook}</p>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f3ff;border-radius:14px;overflow:hidden;margin:0 0 24px;">
+      <tr><td style="padding:20px 24px 6px;">
+        <div style="color:#6B21D8;font-size:12px;font-weight:900;letter-spacing:0.8px;text-transform:uppercase;font-family:Arial,sans-serif;">&#128202; Le tourisme num&eacute;rique en chiffres</div>
+      </td></tr>
+      <tr><td style="padding:14px 24px 4px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="color:#4b5563;font-size:13px;font-family:Arial,sans-serif;">Voyageurs v&eacute;rifiant un site web avant de r&eacute;server</td>
+            <td align="right" style="color:#6B21D8;font-size:14px;font-weight:900;white-space:nowrap;font-family:Arial,sans-serif;">78&thinsp;%</td>
+          </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:7px;">
+          <tr>
+            <td width="78%" height="8" style="background:#6B21D8;border-radius:4px 0 0 4px;font-size:0;line-height:0;">&nbsp;</td>
+            <td width="22%" height="8" style="background:#ddd6fe;border-radius:0 4px 4px 0;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+        </table>
+      </td></tr>
+      <tr><td style="padding:14px 24px 4px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="color:#4b5563;font-size:13px;font-family:Arial,sans-serif;">Commission pr&eacute;lev&eacute;e par Booking.com ou Airbnb par r&eacute;servation</td>
+            <td align="right" style="color:#d97706;font-size:14px;font-weight:900;white-space:nowrap;font-family:Arial,sans-serif;">15&ndash;25&thinsp;%</td>
+          </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:7px;">
+          <tr>
+            <td width="20%" height="8" style="background:#d97706;border-radius:4px 0 0 4px;font-size:0;line-height:0;">&nbsp;</td>
+            <td width="80%" height="8" style="background:#fef3c7;border-radius:0 4px 4px 0;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+        </table>
+      </td></tr>
+      <tr><td style="padding:14px 24px 20px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="color:#4b5563;font-size:13px;font-family:Arial,sans-serif;">H&eacute;bergements avec site pro&nbsp;: hausse des r&eacute;servations directes</td>
+            <td align="right" style="color:#059669;font-size:14px;font-weight:900;white-space:nowrap;font-family:Arial,sans-serif;">+2&times;</td>
+          </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:7px;">
+          <tr>
+            <td width="65%" height="8" style="background:#059669;border-radius:4px 0 0 4px;font-size:0;line-height:0;">&nbsp;</td>
+            <td width="35%" height="8" style="background:#d1fae5;border-radius:0 4px 4px 0;font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;margin:0 0 26px;">
+      <tr><td style="padding:18px 22px;">
+        <div style="color:#92400e;font-size:14px;font-weight:900;margin-bottom:7px;font-family:Arial,sans-serif;">&#9992;&#65039; Extension de l&apos;a&eacute;roport de Rodrigues</div>
+        <div style="color:#78350f;font-size:13px;line-height:1.75;font-family:Arial,sans-serif;">Des centaines de nouveaux visiteurs attendus d&egrave;s 2025&ndash;2026. Les h&eacute;bergements visibles en ligne capteront la grande majorit&eacute; de ces touristes. <strong>C&apos;est maintenant le bon moment d&apos;agir.</strong></div>
+      </td></tr>
+    </table>
+
+    <div style="margin:0 0 20px;">
+      <div style="color:#1e1b4b;font-size:14px;font-weight:900;margin-bottom:12px;font-family:Arial,sans-serif;">Ce que nous proposons pour <strong>${name}</strong>&nbsp;:</div>
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr><td style="color:#374151;font-size:14px;padding:5px 0;font-family:Arial,sans-serif;"><span style="color:#6B21D8;font-weight:900;">&#10003;</span>&nbsp; Site web premium avec votre propre nom de domaine</td></tr>
+        <tr><td style="color:#374151;font-size:14px;padding:5px 0;font-family:Arial,sans-serif;"><span style="color:#6B21D8;font-weight:900;">&#10003;</span>&nbsp; R&eacute;servations directes &mdash; z&eacute;ro commission plateforme</td></tr>
+        <tr><td style="color:#374151;font-size:14px;padding:5px 0;font-family:Arial,sans-serif;"><span style="color:#6B21D8;font-weight:900;">&#10003;</span>&nbsp; R&eacute;f&eacute;rencement Google et fiche Google optimis&eacute;s</td></tr>
+        <tr><td style="color:#059669;font-size:14px;padding:5px 0;font-weight:700;font-family:Arial,sans-serif;"><span style="font-weight:900;">&#10003;</span>&nbsp; <strong>Paiement uniquement apr&egrave;s votre totale satisfaction</strong></td></tr>
+        <tr><td style="color:#374151;font-size:14px;padding:5px 0;font-family:Arial,sans-serif;"><span style="color:#6B21D8;font-weight:900;">&#10003;</span>&nbsp; Livraison en 5 &agrave; 10 jours ouvrables</td></tr>
+        <tr><td style="color:#374151;font-size:14px;padding:5px 0;font-family:Arial,sans-serif;"><span style="color:#6B21D8;font-weight:900;">&#10003;</span>&nbsp; Rencontre en personne possible &agrave; Rodrigues</td></tr>
+      </table>
+    </div>
+
+    <p style="color:#374151;font-size:14px;line-height:1.8;margin:0 0 22px;font-family:Arial,sans-serif;">Si vous souhaitez en savoir plus, contactez-moi directement par WhatsApp ou r&eacute;pondez &agrave; cet email. Je suis natif de Rodrigues et disponible pour une rencontre sur l&apos;&icirc;le.</p>
+
+    <table cellpadding="0" cellspacing="0" style="margin:0 0 34px;">
+      <tr>
+        <td style="padding-right:12px;">
+          <a href="${waLink}" style="background:#25D366;color:#fff;padding:13px 26px;border-radius:9px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;font-family:Arial,sans-serif;">&#128172; WhatsApp</a>
+        </td>
+        <td>
+          <a href="${siteLink}" style="background:#6B21D8;color:#fff;padding:13px 26px;border-radius:9px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;font-family:Arial,sans-serif;">&#127758; Notre portfolio</a>
+        </td>
+      </tr>
+    </table>
+
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ede9fe;">
+      <tr><td style="padding-top:20px;">
+        <div style="color:#1e1b4b;font-size:14px;font-weight:900;font-family:Arial,sans-serif;">Timoth&eacute;e Lisette</div>
+        <div style="color:#7c3aed;font-size:13px;font-weight:700;margin-top:2px;font-family:Arial,sans-serif;">Fondateur &mdash; Island Pro Consulting</div>
+        <div style="color:#6b7280;font-size:12px;margin-top:6px;line-height:1.8;font-family:Arial,sans-serif;">
+          Natif de Rodrigues &nbsp;&middot;&nbsp; Sp&eacute;cialiste du tourisme local<br>
+          &#128241; <a href="tel:+23058137384" style="color:#7c3aed;text-decoration:none;">+230&nbsp;5813&nbsp;7384</a>
+          &nbsp;&middot;&nbsp;
+          <a href="mailto:contact@islandproconsulting.mu" style="color:#7c3aed;text-decoration:none;">contact@islandproconsulting.mu</a>
+        </div>
+        <div style="color:#9ca3af;font-size:11px;margin-top:8px;font-family:Arial,sans-serif;">
+          <a href="${SITE}" style="color:#7c3aed;text-decoration:none;">islandproconsulting.mu</a>
+          &nbsp;&middot;&nbsp; Terre Rouge, Rodrigues, R&eacute;publique de Maurice
+        </div>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</td></tr></table>
+<img src="${pixelUrl}" width="1" height="1" alt="" style="display:none;width:1px;height:1px;border:0;" />
+</body>
+</html>`;
+}
+
 async function isAuthorized(req: NextRequest): Promise<boolean> {
   const token = req.cookies.get('admin_token')?.value;
   if (!token) return false;
@@ -20,97 +160,63 @@ async function isAuthorized(req: NextRequest): Promise<boolean> {
   } catch { return false; }
 }
 
-function buildSubject(name: string, ws: string): string {
-  if (ws === 'none')         return `Un site web pour ${name} — développez votre activité`;
-  if (ws === 'booking_only') return `${name} — votre propre site, moins de commission`;
-  return `Modernisez votre présence en ligne — ${name}`;
-}
-
-function buildIntro(name: string, ws: string): string {
-  if (ws === 'none')
-    return `Nous avons remarqué que <strong>${name}</strong> n'a pas encore de site web. C'est une opportunité à saisir — vos concurrents sont déjà en ligne.`;
-  if (ws === 'booking_only')
-    return `<strong>${name}</strong> est visible sur les plateformes de réservation — mais sans site propre, vous payez des commissions élevées et perdez le contrôle de votre image.`;
-  return `Le site web de <strong>${name}</strong> mériterait une mise à jour pour mieux attirer des clients en 2025.`;
-}
-
 export async function POST(req: NextRequest) {
   if (!await isAuthorized(req)) {
     return NextResponse.json({ ok: false, error: 'Unauthorized' }, { status: 401 });
   }
 
   try {
-    const { businessId, businessName, toEmail, websiteStatus } = await req.json();
+    const body = await req.json() as {
+      businessId?:   string;
+      businessName?: string;
+      toEmail?:      string;
+      emailHook?:    string;
+      emailSubject?: string;
+      preview?:      boolean;
+    };
+
+    const { businessId, businessName, toEmail, emailHook, emailSubject, preview } = body;
+
+    let hook    = emailHook    ?? '';
+    let subject = emailSubject ?? '';
+    let name    = businessName ?? '';
+
+    const sbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const sbKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    // Fetch hook & subject from DB if not provided directly
+    if ((!hook || !subject) && businessId && sbUrl && sbKey) {
+      const sb = createClient(sbUrl, sbKey);
+      const { data: biz } = await sb
+        .from('businesses')
+        .select('name, email_hook, email_subject')
+        .eq('id', businessId)
+        .single();
+      if (biz) {
+        if (!name)    name    = biz.name          ?? name;
+        if (!hook)    hook    = biz.email_hook    ?? '';
+        if (!subject) subject = biz.email_subject ?? '';
+      }
+    }
+
+    // Generic fallbacks
+    if (!name)    name    = businessName ?? 'votre \u00e9tablissement';
+    if (!subject) subject = `${name} \u2014 un site web professionnel pour d\u00e9velopper votre activit\u00e9`;
+    if (!hook)    hook    = `${name} n\u2019a pas encore de site web, ce qui limite votre visibilit\u00e9 aupr\u00e8s des voyageurs qui planifient leur s\u00e9jour en ligne. Avec l\u2019extension prochaine de l\u2019a\u00e9roport de Rodrigues et la croissance du tourisme sur l\u2019\u00eele, c\u2019est maintenant le moment id\u00e9al pour cr\u00e9er votre pr\u00e9sence num\u00e9rique et commencer \u00e0 g\u00e9n\u00e9rer des r\u00e9servations directes, sans commission.`;
+
+    const trackingToken = crypto.randomUUID();
+    const html = buildEmailHtml(name, hook, trackingToken);
+
+    // Preview mode — return rendered HTML without sending
+    if (preview) {
+      return NextResponse.json({ ok: true, html, subject });
+    }
 
     if (!toEmail) {
       return NextResponse.json({ ok: false, error: 'No email address' }, { status: 400 });
     }
 
-    const trackingToken = crypto.randomUUID();
-    const trackingUrl   = `${SITE}/api/admin/track/${trackingToken}`;
-    const subject       = buildSubject(businessName, websiteStatus ?? 'none');
-    const intro         = buildIntro(businessName, websiteStatus ?? 'none');
-
-    const html = `<!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f5f4fe;font-family:Arial,Helvetica,sans-serif;">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f4fe;padding:32px 0;">
-<tr><td align="center">
-<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-
-  <tr><td style="background:linear-gradient(135deg,#8B2FE8 0%,#C040F0 100%);padding:28px 36px;">
-    <div style="color:#fff;font-size:20px;font-weight:900;letter-spacing:-0.5px;">Island Pro Consulting</div>
-    <div style="color:rgba(255,255,255,0.7);font-size:12px;margin-top:4px;">Terre Rouge, Rodrigues · Mauritius</div>
-  </td></tr>
-
-  <tr><td style="padding:36px 36px 28px;">
-    <p style="color:#333;font-size:15px;margin:0 0 18px;">Bonjour,</p>
-    <p style="color:#333;font-size:15px;line-height:1.75;margin:0 0 24px;">${intro} Nous sommes Island Pro Consulting, basé à Terre Rouge, Rodrigues — nous aidons les entreprises locales à se développer en ligne.</p>
-
-    <div style="background:#f8f5ff;border-left:4px solid #8B2FE8;padding:18px 22px;border-radius:0 10px 10px 0;margin:0 0 24px;">
-      <div style="color:#8B2FE8;font-weight:900;font-size:14px;margin-bottom:10px;">Ce que nous proposons :</div>
-      <div style="color:#555;font-size:14px;line-height:2.0;">
-        ✓ Site web professionnel, visible sur Google<br>
-        ✓ Réservations directes — zéro commission<br>
-        ✓ Présence active sur les réseaux sociaux<br>
-        ✓ Tarifs adaptés aux entreprises de Rodrigues<br>
-        ✓ Rencontre en personne disponible
-      </div>
-    </div>
-
-    <p style="color:#333;font-size:15px;line-height:1.75;margin:0 0 28px;">Un premier échange sans engagement — à votre lieu ou chez nous à Terre Rouge. Répondez simplement à cet email ou contactez-nous par WhatsApp.</p>
-
-    <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
-      <tr>
-        <td style="padding-right:12px;">
-          <a href="https://wa.me/23058137384?text=Bonjour%2C%20j%27ai%20reçu%20votre%20message%20et%20je%20souhaite%20en%20savoir%20plus."
-             style="background:#25D366;color:#fff;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;display:inline-block;">💬 WhatsApp</a>
-        </td>
-        <td>
-          <a href="mailto:contact@islandproconsulting.mu"
-             style="background:#8B2FE8;color:#fff;padding:13px 22px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;display:inline-block;">✉️ Répondre par email</a>
-        </td>
-      </tr>
-    </table>
-
-    <div style="border-top:1px solid #eee;padding-top:20px;">
-      <p style="color:#aaa;font-size:11px;margin:0;line-height:1.8;">
-        Island Pro Consulting · Terre Rouge, Rodrigues, Republic of Mauritius<br>
-        <a href="mailto:contact@islandproconsulting.mu" style="color:#8B2FE8;text-decoration:none;">contact@islandproconsulting.mu</a> · +230 5813 7384 ·
-        <a href="${SITE}" style="color:#8B2FE8;text-decoration:none;">islandproconsulting.mu</a>
-      </p>
-    </div>
-  </td></tr>
-
-</table>
-</td></tr>
-</table>
-<img src="${trackingUrl}" width="1" height="1" alt="" style="display:none;width:1px;height:1px;border:0;" />
-</body>
-</html>`;
-
-    const { error } = await resend.emails.send({
+    const { error: resendErr } = await resend.emails.send({
       from:    'Island Pro Consulting <onboarding@resend.dev>',
       to:      [toEmail],
       replyTo: 'contact@islandproconsulting.mu',
@@ -118,17 +224,13 @@ export async function POST(req: NextRequest) {
       html,
     });
 
-    if (error) {
-      console.error('Resend error:', error);
+    if (resendErr) {
+      console.error('Resend error:', resendErr);
       return NextResponse.json({ ok: false, error: 'Failed to send email' }, { status: 500 });
     }
 
-    // Update Supabase if configured
-    const sbUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const sbKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     if (sbUrl && sbKey && businessId) {
       const sb = createClient(sbUrl, sbKey);
-
       await sb.from('outreach_emails').insert({
         business_id:    businessId,
         tracking_token: trackingToken,
@@ -136,7 +238,6 @@ export async function POST(req: NextRequest) {
         status:         'sent',
         sent_at:        new Date().toISOString(),
       });
-
       await sb.from('businesses')
         .update({ outreach_status: 'sent', updated_at: new Date().toISOString() })
         .eq('id', businessId);
