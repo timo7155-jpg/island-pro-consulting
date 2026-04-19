@@ -249,14 +249,19 @@ export default function OutreachPage() {
       const data = await res.json() as Record<string, unknown>[];
       const sb   = getSupabase();
 
-      // Upsert by name — preserves outreach_status for existing rows
-      const rows = data.map(({ id: _id, ...rest }) => rest);
-      const { error: err } = await sb
+      // Delete existing accommodations, then re-insert fresh
+      // (preserves non-Accommodation rows; statuses reset intentionally on re-import)
+      const { error: delErr } = await sb
         .from('businesses')
-        .upsert(rows, { onConflict: 'name', ignoreDuplicates: false });
+        .delete()
+        .eq('type', 'Accommodation');
+      if (delErr) { alert('Import error (delete): ' + delErr.message); return; }
 
-      if (err) { alert('Import error: ' + err.message); return; }
-      alert(`Imported / updated ${data.length} businesses!`);
+      const rows = data.map(({ id: _id, ...rest }) => rest);
+      const { error: insErr } = await sb.from('businesses').insert(rows);
+      if (insErr) { alert('Import error (insert): ' + insErr.message); return; }
+
+      alert(`Imported ${data.length} businesses!`);
       fetchBusinesses();
     } catch (e) {
       alert('Import failed: ' + (e instanceof Error ? e.message : String(e)));
