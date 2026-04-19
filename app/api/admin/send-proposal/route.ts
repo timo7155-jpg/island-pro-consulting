@@ -253,7 +253,7 @@ export async function POST(req: NextRequest) {
     try {
       const brevo = getBrevo();
       await brevo.transactionalEmails.sendTransacEmail({
-        sender:      { name: 'Timoth\u00e9e Lisette \u2014 Island Pro Consulting', email: 'timothee@islandproconsulting.mu' },
+        sender:      { name: 'Timoth\u00e9e Lisette \u2014 Island Pro Consulting', email: 'timotheelisette@islandproconsulting.mu' },
         to:          [{ email: toEmail }],
         replyTo:     { email: 'contact@islandproconsulting.mu' },
         subject,
