@@ -104,12 +104,12 @@
     "location": "Mourouk",
     "type": "Accommodation",
     "website_status": "outdated",
-    "outreach_status": "pending",
-    "priority": 1,
+    "outreach_status": "skipped",
+    "priority": 99,
     "notes": "",
-    "email_angle": "needs_revamp",
-    "email_subject": "Mourouk Ebony — modernisez votre site pour plus de réservations directes",
-    "email_hook": "Mourouk Ebony bénéficie d'une belle réputation, mais son site actuel pourrait mieux refléter la qualité de l'expérience que vous proposez. Meilleures photos, navigation repensée, moteur de réservation directe : une modernisation ciblée vous donnerait un avantage concurrentiel significatif en ligne."
+    "email_angle": "skip",
+    "email_subject": "",
+    "email_hook": ""
   },
   {
     "name": "Le Cactus",

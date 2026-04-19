@@ -29,7 +29,8 @@ const SKIPS = [
   'La Belle Rodriguaise', 'Le Flamboyant Hotel', 'Escales Vacances',
   'Cotton Bay Resort & Spa', 'Tekoma Boutik Hotel And Spa',
   'Cocotiers Rodrigues Boutik Hotel', 'Le Benitier', 'Nou Lacaze',
-  'The Beach House Rodrigues', 'Chez Ro-Lande'
+  'The Beach House Rodrigues', 'Chez Ro-Lande',
+  'Mourouk Ebony Management', // now C Mourouk by Constance Resorts — website already good
 ];
 
 const CUSTOM = {
