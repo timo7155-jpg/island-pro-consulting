@@ -111,7 +111,7 @@ function buildEmailHtml(name: string, hook: string, trackingToken: string): stri
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;margin:0 0 26px;">
       <tr><td style="padding:18px 22px;">
         <div style="color:#92400e;font-size:14px;font-weight:900;margin-bottom:7px;font-family:Arial,sans-serif;">&#9992;&#65039; Extension de l&apos;a&eacute;roport de Rodrigues</div>
-        <div style="color:#78350f;font-size:13px;line-height:1.75;font-family:Arial,sans-serif;">Des centaines de nouveaux visiteurs attendus d&egrave;s 2025&ndash;2026. Les h&eacute;bergements visibles en ligne capteront la grande majorit&eacute; de ces touristes. <strong>C&apos;est maintenant le bon moment d&apos;agir.</strong></div>
+        <div style="color:#78350f;font-size:13px;line-height:1.75;font-family:Arial,sans-serif;">Des centaines de nouveaux visiteurs sont attendus. Les h&eacute;bergements visibles en ligne capteront la grande majorit&eacute; de ces touristes. <strong>C&apos;est maintenant le bon moment d&apos;agir.</strong></div>
       </td></tr>
     </table>
 
