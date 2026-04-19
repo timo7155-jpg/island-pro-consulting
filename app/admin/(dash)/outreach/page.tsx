@@ -257,6 +257,7 @@ export default function OutreachPage() {
         .eq('type', 'Accommodation');
       if (delErr) { alert('Import error (delete): ' + delErr.message); return; }
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const rows = data.map(({ id: _id, ...rest }) => rest);
       const { error: insErr } = await sb.from('businesses').insert(rows);
       if (insErr) { alert('Import error (insert): ' + insErr.message); return; }
