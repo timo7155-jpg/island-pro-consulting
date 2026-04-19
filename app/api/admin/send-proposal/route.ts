@@ -41,7 +41,21 @@ function buildEmailHtml(name: string, hook: string, trackingToken: string): stri
   </td></tr>
 
   <tr><td style="padding:34px 36px 30px;">
-    <p style="color:#1e1b4b;font-size:16px;font-weight:700;margin:0 0 6px;font-family:Arial,sans-serif;">Bonjour,</p>
+
+    <!-- Intro with founder photo -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+      <tr>
+        <td style="vertical-align:top;padding-right:16px;width:72px;">
+          <img src="${SITE}/founder.jpg" alt="Timoth&eacute;e Lisette" width="64" height="64"
+            style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #ede9fe;display:block;" />
+        </td>
+        <td style="vertical-align:middle;">
+          <p style="color:#1e1b4b;font-size:15px;font-weight:700;margin:0 0 3px;font-family:Arial,sans-serif;">Bonjour,</p>
+          <p style="color:#374151;font-size:14px;margin:0;font-family:Arial,sans-serif;">Je suis <strong>Timoth&eacute;e Lisette</strong>, fondateur d&apos;Island Pro Consulting, natif de Rodrigues.</p>
+        </td>
+      </tr>
+    </table>
+
     <p style="color:#374151;font-size:15px;line-height:1.8;margin:0 0 28px;font-family:Arial,sans-serif;">${hook}</p>
 
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f3ff;border-radius:14px;overflow:hidden;margin:0 0 24px;">
@@ -119,9 +133,24 @@ function buildEmailHtml(name: string, hook: string, trackingToken: string): stri
           <a href="${waLink}" style="background:#25D366;color:#fff;padding:13px 26px;border-radius:9px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;font-family:Arial,sans-serif;">&#128172; WhatsApp</a>
         </td>
         <td>
-          <a href="${siteLink}" style="background:#6B21D8;color:#fff;padding:13px 26px;border-radius:9px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;font-family:Arial,sans-serif;">&#127758; Notre portfolio</a>
+          <a href="${siteLink}" style="background:#6B21D8;color:#fff;padding:13px 26px;border-radius:9px;text-decoration:none;font-weight:900;font-size:14px;display:inline-block;font-family:Arial,sans-serif;">&#127758; Voir notre site web</a>
         </td>
       </tr>
+    </table>
+
+    <!-- 100% recommended badge -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;margin:0 0 24px;">
+      <tr><td style="padding:14px 20px;">
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <td style="font-size:22px;padding-right:12px;vertical-align:middle;">&#11088;</td>
+            <td style="vertical-align:middle;">
+              <div style="color:#15803d;font-size:13px;font-weight:900;font-family:Arial,sans-serif;">100% recommand&eacute; sur les r&eacute;seaux sociaux</div>
+              <div style="color:#166534;font-size:12px;margin-top:2px;font-family:Arial,sans-serif;">Nos clients nous recommandent &agrave; leur entourage &mdash; c&apos;est notre plus grande fiert&eacute;.</div>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
     </table>
 
     <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ede9fe;">
@@ -129,7 +158,7 @@ function buildEmailHtml(name: string, hook: string, trackingToken: string): stri
         <div style="color:#1e1b4b;font-size:14px;font-weight:900;font-family:Arial,sans-serif;">Timoth&eacute;e Lisette</div>
         <div style="color:#7c3aed;font-size:13px;font-weight:700;margin-top:2px;font-family:Arial,sans-serif;">Fondateur &mdash; Island Pro Consulting</div>
         <div style="color:#6b7280;font-size:12px;margin-top:6px;line-height:1.8;font-family:Arial,sans-serif;">
-          Natif de Rodrigues &nbsp;&middot;&nbsp; Sp&eacute;cialiste du tourisme local<br>
+          Natif de Rodrigues<br>
           &#128241; <a href="tel:+23058137384" style="color:#7c3aed;text-decoration:none;">+230&nbsp;5813&nbsp;7384</a>
           &nbsp;&middot;&nbsp;
           <a href="mailto:contact@islandproconsulting.mu" style="color:#7c3aed;text-decoration:none;">contact@islandproconsulting.mu</a>
