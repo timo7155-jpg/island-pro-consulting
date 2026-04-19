@@ -2,11 +2,14 @@ export const dynamic = 'force-dynamic';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { jwtVerify } from 'jose';
-import { Resend } from 'resend';
+import { BrevoClient } from '@getbrevo/brevo';
 import { createClient } from '@supabase/supabase-js';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const SITE   = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://islandproconsulting.mu';
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://islandproconsulting.mu';
+
+function getBrevo() {
+  return new BrevoClient({ apiKey: process.env.BREVO_API_KEY ?? '' });
+}
 
 function trackClick(token: string, targetUrl: string): string {
   const b64 = Buffer.from(targetUrl).toString('base64');
@@ -247,16 +250,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false, error: 'No email address' }, { status: 400 });
     }
 
-    const { error: resendErr } = await resend.emails.send({
-      from:    'Island Pro Consulting <onboarding@resend.dev>',
-      to:      [toEmail],
-      replyTo: 'contact@islandproconsulting.mu',
-      subject,
-      html,
-    });
-
-    if (resendErr) {
-      console.error('Resend error:', resendErr);
+    try {
+      const brevo = getBrevo();
+      await brevo.transactionalEmails.sendTransacEmail({
+        sender:      { name: 'Timoth\u00e9e Lisette \u2014 Island Pro Consulting', email: 'timothee@islandproconsulting.mu' },
+        to:          [{ email: toEmail }],
+        replyTo:     { email: 'contact@islandproconsulting.mu' },
+        subject,
+        htmlContent: html,
+      });
+    } catch (brevoErr) {
+      console.error('Brevo error:', brevoErr);
       return NextResponse.json({ ok: false, error: 'Failed to send email' }, { status: 500 });
     }
 
