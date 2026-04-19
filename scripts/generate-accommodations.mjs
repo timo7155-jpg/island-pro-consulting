@@ -36,123 +36,123 @@ const SKIPS = [
 const CUSTOM = {
   'Zi Limon': {
     p: 1, angle: 'top_rating_5',
-    subject: 'Zi Limon — note 5⭐ Google, prochaine étape : votre site web',
-    hook: "Zi Limon affiche une note parfaite de 5/5 sur Google Place — l'un des meilleurs scores de toute l'île de Rodrigues. Pourtant, un voyageur qui vous cherche en ligne ne trouve aucun site web pour admirer votre hébergement et réserver en toute confiance. Avec l'extension prochaine de l'aéroport de Rodrigues, des centaines de nouveaux visiteurs arriveront — et ils commencent toujours par rechercher en ligne."
+    subject: 'Zi Limon — une note 5⭐ qui mérite une belle vitrine en ligne',
+    hook: "Zi Limon affiche une note parfaite de 5/5 sur Google Place — l'un des meilleurs scores de toute l'île de Rodrigues. C'est le reflet d'un accueil et d'une expérience vraiment remarquables. Pour que cette belle réputation attire encore plus de voyageurs, un site web professionnel permettrait à vos futurs clients de vous découvrir, d'admirer votre hébergement et de réserver directement chez vous en toute confiance."
   },
   'Fenetre Sur Mer': {
     p: 1, angle: 'top_rating',
-    subject: 'Fenêtre Sur Mer — 4.9⭐ sur Google, construisons votre vitrine en ligne',
-    hook: "Fenêtre Sur Mer affiche 4.9/5 sur Google Place — parmi les meilleures notes de tout Rodrigues. Vos clients vous adorent, mais combien de voyageurs potentiels passent à côté, faute de site web ? Sans présence en ligne, chaque semaine représente des réservations directes perdues au profit de plateformes qui prélèvent jusqu'à 25% de commission."
+    subject: 'Fenêtre Sur Mer — 4.9⭐ sur Google, une belle vitrine en ligne pour aller encore plus loin',
+    hook: "Fenêtre Sur Mer affiche 4.9/5 sur Google Place — parmi les meilleures notes de tout Rodrigues. Vos clients vous font confiance et le font savoir. Pour que cette excellente réputation rayonne encore plus loin et attire de nouveaux voyageurs, un site web professionnel serait la prochaine étape naturelle : une belle vitrine en ligne pour partager votre cadre et faciliter les réservations directes."
   },
   'Happy Destination': {
     p: 1, angle: 'facebook_active',
-    subject: 'Happy Destination — transformez vos 4.7⭐ Facebook en réservations directes',
-    hook: "Happy Destination bénéficie d'une belle note de 4.7/5 sur Facebook — la preuve que vous offrez une expérience de qualité. Mais 78% des voyageurs cherchent un site web avant de confirmer leur réservation. Sans site, vous perdez chaque semaine des clients au profit de concurrents qui ont déjà fait ce pas."
+    subject: 'Happy Destination — 4.7⭐ Facebook, développons ensemble votre présence en ligne',
+    hook: "Happy Destination bénéficie d'une belle note de 4.7/5 sur Facebook — le signe d'un accueil chaleureux et d'une expérience appréciée de vos clients. Pour toucher encore plus de voyageurs qui planifient leur séjour en ligne, un site web professionnel serait un complément idéal à votre présence Facebook — et vous permettrait de recevoir des réservations directes, sans commission de plateforme."
   },
   'Residence Les Succulents': {
     p: 1, angle: 'facebook_good',
-    subject: 'Résidence Les Succulents — une belle réputation qui mérite une présence en ligne',
-    hook: "Résidence Les Succulents jouit d'une bonne réputation sur Facebook, signe d'un accueil de qualité. Pourtant, votre visibilité en dehors de Facebook reste très limitée : pas de site web, peu de présence sur Google. Un visiteur qui vous cherche sur internet passe souvent à côté. Un site professionnel changerait radicalement la donne."
+    subject: 'Résidence Les Succulents — une belle réputation à faire rayonner en ligne',
+    hook: "Résidence Les Succulents jouit d'une belle réputation sur Facebook, le signe d'un accueil de qualité et de clients satisfaits. Pour étendre cette visibilité au-delà de Facebook — notamment sur Google, où la majorité des voyageurs commencent leur recherche — un site web professionnel serait un beau complément pour faire connaître votre hébergement à une clientèle encore plus large."
   },
   'Les Hirondelles Tourist Residence': {
     p: 1, angle: 'good_rating',
-    subject: 'Les Hirondelles Tourist Residence — 4⭐ Google et des réservations directes',
-    hook: "Les Hirondelles Tourist Residence est bien noté sur Google avec 4/5 — vos clients apprécient ce que vous faites. Imaginez si ces voyageurs pouvaient atterrir sur un beau site web, voir vos chambres, découvrir la vue et réserver directement chez vous, sans intermédiaire ni commission."
+    subject: 'Les Hirondelles Tourist Residence — 4⭐ sur Google, allons encore plus loin ensemble',
+    hook: "Les Hirondelles Tourist Residence est bien noté sur Google avec 4/5 — vos clients apprécient ce que vous faites, et c'est une très belle base. Pour transformer encore plus de visiteurs curieux en clients confirmés, imaginez-les pouvoir découvrir vos chambres, explorer votre cadre et réserver directement chez vous depuis un beau site web, sans intermédiaire."
   },
   'Auberge Anse Aux Anglais': {
     p: 1, angle: 'google_rated',
-    subject: 'Auberge Anse Aux Anglais — construisons votre présence en ligne ensemble',
-    hook: "Auberge Anse Aux Anglais est présente sur Google Place avec une note de 3.5/5 — une base solide. Une présence en ligne complète avec un site web professionnel, de meilleures photos et un référencement optimisé vous permettrait d'attirer plus de clients et de renforcer considérablement votre image."
+    subject: 'Auberge Anse Aux Anglais — développons votre présence en ligne ensemble',
+    hook: "Auberge Anse Aux Anglais est déjà présente sur Google Place avec une note de 3.5/5 — une belle base de départ. Pour renforcer encore votre image et attirer un public plus large, une présence web complète avec un site professionnel et de belles photos pourrait faire toute la différence auprès des voyageurs qui planifient leur séjour à Rodrigues."
   },
   'Le Dahlia': {
     p: 1, angle: 'old_site_2014',
-    subject: 'Le Dahlia — votre site de 2014 vous coûte des réservations chaque jour',
-    hook: "Nous avons visité le site de Le Dahlia — il date de 2014 et est hébergé sur une plateforme gratuite. En 2026, cela peut sérieusement nuire à votre image : les voyageurs s'attendent à trouver un site moderne, attrayant et facile à utiliser sur mobile. Un site professionnel peut être livré en 5 à 10 jours ouvrables, et vous ne payez qu'une fois entièrement satisfait."
+    subject: 'Le Dahlia — donnons à votre site une belle mise à jour',
+    hook: "Nous avons visité le site de Le Dahlia et nous pensons qu'il mérite une belle mise à jour — il date de 2014 et les standards du web ont beaucoup évolué depuis. Une refonte soignée, avec un design moderne et agréable sur mobile, permettrait à votre hébergement de se présenter sous son meilleur jour et d'accueillir davantage de réservations directes. Et vous ne payez qu'une fois entièrement satisfait du résultat."
   },
   "Chez Paquerette - La Soufflerie": {
     p: 1, angle: 'bad_site',
-    subject: 'Chez Pâquerette — votre site mérite une transformation à la hauteur de votre hébergement',
-    hook: "Chez Pâquerette - La Soufflerie a un site WordPress, mais son apparence actuelle ne reflète pas vraiment la qualité de votre hébergement et de ce site exceptionnel. Vous méritez un site moderne qui donne envie, met en valeur La Soufflerie et convertit les visiteurs en clients — sans payer quoi que ce soit avant d'être totalement satisfait."
+    subject: 'Chez Pâquerette — sublimez votre hébergement avec un site à sa hauteur',
+    hook: "Chez Pâquerette - La Soufflerie a déjà fait le bon choix d'avoir un site web. Pour que celui-ci reflète vraiment le charme et la qualité exceptionnelle de La Soufflerie, une refonte avec un design moderne et de belles photos pourrait transformer chaque visite en ligne en une véritable envie de réserver — sans rien payer avant d'être totalement satisfait du résultat."
   },
   'Rodrigues Cocovilla': {
     p: 1, angle: 'domain_waiting',
-    subject: 'Rodrigues Cocovilla — votre nom de domaine vous attend, construisons votre site',
-    hook: "Rodrigues Cocovilla a déjà acquis son nom de domaine — une excellente décision. Il ne manque plus que le site lui-même pour commencer à générer des réservations directes dès aujourd'hui. Nous pouvons livrer un site professionnel complet en 5 à 10 jours ouvrables, sans aucun paiement avant votre satisfaction totale."
+    subject: 'Rodrigues Cocovilla — votre nom de domaine est prêt, construisons votre site',
+    hook: "Rodrigues Cocovilla a déjà fait le pas d'acquérir son propre nom de domaine — c'est une excellente décision. La prochaine étape naturelle serait de le faire vivre avec un site professionnel qui présente votre hébergement et invite les voyageurs à réserver directement chez vous. Nous pouvons vous livrer un site complet en 5 à 10 jours ouvrables, sans aucun paiement avant votre satisfaction totale."
   },
   'Oasis Nature Lodge': {
     p: 1, angle: 'wrong_template',
-    subject: 'Oasis Nature Lodge — votre domaine mérite un vrai site à votre image',
-    hook: "Oasis Nature Lodge possède un nom de domaine, mais le site actuel utilise un modèle WordPress générique sans rapport avec votre hébergement. Les voyageurs qui vous découvrent en ligne repartent déçus. Transformons ce domaine en une vraie vitrine professionnelle qui représente fidèlement la qualité d'Oasis Nature Lodge."
+    subject: 'Oasis Nature Lodge — créons un site vraiment à votre image',
+    hook: "Oasis Nature Lodge a son propre nom de domaine — c'est déjà un excellent point de départ. Pour aller encore plus loin, un site conçu spécialement pour votre lodge — avec un design qui reflète fidèlement son atmosphère et sa qualité — donnerait aux voyageurs une vraie envie de choisir Oasis Nature Lodge dès leur première visite en ligne."
   },
   "Chez Jenny's": {
     p: 1, angle: 'old_site',
-    subject: "Chez Jenny's — un nouveau site pour capter les voyageurs d'aujourd'hui",
-    hook: "Le site actuel de Chez Jenny's montre son âge, et les voyageurs d'aujourd'hui jugent un hébergement en quelques secondes sur son site web. Une refonte moderne avec de belles photos de Port Mathurin et de votre hébergement vous permettrait d'attirer une nouvelle clientèle qui réserve directement chez vous."
+    subject: "Chez Jenny's — modernisons votre site pour mieux séduire les voyageurs d'aujourd'hui",
+    hook: "Le site de Chez Jenny's a du potentiel, et une modernisation lui permettrait de mieux refléter le charme de votre hébergement. Aujourd'hui, les voyageurs découvrent leur prochaine destination en quelques secondes sur leur téléphone — un site au goût du jour, avec de belles photos de Port Mathurin et de votre hébergement, ferait toute la différence pour les convaincre de réserver directement chez vous."
   },
   'Villa Zourit': {
     p: 1, angle: 'old_site_recent',
-    subject: 'Villa Zourit — modernisons votre présence en ligne pour 2026',
-    hook: "Le site de Villa Zourit date de 2019 — déjà trop vieux pour les standards actuels. Photos haute qualité, navigation mobile fluide, réservation directe intégrée : une refonte complète vous donnerait un vrai avantage face à vos concurrents, au moment même où le tourisme à Rodrigues va s'accélérer avec l'extension de l'aéroport."
+    subject: 'Villa Zourit — modernisons votre présence en ligne pour mieux vous démarquer',
+    hook: "Le site de Villa Zourit a bien servi jusqu'ici, et une modernisation lui donnerait un beau second souffle. Photos haute qualité, navigation fluide sur mobile, réservation directe intégrée : une mise à jour soignée aiderait Villa Zourit à se démarquer et à accueillir encore plus de voyageurs qui cherchent un hébergement de qualité à Rodrigues."
   },
   'Mourouk Ebony Management': {
     p: 1, angle: 'needs_revamp',
-    subject: 'Mourouk Ebony — modernisez votre site pour plus de réservations directes',
-    hook: "Mourouk Ebony bénéficie d'une belle réputation, mais son site actuel pourrait mieux refléter la qualité de l'expérience que vous proposez. Meilleures photos, navigation repensée, moteur de réservation directe : une modernisation ciblée vous donnerait un avantage concurrentiel significatif en ligne."
+    subject: 'Mourouk Ebony — modernisez votre site pour mieux refléter votre qualité',
+    hook: "Mourouk Ebony bénéficie d'une belle réputation, et son site web pourrait encore mieux mettre en valeur la qualité de l'expérience que vous proposez. De belles photos, une navigation repensée et un moteur de réservation directe permettraient à votre établissement de se présenter sous son meilleur jour en ligne."
   },
   'Le Goeland': {
     p: 2, angle: 'very_low_presence',
-    subject: 'Le Goéland — construisons votre visibilité en ligne ensemble',
-    hook: "Le Goéland dispose actuellement d'une très faible présence en ligne, ce qui signifie que des voyageurs qui vous chercheraient ne vous trouvent pas et réservent ailleurs. Un site professionnel et une fiche Google bien configurée pourraient significativement augmenter votre visibilité et votre taux d'occupation."
+    subject: 'Le Goéland — faisons connaître votre hébergement à plus de voyageurs',
+    hook: "Le Goéland a certainement beaucoup à offrir à ses visiteurs. Pour partager cela avec des voyageurs du monde entier, un site web professionnel et une fiche Google bien configurée seraient une belle première étape — une façon simple et efficace de faire connaître votre hébergement à ceux qui planifient leur séjour à Rodrigues."
   },
   'Domaine Solitude': {
     p: 2, angle: 'very_low_presence',
-    subject: 'Domaine Solitude — soyez visible là où vos futurs clients vous cherchent',
-    hook: "Domaine Solitude n'est pas encore bien visible en ligne. À l'heure où la majorité des réservations se planifient depuis un smartphone, ne pas avoir de site web signifie rater une grande partie du marché — surtout avec la croissance rapide du tourisme à Rodrigues et l'extension de l'aéroport en cours."
+    subject: 'Domaine Solitude — développons votre visibilité en ligne ensemble',
+    hook: "Domaine Solitude mérite d'être découvert par bien plus de voyageurs. Aujourd'hui, la majorité des séjours se planifient depuis un smartphone — avoir un beau site web permettrait à votre hébergement d'apparaître là où vos futurs clients vous cherchent et de les accueillir en toute confiance."
   },
   'Le Diamant Bleu': {
     p: 2, angle: 'very_low_presence',
-    subject: 'Le Diamant Bleu — une présence en ligne digne de ce beau nom',
-    hook: "Le Diamant Bleu mérite une présence en ligne à la hauteur de son nom. Actuellement, très peu de voyageurs peuvent vous trouver sur internet. Un site professionnel avec un design élégant vous donnerait la visibilité que votre hébergement mérite vraiment."
+    subject: 'Le Diamant Bleu — une présence en ligne à la hauteur de ce beau nom',
+    hook: "Le Diamant Bleu est un nom qui inspire déjà le voyage. Pour que des visiteurs du monde entier puissent vous découvrir facilement, un site web professionnel avec un design soigné serait une belle manière de développer votre clientèle et de faire briller votre hébergement en ligne."
   },
   'Green Papaya': {
     p: 2, angle: 'no_presence',
-    subject: 'Green Papaya — votre première fenêtre sur les voyageurs du monde entier',
-    hook: "Green Papaya n'a pour l'instant aucune présence en ligne visible. Dans un secteur où la grande majorité des réservations se font via internet, cela représente un frein important à votre croissance. Un site web professionnel serait votre premier outil pour capter des voyageurs qui ne vous connaissent pas encore."
+    subject: 'Green Papaya — ouvrons votre première fenêtre sur les voyageurs du monde',
+    hook: "Green Papaya est un hébergement qui mérite d'être connu bien au-delà de Rodrigues. Un site web professionnel serait votre première vitrine sur le monde — un moyen simple de partager ce que vous avez à offrir et d'accueillir des voyageurs qui seraient ravis de vous découvrir."
   },
   'Residence Anse Aux Huitres': {
     p: 2, angle: 'no_presence',
-    subject: 'Résidence Anse aux Huîtres — mettez ce cadre magnifique à la portée du monde',
-    hook: "Résidence Anse aux Huîtres n'est pas encore visible sur internet. Anse aux Huîtres est l'un des endroits les plus préservés de Rodrigues — un site web permettrait de partager cette beauté avec des voyageurs du monde entier et de les inviter à réserver directement chez vous, sans commission de plateforme."
+    subject: 'Résidence Anse aux Huîtres — partageons ce cadre magnifique avec le monde',
+    hook: "Résidence Anse aux Huîtres profite d'un cadre naturel exceptionnel dans l'un des endroits les plus préservés de Rodrigues. Un site web professionnel serait une belle façon de partager cette beauté avec des voyageurs du monde entier et de les inviter à venir séjourner chez vous — directement, sans commission de plateforme."
   },
   'Sea View Lodge': {
     p: 2, angle: 'not_on_google',
-    subject: 'Sea View Lodge — commencez par être trouvé en ligne',
-    hook: "Sea View Lodge n'est pas encore référencé sur Google Place et les informations disponibles en ligne ne sont pas à jour. Avant même de parler de site web, des étapes simples peuvent changer votre visibilité immédiatement — et nous pouvons vous accompagner à chaque étape, à votre rythme."
+    subject: 'Sea View Lodge — facilitons votre découverte en ligne',
+    hook: "Sea View Lodge a tout pour plaire à des visiteurs en quête d'un beau séjour à Rodrigues. Pour leur permettre de vous trouver facilement, quelques étapes simples — comme une fiche Google à jour et un site web soigné — peuvent faire une vraie différence. Nous serions ravis de vous accompagner à chaque étape, à votre rythme."
   },
   'Le Renouveau': {
     p: 2, angle: 'not_on_google',
-    subject: 'Le Renouveau — des voyageurs vous cherchent sur Google et ne vous trouvent pas',
-    hook: "Le Renouveau n'apparaît pas encore sur Google Maps ni Google Place. Chaque mois, des dizaines de visiteurs cherchent un hébergement dans votre zone — et sans fiche Google ni site web, vous êtes invisible pour eux. C'est une opportunité simple à saisir, et nous pouvons vous aider dès aujourd'hui."
+    subject: 'Le Renouveau — faisons connaître votre hébergement sur Google',
+    hook: "Le Renouveau a de belles choses à proposer à ses visiteurs. Pour que des voyageurs qui cherchent un hébergement dans votre région puissent vous découvrir facilement, une fiche Google bien configurée et un site web professionnel seraient un excellent point de départ — et nous serions heureux de vous y accompagner."
   },
   'La Retraite': {
     p: 2, angle: 'not_on_google',
-    subject: "La Retraite — soyez visible sur Google avant l'arrivée des prochains touristes",
-    hook: "La Retraite n'est pas encore référencée sur Google Place, ce qui vous rend invisible pour la majorité des voyageurs qui planifient leur séjour à Rodrigues depuis internet. Avec l'extension de l'aéroport, le flux de touristes va augmenter. C'est le bon moment pour créer votre présence en ligne."
+    subject: 'La Retraite — faisons découvrir votre hébergement aux voyageurs en ligne',
+    hook: "La Retraite est un hébergement qui pourrait séduire de nombreux voyageurs à la recherche d'un cadre calme et authentique à Rodrigues. Pour faciliter cette découverte en ligne, une présence sur Google Maps et un site web professionnel seraient un beau complément à votre offre actuelle — et nous serions heureux de vous aider à franchir ce pas."
   },
   'Gite Des Pesers': {
     p: 2, angle: 'not_on_google',
-    subject: "Gîte Des Pesers — créez votre présence en ligne et attirez plus de visiteurs",
-    hook: "Gîte Des Pesers n'est pas encore référencé sur Google Place. Des voyageurs cherchent chaque mois un hébergement à Baie Du Nord — sans fiche Google ni site web, vous passez à côté de ces opportunités. Nous pouvons vous aider à démarrer, étape par étape."
+    subject: 'Gîte Des Pesers — aidons les voyageurs à vous trouver à Baie Du Nord',
+    hook: "Gîte Des Pesers a tout pour attirer des voyageurs qui cherchent à découvrir Baie Du Nord et ses environs. Un premier pas simple — une fiche Google et un site web professionnel — permettrait à ces visiteurs de vous trouver facilement et de réserver directement chez vous. Nous pouvons vous accompagner à démarrer, étape par étape."
   },
   'La Tourelle': {
     p: 2, angle: 'not_on_google',
-    subject: "La Tourelle — soyez trouvé par les voyageurs qui cherchent à Rodrigues",
-    hook: "La Tourelle n'apparaît pas encore sur Google Maps. Dans un secteur où les touristes planifient tout depuis leur téléphone, être absent de Google signifie rater une grande partie des réservations potentielles. Un site web et une fiche Google peuvent changer cela rapidement."
+    subject: 'La Tourelle — permettons aux voyageurs de vous découvrir en ligne',
+    hook: "La Tourelle est un hébergement qui mérite d'être mieux connu des voyageurs qui planifient un séjour à Rodrigues. Aujourd'hui, la plupart des touristes commencent leur recherche sur Google — un site web et une fiche Google bien configurée vous permettraient d'apparaître naturellement dans leurs résultats et de les accueillir chez vous."
   },
   'Mango Villa': {
     p: 2, angle: 'not_on_google',
-    subject: "Mango Villa — créez votre première présence en ligne dès maintenant",
-    hook: "Mango Villa n'est pas encore visible sur Google Place ni sur internet. Avec l'extension de l'aéroport de Rodrigues et la croissance du tourisme sur l'île, c'est exactement le bon moment pour créer votre présence numérique et commencer à capter des réservations directes."
+    subject: 'Mango Villa — développons ensemble votre présence en ligne',
+    hook: "Mango Villa a tout ce qu'il faut pour séduire des voyageurs à la recherche d'un hébergement de charme à Rodrigues. Pour leur permettre de vous découvrir facilement en ligne, créer votre présence numérique serait une belle opportunité de développer votre clientèle — et nous serions ravis de vous accompagner dans cette démarche."
   },
 };
 
@@ -186,9 +186,9 @@ const results = reviewed.map(r => {
   const priority = isSkip ? 99 : (custom ? custom.p : 3);
   const angle = isSkip ? 'skip' : (custom ? custom.angle : 'generic');
   const emailSubject = isSkip ? '' : (custom ? custom.subject :
-    `${name} — un site web professionnel pour développer votre activité à Rodrigues`);
+    `${name} — développons ensemble votre présence en ligne à Rodrigues`);
   const emailHook = isSkip ? '' : (custom ? custom.hook :
-    `${name} n'a pas encore de site web, ce qui limite votre visibilité auprès des voyageurs qui planifient leur séjour en ligne. Avec l'extension prochaine de l'aéroport de Rodrigues et la croissance du tourisme sur l'île, c'est maintenant le moment idéal pour créer votre présence numérique et commencer à générer des réservations directes, sans commission.`);
+    `Nous avons découvert ${name} lors de nos recherches sur les hébergements de Rodrigues, et nous pensons qu'un site web professionnel pourrait vraiment vous aider à développer votre clientèle et à vous faire connaître auprès de voyageurs qui seraient ravis de vous découvrir. Avec la croissance du tourisme sur l'île, de plus en plus de visiteurs planifient leur séjour entièrement en ligne — et nous serions heureux de vous accompagner dans cette démarche, à votre rythme et sans aucun paiement avant votre totale satisfaction.`);
 
   return {
     name, email, phone, location,

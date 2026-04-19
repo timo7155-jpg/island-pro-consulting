@@ -232,8 +232,8 @@ export async function POST(req: NextRequest) {
 
     // Generic fallbacks
     if (!name)    name    = businessName ?? 'votre \u00e9tablissement';
-    if (!subject) subject = `${name} \u2014 un site web professionnel pour d\u00e9velopper votre activit\u00e9`;
-    if (!hook)    hook    = `${name} n\u2019a pas encore de site web, ce qui limite votre visibilit\u00e9 aupr\u00e8s des voyageurs qui planifient leur s\u00e9jour en ligne. Avec l\u2019extension prochaine de l\u2019a\u00e9roport de Rodrigues et la croissance du tourisme sur l\u2019\u00eele, c\u2019est maintenant le moment id\u00e9al pour cr\u00e9er votre pr\u00e9sence num\u00e9rique et commencer \u00e0 g\u00e9n\u00e9rer des r\u00e9servations directes, sans commission.`;
+    if (!subject) subject = `${name} \u2014 d\u00e9veloppons ensemble votre pr\u00e9sence en ligne \u00e0 Rodrigues`;
+    if (!hook)    hook    = `Nous avons d\u00e9couvert ${name} lors de nos recherches sur les h\u00e9bergements de Rodrigues, et nous pensons qu\u2019un site web professionnel pourrait vraiment vous aider \u00e0 d\u00e9velopper votre client\u00e8le et \u00e0 vous faire conna\u00eetre aupr\u00e8s de voyageurs qui seraient ravis de vous d\u00e9couvrir. Avec la croissance du tourisme sur l\u2019\u00eele, de plus en plus de visiteurs planifient leur s\u00e9jour enti\u00e8rement en ligne \u2014 et nous serions heureux de vous accompagner dans cette d\u00e9marche, \u00e0 votre rythme et sans aucun paiement avant votre totale satisfaction.`;
 
     const trackingToken = crypto.randomUUID();
     const html = buildEmailHtml(name, hook, trackingToken);
